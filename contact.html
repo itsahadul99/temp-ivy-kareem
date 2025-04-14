@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact page</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .section-container {
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+
+    /* Banner section style */
+    .banner-section {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%), url('./image/pagesBanner.png') lightgray 50% / cover no-repeat;
+        height: 621px;
+        display: flex;
+        justify-content: start;
+        align-items: end;
+    }
+
+    .section-title {
+        color: #000;
+        font-size: 64px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    .section-des {
+        color: rgba(0, 0, 0, 0.70);
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 160%;
+        /* 28.8px */
+        text-transform: uppercase;
+        margin-top: 8px;
+    }
+
+    .contact-section {
+        padding: 100px 150px;
+        background-color: #FFF;
+    }
+
+    .contact-section-form {
+        display: flex;
+        gap: 64px;
+        margin-top: 64px;
+    }
+
+    form {
+        border-radius: 20px;
+        background: #FFF;
+        box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.20);
+        display: flex;
+        padding: 50px;
+        flex-direction: column;
+        gap: 40px;
+        max-width: 600px;
+        width: 100%;
+    }
+
+    .form-content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .contact-section form input,
+    .contact-section form select,
+    .contact-section form textarea {
+        display: flex;
+        height: 50px;
+        padding: 12px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        border-radius: 10px;
+        border: 1px solid #E9E9EA;
+        width: 100%;
+        color: #828282;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 26px;
+    }
+
+    .contact-section form textarea {
+        height: 140px;
+        padding: 20px;
+        color: #828282;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 26px;
+    }
+
+    .send-message-btn {
+        display: flex;
+        height: 40px;
+        padding: 10px 16px 8px 16px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 10px;
+        border: 1.5px solid #9DB8A8;
+        width: fit-content;
+        color: rgba(37, 37, 49, 0.80);
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 750;
+        line-height: normal;
+        letter-spacing: 0.2px;
+        text-transform: uppercase;
+        filter: blur(0.15000000596046448px);
+        cursor: pointer;
+    }
+
+    /* Footer Style */
+    footer {
+        height: 560px;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0.32) 100%), url('./image/footerImg.png') lightgray no-repeat;
+        width: 100%;
+        background-size: cover;
+        position: relative;
+    }
+
+    .footer-content-container {
+        display: flex;
+        width: 705px;
+        flex-direction: column;
+        gap: 48px;
+        padding: 202px 0px 0px 130px;
+    }
+
+    .footer-text-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        align-self: stretch;
+    }
+
+    .footer-title {
+        color: #FFF;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 120%;
+        /* 48px */
+    }
+
+    .footer-des {
+        color: #FFF;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 140%;
+        /* 33.6px */
+    }
+
+    .footer-social-container {
+        display: flex;
+        align-items: center;
+        gap: 36px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <!-- Banner Section -->
+    <section class="banner-section section-container">
+        <div style="display: inline-flex;
+        align-items: center;
+        gap: 180px;
+        padding: 0px 106px 134px 107px;
+        ">
+          <img src="./image/bannerLogo.png" alt="">
+          <h1 style="color: var(--6-ca-082, #6CA082);
+          font-size: 42px;
+          font-style: italic;
+          font-weight: 700;
+          line-height: normal;">Connect with <br> <span style="color: #FFF;">lvy and Kareem</span></h1>
+        </div>
+    </section>
+    <!-- Contact section  -->
+    <section class="contact-section">
+        <div class="contact-section-content section-container">
+            <div>
+                <h1 class="section-title"><span style="color: #6CA082; font-style: italic;">We’d Love to Hear </span>
+                    From You</h1>
+                <p class="section-des">Whether you're ready to start your dream renovation, have questions about our
+                    process, or simply want to learn more — we're just a message away.</p>
+            </div>
+            <div class="contact-section-form">
+                <div style="display: flex;
+                align-items: flex-start;
+                gap: 16px;
+                width: 50%;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <path
+                            d="M20.1873 3.33521C12.8235 3.23165 6.77008 9.11737 6.66663 16.4812C6.66663 25.5616 18.9404 36.0287 19.4628 36.4698C19.6128 36.5972 19.8032 36.667 20 36.6667C20.1967 36.667 20.3871 36.5972 20.5371 36.4698C21.0595 36.0287 33.3333 25.5616 33.3333 16.4812C33.2319 9.26325 27.4053 3.43663 20.1873 3.33521ZM20 34.7233C17.6399 32.6042 8.33329 23.7777 8.33329 16.4812C8.39219 10.0923 13.611 4.95651 20 5.00004C26.3889 4.95651 31.6078 10.0923 31.6666 16.4812C31.6666 23.7712 22.3583 32.6026 20 34.7233ZM20 11.6667C17.2385 11.6667 15 13.9053 15 16.6667C15 19.4281 17.2385 21.6667 20 21.6667C22.7602 21.6637 24.9969 19.4269 25 16.6667C25 13.9053 22.7614 11.6667 20 11.6667ZM20 20C18.159 20 16.6666 18.5076 16.6666 16.6667C16.6666 14.8258 18.159 13.3334 20 13.3334C21.84 13.3357 23.331 14.8267 23.3333 16.6667C23.3333 18.5076 21.8409 20 20 20Z"
+                            fill="#6CA082" />
+                    </svg>
+                    <div>
+                        <h3 style="color: #252531;
+                        font-size: 34px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;">Our Location</h3>
+                        <p style="color: rgba(0, 0, 0, 0.60);
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 32px;">123 Desgin Street, Brooklyn, NY 11201</p>
+                    </div>
+                </div>
+                <form>
+                    <div class="form-content">
+                        <div style="display: flex;
+                    align-items: center;
+                    gap: 21px;
+                    align-self: stretch;">
+                            <input placeholder="First Name*" type="text" id="first-name" name="first-name" required>
+                            <input placeholder="Last Name*" type="text" id="last-name" name="last-name" required>
+                        </div>
+                        <input placeholder="Email*" type="email" id="email" name="email" required>
+                        <input placeholder="Phone Number*" type="tel" id="phone" name="phone" required>
+                        <select id="looking-for" name="looking-for">
+                            <option value="">What are you looking for?</option>
+                            <option value="support">Support</option>
+                            <option value="sales">Sales</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <textarea placeholder="Your message..." id="message" name="message"></textarea>
+                    </div>
+                    <button class="send-message-btn" type="submit">SEND MESSAGE</button>
+                </form>
+            </div>
+    </section>
+    <!-- Footer section -->
+    <footer>
+        <div class="section-container">
+            <div class="footer-content-container">
+                <div class="footer-text-container">
+                    <h1 class="footer-title">Top Kitchen and Bath Designers
+                        in Orange County</h1>
+                    <div class="footer-des">
+                        <p>Phone: (909) 525-3605</p>
+                        <p>Email: hello@ivyandkareem.com</p>
+                    </div>
+                </div>
+                <div class="footer-social-container">
+                    <img src="./image/facebook.svg" alt="">
+                    <img src="./image/Insta.svg" alt="">
+                    <img src="./image/xtwitter.svg" alt="">
+                    <img src="./image/youtube.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
