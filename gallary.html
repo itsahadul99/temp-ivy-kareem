@@ -242,6 +242,175 @@
             gap: 36px;
             cursor: pointer;
         }
+        /* Responsive Styles */
+@media (max-width: 1200px) {
+    .gallery-section {
+        padding: 60px 80px;
+    }
+    
+    .banner-content-container {
+        gap: 100px;
+        padding: 0 60px 100px 60px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .banner-section {
+        height: 500px;
+    }
+
+    .gallery-section {
+        padding: 50px 60px;
+    }
+
+    .gallery-section h2 {
+        font-size: 60px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-grid .gallery-item:nth-child(1),
+    .gallery-grid .gallery-item:nth-child(4) {
+        grid-column: span 1;
+    }
+
+    .gallery-item {
+        height: 300px;
+    }
+
+    .overlay-text {
+        font-size: 24px;
+        padding: 30px;
+    }
+
+    .explore-text {
+        font-size: 24px;
+    }
+
+    .footer-content-container {
+        padding-left: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner-section {
+        height: 400px;
+    }
+
+    .banner-content-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+        padding: 0 30px 60px 30px;
+    }
+
+    .banner-title {
+        font-size: 32px;
+    }
+
+    .gallery-section {
+        padding: 40px 30px;
+    }
+
+    .gallery-section h2 {
+        font-size: 48px;
+        line-height: 120%;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        margin-top: 40px;
+    }
+
+    .gallery-item {
+        height: 250px;
+    }
+
+    .overlay-text {
+        font-size: 20px;
+        padding: 20px;
+    }
+
+    .explore-wrapper {
+        height: 60px;
+    }
+
+    .explore-text {
+        font-size: 20px;
+    }
+
+    .footer-content-container {
+        width: 100%;
+        padding: 100px 30px 0 30px;
+    }
+
+    .footer-title {
+        font-size: 32px;
+    }
+
+    .footer-des {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-section {
+        height: 300px;
+    }
+
+    .banner-content-container {
+        padding: 0 20px 40px 20px;
+    }
+
+    .banner-title {
+        font-size: 24px;
+    }
+
+    .gallery-section {
+        padding: 30px 20px;
+    }
+
+    .gallery-section h2 {
+        font-size: 36px;
+    }
+
+    .gallery-item {
+        height: 200px;
+    }
+
+    .overlay-text {
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    .explore-wrapper {
+        padding: 15px 0;
+        height: 50px;
+    }
+
+    .explore-btn {
+        width: 30px;
+        height: 30px;
+    }
+
+    .explore-text {
+        font-size: 18px;
+    }
+
+    .footer-title {
+        font-size: 24px;
+    }
+
+    .footer-des {
+        font-size: 16px;
+    }
+
+    .footer-social-container img {
+        width: 32px;
+    }
+}
     </style>
 </head>
 
