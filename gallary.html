@@ -272,8 +272,9 @@
     }
 
     .gallery-grid .gallery-item:nth-child(1),
-    .gallery-grid .gallery-item:nth-child(4) {
-        grid-column: span 1;
+    .gallery-grid .gallery-item:nth-child(4),
+    .gallery-grid .gallery-item:nth-child(7) {
+        grid-column: span 2;
     }
 
     .gallery-item {
@@ -301,7 +302,7 @@
 
     .banner-content-container {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 30px;
         padding: 0 30px 60px 30px;
     }
@@ -320,7 +321,7 @@
     }
 
     .gallery-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
         margin-top: 40px;
     }
 
@@ -359,9 +360,17 @@
     .banner-section {
         height: 300px;
     }
-
     .banner-content-container {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
         padding: 0 20px 40px 20px;
+        gap: 0px;
+    }
+    .banner-logo{
+        width: 150px;
+        height: 120px;
+        object-fit: contain;
     }
 
     .banner-title {
@@ -415,10 +424,13 @@
 </head>
 
 <body>
+    <div style="background-color: red; padding: 20px;">
+
+    </div>
     <!-- Banner Section -->
     <section class="banner-section section-container">
         <div class="banner-content-container">
-            <img src="./image/bannerLogo.png" alt="">
+            <img class="banner-logo" src="./image/bannerLogo.png" alt="">
             <div class="banner-title">
                 <h1>Top Kitchen and Bath Designers</h1>
                 <h1 style="color: #FFF;">in Orange County</h1>
@@ -432,7 +444,7 @@
             <div class="gallery-grid" id="gallery-grid">
                 <!-- Initial set of images (Tab 1) -->
                 <div class="gallery-item">
-                    <img src="./image/gallaryImg2.png" alt="Gallery Image 1">
+                    <img src="./image/gallaryImg2.png" alt="Gallery Image 2">
                     <div class="overlay">
                         <div class="overlay-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae ipsam
                             quo earum officiis sapiente magnam temporibus ad, perferendis consectetur blanditiis qui
@@ -636,3 +648,150 @@
 </body>
 
 </html>
+
+
+
+
+<!-- Liquid converted -->
+ <!-- 
+
+{%- style %}
+All the CSS styles for the section
+{%- endstyle %}
+
+<section class="gallary-section">
+  <div class="gallery-section section-container">
+    <h2>Our <span>Work Gallery</span></h2>
+    <div class="gallery-grid" id="gallery-grid">
+      {% for block in section.blocks %}
+        {% if block.settings.tab_id == section.settings.active_tab %}
+          <div class="gallery-item" data-tab="{{ block.settings.tab_id }}">
+            <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt | escape }}">
+            <div class="overlay">
+              <div class="overlay-text">{{ block.settings.text }}</div>
+              <div class="explore-wrapper">
+                <button class="explore-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+                    <path d="M6.9165 9.58342H1.49984C0.901529 9.58342 0.416504 9.09839 0.416504 8.50008C0.416504 7.90177 0.901529 7.41675 1.49984 7.41675H6.9165V2.00008C6.9165 1.40177 7.40153 0.916748 7.99984 0.916748C8.59815 0.916748 9.08317 1.40177 9.08317 2.00008V7.41675H14.4998C15.0981 7.41675 15.5832 7.90177 15.5832 8.50008C15.5832 9.09839 15.0981 9.58342 14.4998 9.58342H9.08317V15.0001C9.08317 15.5984 8.59815 16.0834 7.99984 16.0834C7.40153 16.0834 6.9165 15.5984 6.9165 15.0001V9.58342Z" fill="currentColor" />
+                  </svg>
+                </button>
+                <p class="explore-text">Explore Now</p>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="tab-buttons">
+      {% assign unique_tabs = '' %}
+      {% for block in section.blocks %}
+        {% assign tab_id = block.settings.tab_id %}
+        {% unless unique_tabs contains tab_id %}
+          <button class="tab-btn {% if tab_id == section.settings.active_tab %}active{% endif %}" data-tab="{{ tab_id }}" onclick="changeGallery('{{ tab_id }}')"></button>
+          {% assign unique_tabs = unique_tabs | append: tab_id | append: ',' %}
+        {% endunless %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{%- javascript %}
+  function changeGallery(tabId) {
+    // Hide all gallery items
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    galleryItems.forEach(item => {
+      item.style.display = 'none';
+    });
+
+    // Show items for the selected tab
+    const activeItems = document.querySelectorAll(`.gallery-item[data-tab="${tabId}"]`);
+    activeItems.forEach(item => {
+      item.style.display = 'block';
+    });
+
+    // Update active tab button
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    tabButtons.forEach(btn => {
+      btn.classList.remove('active');
+      if (btn.getAttribute('data-tab') === tabId) {
+        btn.classList.add('active');
+      }
+    });
+  }
+
+  // Initialize the gallery with the active tab
+  document.addEventListener('DOMContentLoaded', () => {
+    changeGallery('{{ section.settings.active_tab }}');
+  });
+{%- endjavascript %}
+
+{% schema %}
+{
+  "name": "Gallery Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "active_tab",
+      "label": "Active Tab ID",
+      "default": "tab1",
+      "info": "Enter the ID of the initially active tab (e.g., tab1, tab2)."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "gallery_item",
+      "name": "Gallery Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Overlay Text",
+          "default": "Gallery Item Description"
+        },
+        {
+          "type": "text",
+          "id": "tab_id",
+          "label": "Tab ID",
+          "default": "tab1",
+          "info": "Group items by assigning the same Tab ID (e.g., tab1, tab2)."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gallery Section",
+      "blocks": [
+        {
+          "type": "gallery_item",
+          "settings": {
+            "text": "Lorem ipsum dolor sit amet",
+            "tab_id": "tab1"
+          }
+        },
+        {
+          "type": "gallery_item",
+          "settings": {
+            "text": "Elegant Living Room",
+            "tab_id": "tab1"
+          }
+        },
+        {
+          "type": "gallery_item",
+          "settings": {
+            "text": "Contemporary Kitchen",
+            "tab_id": "tab2"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+ -->
