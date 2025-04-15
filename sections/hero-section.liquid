@@ -1,0 +1,225 @@
+{% comment %} 
+    <div class="justify-items-center mb-[100px]">
+      <div class="w-[1107px] h-[294px] flex gap-4 px-15 mt-[297px]">
+        <!-- Image -->
+        <div class="w-[539px] justify-items-center mr-[180px]">
+        
+          {% comment %} <img 
+            src="{{ section.settings.hero_image | section.settings.hero_image | asset_url }}" 
+            alt="{{ section.settings.hero_image_alt_text }}" 
+            height="190" 
+            width="359" /> {% endcomment %}
+            
+            <img 
+              src="{{ section.settings.hero_image | asset_url }}" 
+              alt="{{ section.settings.hero_image_alt_text }}" 
+              height="190" 
+              width="359" />
+        </div>
+  
+        <!-- Text Content -->
+        <div class="w-full">
+          <p class="text-[#6CA082] text-[6vw] md:text-[42px] font-bold italic" style="font-family: 'Minion Pro'">
+            {{ section.settings.hero_title }}
+          </p>
+          <p class="text-white text-[6vw] md:text-[42px] font-bold" style="font-family: 'Minion Pro'; font-weight: 700;">
+            {{ section.settings.hero_subtitle }}
+          </p>
+          <p class="w-full md:w-[568px] text-[4vw] md:text-[24px] text-white" style="font-family: Roboto; line-height: 1.5em; font-weight: 400;">
+            {{ section.settings.hero_description }}
+          </p>
+  
+          <!-- Explore Us Button -->
+          <div class="mt-[30px] flex gap-[16px]">
+            <button class="w-[40px] h-[40px] text-white rounded-full flex items-center justify-center border-white border-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </button>
+            <p class="text-white text-[28px]" style="font-family: 'Minion Pro'">{{ section.settings.explore_text }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+{% schema %}
+{
+  "name": "Hero Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image",
+      "default": "hero-default-bg.jpg"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo",
+      "default": "default-logo.png"
+    },
+    {
+      "type": "text",
+      "id": "logo_alt_text",
+      "label": "Logo Alt Text",
+      "default": "Company Logo"
+    },
+    {
+      "type": "text",
+      "id": "shop_button_text",
+      "label": "Shop Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "shop_button_url",
+      "label": "Shop Button URL",
+      "default": "#"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image",
+       "default": "IVYKAREEM.png"
+    },
+    {
+      "type": "text",
+      "id": "hero_image_alt_text",
+      "label": "Hero Image Alt Text",
+      "default": "Default Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero Title",
+      "default": "Top Kitchen and Bath Designers"
+    },
+    {
+      "type": "text",
+      "id": "hero_subtitle",
+      "label": "Hero Subtitle",
+      "default": "In Orange County"
+    },
+    {
+      "type": "text",
+      "id": "hero_description",
+      "label": "Hero Description",
+      "default": "We Turn Spaces Into Stories. From Modern Elegance To Cozy Charm, Our Designs Blend Style And Function To Create Interiors."
+    },
+    {
+      "type": "text",
+      "id": "explore_text",
+      "label": "Explore Us Text",
+      "default": "Explore Us"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Navigation Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text",
+          "default": "Home"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL",
+          "default": "/"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Section",
+    }
+  ]
+}
+{% endschema %}
+
+  
+
+
+{% comment %} <div
+    class="hero-section"
+    style="
+      background-image: url(
+   =
+         {{ section.settings.banner_image | image_url  }}
+
+        );
+    "
+>
+<h1>hello </h1>
+
+
+<img
+    src="{{ section.settings.banner_image | image_url }}"
+    class="article-image"
+    alt="Article Image"
+    height="100%"
+    width="100%"
+  >
+</div>
+
+
+
+
+{% schema %}
+{
+  "name": "Hero section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "banner_title",
+      "label": "Banner Title",
+      "default": "Banner Title"
+    },
+    {
+      "type": "text",
+      "id": "banner_subtitle",
+      "label": "Banner Subtitle",
+      "default": "Banner Subtitle"
+    },
+    {
+      "type": "text",
+      "id": "section_text_under_button",
+      "default": "Banner Subtitle",
+      "label": "Section Text Under Button"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Promo Banner"
+    }
+  ]
+}
+{% endschema %} {% endcomment %} {% endcomment %}

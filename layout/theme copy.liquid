@@ -1,0 +1,1379 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ivy Kareem</title>
+    <link rel="preload" href="{{ 'Header_bg.png' | asset_url }}" as="image">
+    <link rel="preload" href="{{ 'IVYKAREEM.png' | asset_url }}" as="image">
+    <link rel="preload" href="{{ 'kitchen.png' | asset_url }}" as="image">
+    <link rel="preload" href="{{ 'Bathrooms.png' | asset_url }}" as="image">
+    <link rel="preload" href="{{ 'Cabinetry.png' | asset_url }}" as="image">
+    <link rel="preload" href="{{ 'OurWorkGallery1.png' | asset_url }}" as="image">
+    <link rel="preload" href="{{ 'OurWorkGallery2.png' | asset_url }}" as="image">
+    <link rel="preload" href="{{ 'OurWorkGallery3.png' | asset_url }}" as="image">
+    <link rel="preload" href="{{ 'OurWorkGallery4.png' | asset_url }}" as="image">
+    <link rel="preload" href="{{ 'Artistry1.png' | asset_url }}" as="image">
+    <link rel="preload" href="{{ 'Artistry2.png' | asset_url }}" as="image">
+    <link rel="preload" href="{{ 'Artistry3.png' | asset_url }}" as="image">
+    <link rel="preload" href="{{ 'Left_Click.mp4' | asset_url }}" as="video">
+    <link rel="preload" href="{{ 'Right_Click.mp4' | asset_url }}" as="video">
+    <link rel="preload" href="{{ 'FooterImage.png' | asset_url }}" as="image" >
+    <style>
+      html,body{
+      overflow-x: hidden;}
+              #background-container {
+              background-image:url('{{ 'Header_bg.png' | asset_url }}');
+              background-size: cover;
+              background-position: center;
+              height: 750px;
+              position: relative;
+              animation: backgroundChange 5s infinite; /* 6s to transition each background */
+            }
+            .animate-expand {
+              position: absolute;
+              width: 2px;
+              background-color: #6CA082;
+              min-height: 40px;
+              overflow: hidden;
+              animation: expandHeight 1s ease-in-out forwards;
+          }
+
+          {% comment %} @media (min-width: 768px) and (max-width: 1023px) {
+            #background-container {
+            height: 1194px;
+            background-image:url('{{ 'tab_bg1.png' | asset_url }}');
+            }
+            .tab-class{
+             display: flex;
+             flex-direction: row;
+             justify-content: end;
+
+            }
+            .tab-bg-title{
+              display:block !important;
+            }
+            .tab-bg-des {
+            display:block !important;
+            }
+          } {% endcomment %}
+          @media (min-width: 768px) and (max-width: 1023px) {
+            #background-container {
+              height: 1194px;
+              background-image: url('{{ 'tab_bg1.png' | asset_url }}');
+              position: relative;
+            }
+
+            .tab-class {
+              display: flex;
+              flex-direction: row;
+              justify-content: center;  /* Center horizontally */
+              align-items: center;      /* Center vertically */
+              position: absolute;       /* Position absolutely within parent */
+              bottom: 270px;            /* Move it 130px above the bottom */
+              width: 100%;              /* Ensure it stretches across the full width */
+            }
+
+            .tab-class .h-[294px] {
+              justify-content: center; /* Center the items inside */
+            }
+
+            .tab-class .lg:mt-[240px] {
+              margin-top: 0; /* Remove top margin if necessary */
+            }
+            .tab-bg-title{
+              display:block !important;
+            }
+            .tab-bg-des {
+            display:block !important;
+
+            }
+
+            .section-one-image{
+              display:block !important;
+            }
+            .section-one-container{
+            padding: 0 41px;
+            justify-items : end !important;
+            }
+            .section-two-image{
+              display:block !important;
+            }
+            .section-two-container{
+              padding: 0 41px;
+              {% comment %} justify-items : end !important; {% endcomment %}
+              }
+              .tab-gallery-title{
+              margin-left: 300px;
+              }
+              .tab-gallery-title-hidden{
+              display:none !important;
+              }
+              .tab-gallery-title-margin{
+              margin-top: 0px !important;
+              padding: 0 87px;
+              }
+              .tab-gallery-title-show {
+                display:block !important;
+              }
+              .tab-kitchen{
+              display:block !important;
+              }
+              .tab-heght{
+                height: 800px !important;
+              }
+          }
+          @media (min-width: 768px) and (max-width: 1008px) {
+            .tab-kitchen{
+              height:500px !important;
+            }
+            .tab-heght{
+              height: 750px !important;
+            }
+          }
+          @media (min-width: 768px) and (max-width: 884px) {
+            .tab-kitchen{
+              height:450px !important;
+            }
+            .tab-heght{
+              height: 700px !important;
+            }
+          }
+          @media (min-width: 768px) and (max-width: 816px) {
+            .tab-kitchen{
+              height:400px !important;
+            }
+            .tab-heght{
+              height: 650px !important;
+            }
+          }
+        /* Default Animation */
+        @keyframes expandHeight {
+          0% {
+            height: 0%;
+            bottom: 0;
+            left: 47%;
+          }
+          100% {
+            height: 45%;
+            bottom: 0;
+            left: 47%;
+          }
+        }
+
+        .rotating-image {
+        transition: transform 0.5s ease-in-out;
+        }
+
+        .rotating-image:hover {
+        transform: rotate(10deg);
+        transform-origin: center;
+        }
+        .video-container {
+        position: relative;
+        width: 1400px;
+        max-width: 100%; /* Allow full-width video */
+        height: 100vh; /* Full viewport height */
+        margin: auto;
+        overflow: hidden;
+
+        }
+
+        video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+         -webkit-overflow-scrolling: touch;
+  -webkit-transform: translate3d(0, 0, 0);
+
+        }
+
+        video.default {
+        opacity: 1; /* Default video always visible initially */
+        }
+
+        video.active {
+        opacity: 1; /* Hovered video becomes visible */
+        }
+
+        /* Overlay Areas for Hover Effect */
+        .hover-left, .hover-right {
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        z-index: 10;
+        }
+
+        .hover-left {
+        left: 0;
+        }
+
+        .hover-right {
+        right: 0;
+        }
+
+        @media screen and (min-width: 800px) {
+       
+          .video-container {
+            width: 1000px;
+          }
+        }
+        @media screen and (max-width: 799px) {
+          
+          .video-container {
+            width: 700px;
+            height: 98%;
+            clip-path: inset(22% 0 0 0);
+          }
+        }
+
+        #carousel-container {
+          width: 100%;
+          overflow: hidden;
+          position: relative;
+        }
+
+        #carousel {
+          display: flex;
+          gap: 50px;
+          animation: scroll 15s linear infinite; 
+        }
+
+        .slide {
+          flex-shrink: 0;
+          width: calc(100% / 3); 
+        }
+
+        .slide img {
+          width: 100%;
+          height: 337px; 
+          object-fit: cover;
+        }
+
+    
+        @keyframes scroll {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-100%); 
+          }
+        }
+
+            .navbar {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              background-color: black;
+              padding: 1rem;
+              color: white;
+          }
+
+          .menu {
+              display: none;
+              flex-direction: column;
+              background-color: black;
+              position: absolute;
+              top: 64px;
+              left: 0;
+              width: 100%;
+              text-align: center;
+              padding: 1rem 0;
+          }
+
+          .menu a {
+              color: white;
+              text-decoration: none;
+              padding: 10px;
+              display: block;
+          }
+
+          .menu a:hover {
+              background-color: gray;
+          }
+
+          .menu.active {
+              display: flex;
+          }
+
+          .menu-btn {
+              font-size: 24px;
+              background: none;
+              border: none;
+              color: white;
+              cursor: pointer;
+          }
+
+          @media (min-width: 768px) {
+
+              .menu {
+                  display: flex;
+                  position: static;
+                  flex-direction: row;
+                  width: auto;
+                  background: none;
+                  padding: 0;
+              }
+
+              .menu-btn {
+                  display: none;
+              }
+          }
+
+
+
+        @keyframes backgroundChange {
+          0% {
+            background-image:url('{{ 'Header_bg.png' | asset_url }}');
+          }
+          50% {
+            background-image: url('{{ 'Header_bg2.png' | asset_url }}');
+          }
+          100% {
+            background-image: url('{{ 'Header_bg.png' | asset_url }}');
+          }
+        }
+
+        @media (max-width: 768px) {
+
+          @keyframes backgroundChange {
+            0% {
+              background-image:url('{{ 'Header_bg.png' | asset_url }}');
+            }
+            50% {
+              background-image: url('{{ 'Header_bg2.png' | asset_url }}');
+            }
+            100% {
+              background-image: url('{{ 'Header_bg.png' | asset_url }}');
+            }
+          }
+        }
+        @media (min-width: 769px) and (max-width: 1023px) {
+
+          @keyframes backgroundChange {
+            0% {
+              background-image:url('{{ 'tab_bg1.png' | asset_url }}');
+            }
+            50% {
+              background-image: url('{{ 'tab_bg2.png' | asset_url }}');
+            }
+            100% {
+              background-image: url('{{ 'tab_bg1.png' | asset_url }}');
+            }
+          }
+        }
+
+          .menu {
+              display: flex;
+              position: static;
+              flex-direction: row;
+              width: auto;
+              background: none;
+              padding: 0;
+          }
+
+          .menu-btn {
+              display: none;
+          }
+    </style>
+          <!-- Defer non-critical scripts -->
+          <script src="https://cdn.tailwindcss.com" defer></script>
+          {{ content_for_header }}
+        
+  </head>
+
+  <body>
+    <!-- Main Container -->
+    <div>
+      <div class="relative h-[750px] bg-cover bg-center relative" id="background-container">
+        <!-- Navbar -->
+        <div class=" relative flex items-center justify-between px-4 py-6  lg:px-[149.5px] lg:py-[44.5px] h-[129px]">
+          <div class="md:hidden">
+            <button id="menu-btn" class="text-white text-2xl">☰</button>
+            <!-- Dropdown Menu -->
+            <div
+              id="menu"
+              class="hidden fixed top-0 left-1/2 transform -translate-x-1/2 w-full bg-gray/30 backdrop-blur-lg text-center rounded-b-lg shadow-lg opacity-0 transition-all duration-500 ease-in-out scale-95"
+            >
+              <!-- Close Button -->
+              <button
+                id="close-btn"
+                class="absolute top-2 right-2 w-8 h-8 rounded-full bg-gray-800 text-white text-lg flex items-center justify-center hover:bg-red-500 transition-all duration-300"
+              >
+                ✕
+              </button>
+
+              <!-- Menu Links -->
+              <div class="py-4">
+                <a href="#" class="block py-2 text-white hover:bg-white/20 rounded transition">Home</a>
+                <a href="#" class="block py-2 text-white hover:bg-white/20 rounded transition">Our Story</a>
+                <a href="#" class="block py-2 text-white hover:bg-white/20 rounded transition">Gallery</a>
+                <a href="#" class="block py-2 text-white hover:bg-white/20 rounded transition">Services</a>
+                <a href="#" class="block py-2 text-white hover:bg-white/20 rounded transition">Our Partners</a>
+                <a href="#" class="block py-2 text-white hover:bg-white/20 rounded transition">Connect</a>
+              </div>
+            </div>
+
+            <!-- JavaScript for Show/Hide Menu -->
+          </div>
+          <!-- Logo -->
+          {% comment %} <img  src="{{ 'IVYKAREEM.png' | asset_url }}" alt="IvyKareem Logo" height="63px"  width="119px " class="w-[119px] h-[63px]"> {% endcomment %}
+          <img src="{{ 'IVYKAREEM.png' | asset_url }}" alt="Header Background" height="63px" width="119px " loading="lazy" >
+
+          <!-- Navigation -->
+          <nav class="hidden md:block md:flex space-x-8 text-white text-sm font-medium desktop-menu">
+            {% comment %} <nav class="flex space-x-8 text-white text-sm font-medium"> {% endcomment %}
+            <a href="#" class="hover:text-[#6CA082]">Home</a>
+            <a href="#" class="hover:text-[#6CA082]">Our Story</a>
+            <a href="#" class="hover:text-[#6CA082]">Gallery</a>
+            <div class="relative">
+              <button type="button" class="flex items-center" aria-expanded="false">
+                Services
+                <svg
+                  class="size-5 flex-none text-white"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  data-slot="icon"
+                >
+                  <path fill-rule="evenodd"
+                    d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                    clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+            <a href="#" class="hover:text-[#6CA082]">Our Partners</a>
+            <a href="#" class="hover:text-[#6CA082]">Connect</a>
+          </nav>
+
+          <!-- Shop Button -->
+          <a
+            href="#"
+            class="px-6 py-2 bg-transparent border border-white text-white rounded-lg hover:bg-green-500 hover:border-green-500 hover:text-black"
+          >
+            Shop
+          </a>
+        </div>
+        <!-- banner content  content -->
+        <div class=" tab-class lg:ms-[200px] justify-items-center">
+          <div class=" mt-[100px] h-[294px] lg:flex gap-4 px-10   2xl:ml-[100px]  lg:mt-[240px] ">
+            <div class="lg:w-[539px] hidden lg:block  justify-items-center lg:mr-[180px]">
+              <img height="190px" width="359px" src="{{ 'IVYKAREEM.png' | asset_url }}" alt="IVY KAREEM.png" loading="lazy" >
+            </div>
+            <div id="" class="w-[2px] hidden lg:block bg-white  h-0 animate-expand"></div>
+            <div class="lg:w-full pl-0 lg:pr-12">
+              <p
+                class="text-[#6CA082] hidden lg:block text-[42px] text-center md:text-left font-bold italic break-words "
+                style="font-family: 'Minion Pro'"
+              >
+                Top Kitchen and Bath Designers
+              </p>
+
+              <p
+                class="text-[#6CA082]  md:hidden text-[42px] text-center lg:text-left font-bold italic break-words md:whitespace-nowrap"
+                style="font-family: 'Minion Pro'"
+              >
+                Top Kitchen and <br>
+                Bath Designers
+              </p>
+              <p
+                class="text-[#6CA082]  tab-bg-title hidden text-[42px] text-center lg:text-left font-bold italic break-words md:whitespace-nowrap"
+                style="font-family: 'Minion Pro'"
+              >
+                Top Kitchen and Bath <br>
+                Designers
+              </p>
+
+              <p
+                class="text-white text-[42px] font-bold text-center  lg:text-left "
+                style="font-family: 'Minion Pro'; font-weight: 700;"
+              >
+                in Orange Country
+              </p>
+              <p
+                class="w-full hidden lg:block max-w-[700px] text-[23px] text-white pr-1"
+                style="font-family: Roboto; line-height: 1.5em; font-weight: 400;"
+              >
+                We Turn Spaces Into Stories. From Modern Elegance To Cozy Charm, Our Designs Blend Style And Function To
+                Create Interiors.
+              </p>
+
+              <p
+                class="w-full tab-bg-des hidden max-w-[568px] text-2xl  text-white text-center mx-auto mt-3"
+                style="font-family: Roboto; line-height: 1.5em; font-weight: 400;"
+              >
+                We Turn Spaces Into Stories. From Modern <br>
+                Elegance To Cozy Charm, Our Designs <br>
+                Blend Style And Function To Create <br>
+                Interiors.
+              </p>
+              <p
+                class="w-full md:hidden max-w-[568px] text-2xl text-white text-center mx-auto"
+                style="font-family: Roboto; line-height: 1.5em; font-weight: 400;"
+              >
+                We Turn Spaces Into <br>
+                Stories. From Modern Elegance To Cozy Charm, <br>
+                Our Designs Blend Style And <br>
+                Function To Create Interiors.
+              </p>
+
+              <div>
+                <div class="mt-[30px] ">
+                  <div class="flex justify-center lg:justify-start  gap-[16px] group hover:italic cursor-pointer">
+                    <button
+                      class="
+                        w-[40px] h-[40px] text-white rounded-full flex items-center justify-center border-white border-2 transition-all duration-500 ease-in-out
+                        group-hover:text-white group-hover:bg-[#6CA082] group-hover:border-[#6CA082]
+                      "
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        class="w-4 h-4"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                      </svg>
+                    </button>
+                    <p
+                      class="text-white text-[28px] transition-all duration-500 ease-in-out group-hover:text-[#6CA082]"
+                      style="font-family: 'Minion Pro'"
+                    >
+                      Explore Us
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Our Service -->
+    <div class="flex gap-4 justify-center mt-[51px] h-[128px]">
+      <p
+        class="text-center text-[52px] md:text-[80px]"
+        style="font-family: 'Minion Pro'; font-weight: 700; line-height: 128px;"
+      >
+        Our
+      </p>
+      <p
+        class="text-center text-[52px] md:text-[80px] text-[#6CA082] italic"
+        style="font-family: 'Minion Pro'; font-weight: 700; line-height: 128px;"
+      >
+        Service
+      </p>
+    </div>
+    <!-- First section -->
+
+    <div class="w-[300px] md:hidden   mx-auto">
+      <img class="mb-[40px]" src="{{ 'kitchen.png' | asset_url }}" alt="image" loading="lazy" >
+    </div>
+
+    <div class="w-[300px] hidden section-one-image md:w-[481px]  mb:mb-[0px] mr-[59px] " >
+      {% comment %} <img class=" mt-[40px] ms-[41px]  md:mt-[100px]" src="{{ 'kitchen.png' | asset_url }}" alt="image" loading="lazy" > {% endcomment %}
+    <img class="mt-[40px] ms-[41px] md:mt-[100px]" 
+     src="{{ 'kitchen.png' | asset_url }}?v={{ 'now' | date: '%s' }}" 
+     alt="image" 
+     style="will-change: transform; transform: translateZ(0);" >
+    </div>
+
+    <div class=" md:mt-[76px]  lg:justify-items-center section-one-container">
+      <div class="lg:w-[1110px] lg:h-[585px] lg:flex px-0 lg:px-14 ">
+        <div class="w-[300px] hidden lg:block  md:w-[481px]  mb:mb-[0px] mr-[59px] ">
+          <img class=" mt-[40px]  md:mt-[100px]" src="{{ 'kitchen.png' | asset_url }}" alt="image" loading="lazy" >
+        </div>
+        {% comment %} text content  {% endcomment %}
+        <div class="md:w-[490px]  md:h-[251px]  ms-[30px] md:ms-[0px]  mb-[64px] mb:mb-[0px]  md:ml-auto">
+          <div class="flex">
+            <div
+              class="w-[37px] h-[38px] mr-[23px] text-[32px] font-roboto font-semibold leading-[37.5px] text-[#6CA082]"
+            >
+              01
+            </div>
+            <div>
+              <div
+                class="text-[40px] md:text-[60px]"
+                style="font-family: 'Minion Pro'; font-weight: 700;  line-height: 76.8px;"
+              >
+                Kitchen
+              </div>
+              <div>
+                <p
+                  class="opacity-60 w-[240px] md:w-auto"
+                  style="font-family: 'Roboto'; font-weight: 400; font-size: 20px; line-height: 23.44px; "
+                >
+                  We specialize in remodeling kitchen. We can do the designing and interior designing, having it built
+                  and design. We can also have it installed in your home.
+                </p>
+              </div>
+
+              <div class="flex flex-start">
+                <div class="flex gap-[16px] py-[24.5px] h-[83px] group hover:italic cursor-pointer">
+                  <button
+                    class="
+                      w-[40px] h-[40px] text-black rounded-full flex items-center justify-center border-black border-2
+                      transition-all duration-300 group-hover:text-white group-hover:bg-[#6CA082] group-hover:border-[#6CA082]
+                    "
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-[15.7px] h-[15.7px]"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                  </button>
+                  <p
+                    class="text-black text-[28px] transition-all duration-500 ease-in-out group-hover:text-[#6CA082]"
+                    style="font-family: 'Minion Pro'; transform: scale(1); transition: transform 0.3s ease-in-out, color 0.5s ease-in-out;"
+                  >
+                    View More
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Section -->
+
+    <div class="w-[300px] mt-[-100px] md:hidden  md:w-[461px] md:ml-[59px] order-first md:order-last flex justify-center items-center mx-auto">
+      <img class="mb-[40px]  w-[300px]" src="{{ 'Bathrooms.png' | asset_url }}" alt="image" loading="lazy" >
+    </div>
+
+    <div class="  px-[41px] mt-[-100px]   ml-auto hidden section-two-image  w-[581px]  mb-[0px] ">
+      <img class="   w-[481px]" src="{{ 'Bathrooms.png' | asset_url }}" alt="image" loading="lazy" >
+    </div>
+    
+    {% comment %} order-first  md:order-last {% endcomment %}
+    <div class="md:mt-[86px] lg:justify-items-center section-two-container">
+      <div class="lg:w-[1102px] w-[375px] lg:h-[591px]">
+        <div class=" md:flex gap-4 px-0 lg:px-12">
+          <div class="w-[300px] hidden md:block ms-[20px] md:w-[461px] md:ml-[59px] order-first  md:order-last ">
+            {% comment %} <div class="md:w-[461px] md:ml-[59px]"> {% endcomment %}
+            <img class="mb-[40px] " src="{{ 'Bathrooms.png' | asset_url }}" alt="image" loading="lazy" >
+          </div>
+
+          <div class=" md:w-[570px] h-[251px] ms-[30px] md:ms-[0px] order-last  md:order-first">
+            <div class="flex">
+              <div
+                class="w-[37px] h-[38px] mr-[23px] text-[32px] font-roboto font-semibold leading-[37.5px] text-[#6CA082]"
+              >
+                02
+              </div>
+              <div>
+                <div
+                  class="text-[40px] md:text-[60px]"
+                  style="font-family: 'Minion Pro'; font-weight: 700; line-height: 76.8px;"
+                >
+                  Bathrooms
+                </div>
+                <div
+                  class="opacity-60 w-[240px]  md:w-[440px] lg:w-auto"
+                  style="font-family: 'Roboto'; font-weight: 400; font-size: 20px; line-height: 23.44px;"
+                >
+                  Where Every Detail Counts: Elevating Bathroom Design to New Heights of Elegance, Functionality, and
+                  Precision—Creating Luxurious Spaces That Reflect Your Unique Style and Vision.
+                </div>
+
+                <div class="flex flex-start">
+                  <div class="flex gap-[16px] py-[24.5px] h-[83px] group hover:italic cursor-pointer">
+                    <button
+                      class="
+                        w-[40px] h-[40px] text-black rounded-full flex items-center justify-center border-black border-2
+                        transition-all duration-300 group-hover:text-white group-hover:bg-[#6CA082] group-hover:border-[#6CA082]
+                      "
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        class="w-[15.7px] h-[15.7px]"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                      </svg>
+                    </button>
+                    <p
+                      class="text-black text-[28px] transition-all duration-500 ease-in-out group-hover:text-[#6CA082]"
+                      style="font-family: 'Minion Pro'; transform: scale(1); transition: transform 0.3s ease-in-out, color 0.5s ease-in-out;"
+                    >
+                      View More
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Third Section -->
+
+    <div class="w-[300px] md:hidden   mb-[56px] mx-auto">
+      <img class=" mt-[100px]" src="{{ 'Cabinetry.png' | asset_url }}" alt="image" loading="lazy" >
+    </div>
+    <div class="w-[300px] hidden section-one-image md:w-[481px]  mb:mb-[0px] mr-[59px] ">
+      <img class=" mt-[40px] ms-[41px]  md:mt-[100px]" src="{{ 'Cabinetry.png' | asset_url }}" alt="image" loading="lazy" >
+    </div>
+    <div class="md:mt-[76px]  lg:justify-items-center section-one-container">
+      <div class="lg:w-[1110px] md:h-[460px] lg:h-[585px] lg:flex px-0 lg:px-11">
+        <div class="w-[300px]  hidden lg:block ms-[20px] md:w-[481px] md:mr-[59px]  mb-[56px] mb:mb-[0px]">
+          <img class="mt-[100px]" src="{{ 'Cabinetry.png' | asset_url }}" alt="image" loading="lazy" >
+        </div>
+
+        <div class="md:w-[490px]  md:h-[251px]  ms-[30px] md:ms-[0px]  mb-[64px] mb:mb-[0px]">
+          <div class="flex">
+            <div
+              class="w-[37px] h-[38px] mr-[23px] text-[32px] font-roboto font-semibold leading-[37.5px] text-[#6CA082]"
+            >
+              03
+            </div>
+            <div>
+              <div
+                class="text-[40px] md:text-[60px]"
+                style="font-family: 'Minion Pro'; font-weight: 700; line-height: 76.8px;"
+              >
+                Cabinetry
+              </div>
+              <div
+                class="opacity-60 w-[240px]  md:w-auto "
+                style="font-family: 'Roboto'; font-weight: 400; font-size: 20px; line-height: 23.44px;"
+              >
+                Crafting Perfection in Every Detail: Beautifully Designed Cabinets That Combine Elegance, Durability,
+                and Functionality to Transform Your Space.
+              </div>
+
+              <div class="flex flex-start">
+                <div class="flex gap-[16px] py-[24.5px] h-[83px] group hover:italic cursor-pointer">
+                  <button
+                    class="
+                      w-[40px] h-[40px] text-black rounded-full flex items-center justify-center border-black border-2
+                      transition-all duration-300 group-hover:text-white group-hover:bg-[#6CA082] group-hover:border-[#6CA082]
+                    "
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-[15.7px] h-[15.7px]"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                  </button>
+                  <p
+                    class="text-black text-[28px] transition-all duration-500 ease-in-out group-hover:text-[#6CA082]"
+                    style="font-family: 'Minion Pro'; transform: scale(1); transition: transform 0.3s ease-in-out, color 0.5s ease-in-out;"
+                  >
+                    View More
+                  </p>
+                </div>
+              </div>
+              {% comment %} <img  src="{{ 'Group519.png' | asset_url }}" alt="" class="ml-auto"> {% endcomment %}
+              <div class="mt-4 md:mt-0 outer-container group mx-auto flex h-44 w-44 md:h-48 md:w-48 lg:h-72 lg:w-72 items-center justify-center rounded-full border-2 border-gray-400 transition-colors duration-500 hover:border-[#6ca082]">
+                <div class="circle flex h-32 w-32 md:h-40 md:w-40 lg:h-64 lg:w-64 items-center justify-center rounded-full border-2 border-dashed border-gray-400 transform rotate-[-30deg] transition-all duration-500 group-hover:rotate-0 group-hover:border-[#6ca082]">
+                  <div class="inner-circle flex h-24 w-24 md:h-24 md:w-24 lg:h-48 lg:w-48 items-center justify-center rounded-full border-2 border-gray-400 transform rotate-[-30deg] transition-all duration-500 group-hover:rotate-0 group-hover:border-[#6ca082]">
+                    <div class="text-sm text-center font-serif text-gray-400 transform rotate-[30deg] transition-all duration-500 group-hover:rotate-0 group-hover:text-[#6ca082]">
+                      Need Financing?<br>
+                      No Problem.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Frame -->
+    <div class="bg-[#9DB8A824] mt-12  hidden  tab-gallery-title-show flex flex-col items-center pr-[47px]">
+      <div class="flex justify-end gap-4  ">
+        <p
+          class="text-end text-[40px] md:text-[80px]"
+          style="font-family: 'Minion Pro'; font-weight: 700;  line-height: 128px;"
+        >
+          Our
+        </p>
+        <p
+          class="text-center text-[40px] md:text-[80px] text-[#6CA082] italic"
+          style="font-family: 'Minion Pro'; font-weight: 700;  line-height: 128px;"
+        >
+          Work Gallery
+        </p>
+      </div>
+    </div>
+
+    <div class="bg-[#9DB8A824] mt-12 tab-gallery-title-margin lg:h-[1180px] flex flex-col items-center  px-4 lg:px-0 ">
+      <!-- Title -->
+
+
+        <div class="flex justify-end gap-4 mt-[51px] md:h-[128px] tab-gallery-title-hidden">
+          <p
+            class="text-end text-[40px] md:text-[80px]"
+            style="font-family: 'Minion Pro'; font-weight: 700;  line-height: 128px;"
+          >
+            Our
+          </p>
+          <p
+            class="text-center text-[40px] md:text-[80px] text-[#6CA082] italic"
+            style="font-family: 'Minion Pro'; font-weight: 700;  line-height: 128px;"
+          >
+            Work Gallery
+          </p>
+        </div>
+   
+
+      <!-- Gallery -->
+      <div class="mt-8 md:mt-16 max-w-[932px] w-full space-y-5">
+        <div class="flex flex-col md:flex-row gap-5">
+          <div class="w-full md:w-[762px] h-[360px] rounded-[16px] overflow-hidden relative group">
+            <img src="{{ 'OurWorkGallery1.png' | asset_url }}" alt="" class="object-cover w-full h-full" loading="lazy" >
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="px-8 text-center text-white">
+                <p class="text-lg md:text-[28px] leading-snug">
+                  We Specialize In Remodeling Kitchen. We Can Do The Designing And Interior Designing.
+                </p>
+                <div class="mt-6 flex justify-center items-center gap-4">
+                  <button class="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center transition-all group-hover:bg-white group-hover:text-black">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-6 h-6"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                  </button>
+                  <p class="text-lg md:text-[28px] transition-all group-hover:text-white">Explore Us</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="w-full md:w-[367px] h-[360px] rounded-[16px] overflow-hidden relative group">
+            <img src="{{ 'OurWorkGallery2.png' | asset_url }}" alt="" class="object-cover w-full h-full" loading="lazy" >
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="px-8 text-center text-white">
+                <p class="text-lg md:text-[28px] leading-snug">We Specialize In Remodeling Kitchen.</p>
+                <div class="mt-6 flex justify-center items-center gap-4">
+                  <button class="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center transition-all group-hover:bg-white group-hover:text-black">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-6 h-6"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                  </button>
+                  <p class="text-lg md:text-[28px] transition-all group-hover:text-white">Explore Us</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-5">
+          <div class="w-full md:w-[367px] h-[360px] rounded-[16px] overflow-hidden relative group">
+            <img src="{{ 'OurWorkGallery3.png' | asset_url }}" alt="" class="object-cover w-full h-full" loading="lazy" >
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="px-8 text-center text-white">
+                <p class="text-lg md:text-[28px] leading-snug">We Specialize In Remodeling Kitchen.</p>
+                <div class="mt-6 flex justify-center items-center gap-4">
+                  <button class="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center transition-all group-hover:bg-white group-hover:text-black">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-6 h-6"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                  </button>
+                  <p class="text-lg md:text-[28px] transition-all group-hover:text-white">Explore Us</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="w-full md:w-[762px] h-[360px] rounded-[16px] overflow-hidden relative group">
+            <img src="{{ 'OurWorkGallery4.png' | asset_url }}" alt="" class="object-cover w-full h-full" loading="lazy" >
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="px-8 text-center text-white">
+                <p class="text-lg md:text-[28px] leading-snug">
+                  We Specialize In Remodeling Kitchen. We Can Do The Designing And Interior Designing.
+                </p>
+                <div class="mt-6 flex justify-center items-center gap-4">
+                  <button class="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center transition-all group-hover:bg-white group-hover:text-black">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-6 h-6"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                  </button>
+                  <p class="text-lg md:text-[28px] transition-all group-hover:text-white">Explore Us</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- See Full Gallery Button -->
+      <div class="mt-[40px justify-center justify-items-center pb-6 mb-6 md:mb-0 md:pb-0">
+        <div class="flex  md:flex-col  py-[24.5px] mx-auto lg:h-[400px] group hover:italic cursor-pointer ">
+          <button
+            class="
+              w-[40px] h-[40px] md:ms-16 text-black rounded-full flex items-center justify-center border-black border-2
+              transition-all duration-300 group-hover:text-white group-hover:bg-[#6CA082] group-hover:border-[#6CA082]
+            "
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              class="w-[15.7px] h-[15.7px]"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+          </button>
+          <p
+            class="text-black text-[28px] transition-all duration-300 group-hover:text-[#6CA082]   ms-2 md:ms-0 md:mt-[14px]"
+            style="font-family: 'Minion Pro'"
+          >
+            See full Gallery
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="md:h-[606px]">
+      <div class=" justify-items-center">
+        <div class="lg:w-[1042px] ">
+          <div class="mt-[76px] p-2 flex md:flex-none justify-center md:justify-start gap-4 px-0 lg:px-10">
+            <div
+              class="text-[40px] md:text-[80px] text-[#6CA082]  md:line-height-[96px]"
+              style="font-family: 'Minion Pro'; font-weight: 700; "
+            >
+              Artistry <span class="italic text-black"> in Action </span>
+            </div>
+          </div>
+          <span
+            class="w-[350px] hidden md:block  p-2 md:w-auto px-0 lg:px-10"
+            style="font-family: 'Roboto'; font-weight:  500; font-size: 20px; line-height: 32px; "
+          >
+            Discover innovative designs and exceptional craftsmanship in our curated collection.
+          </span>
+          <p
+            class="w-[350px] ms-4   md:hidden text-center  p-2 "
+            style="font-family: 'Roboto'; font-weight:  500; font-size: 20px; line-height: 32px; "
+          >
+            Discover innovative designs <br>
+            and exceptional craftsmanship in <br>
+            our curated collection.
+          </p>
+        </div>
+      </div>
+
+      <div id="carousel-container" class="md:h-[337px] mt-[53px] w-full overflow-hidden relative">
+        <div id="carousel" class="flex gap-[50px]">
+          <!-- Images -->
+          <div class="slide h-[200px] md:h-[337px] w-[calc(100%/3)] overflow-hidden flex-shrink-0">
+            <img src="{{ 'Artistry2.png' | asset_url }}" alt="Image 1" class="object-cover w-full h-full" loading="lazy" >
+          </div>
+          <div class="slide h-[200px] md:h-[337px] w-[calc(100%/3)] overflow-hidden flex-shrink-0">
+            <img src="{{ 'Artistry1.png' | asset_url }}" alt="Image 2" class="object-cover w-full h-full" loading="lazy" >
+          </div>
+          <div class="slide h-[200px] md:h-[337px] w-[calc(100%/3)] overflow-hidden flex-shrink-0">
+            <img src="{{ 'Artistry3.png' | asset_url }}" alt="Image 3" class="object-cover w-full h-full" loading="lazy" >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="md:h-[867px] md:mt-[60px] tab-heght">
+      <div class="justify-items-center">
+        <div class="">
+          <div
+            class="text-center text-[35px] md:text-[80px]"
+            style="font-family: 'Minion Pro'; font-weight: 700; line-height: 128px;"
+          >
+            Crafting
+            <span
+              class="  text-[#6CA082] italic"
+            >
+              the Kitchen
+            </span>
+          </div>
+
+          {% comment %}
+            <span
+              class="mx-auto text-[35px] md:text-[80px]"
+              style="font-family: 'Minion Pro'; font-weight: 700; line-height: 128px;"
+            >
+              Crafting
+            </span>
+            <span
+              class=" text-[35px] md:text-[80px] text-[#6CA082] italic"
+              style="font-family: 'Minion Pro'; font-weight: 700; line-height: 128px;"
+            >
+              the Kitchen
+            </span>
+          {% endcomment %}
+        </div>
+      </div>
+
+      <!-- video part start -->
+      <div class=" justify-center">
+        {% comment %} section 1  {% endcomment %}
+        <div class=" md:flex  items-center">
+          <div class="block w-full justify-center h-[240px] md:h-[400px] lg:h-[400px] relative ">
+            <div class="hidden md:block absolute top-1/2  md:left-[10%] xl:left-[21%] lg:left-[10%] -translate-y-1/2 z-20">
+              <div
+                onmouseenter="playVideo('wardrobeVideo')"
+                onmouseleave="pauseVideo('wardrobeVideo')"
+                class="py-[24.5px]  md:mt-52    h-[83px] group  hover:italic cursor-pointer justify-items-center"
+              >
+                <button
+                  class="
+                    w-[40px] h-[40px] text-black rounded-full flex items-center justify-center border-black border-2
+                    transition-all duration-500 ease-in-out group-hover:text-white group-hover:bg-[#6CA082] group-hover:border-[#6CA082]
+                  "
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    class="w-[15.7px] h-[15.7px]"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                  </svg>
+                </button>
+                <p
+                  class="text-black text-[28px] transition-all duration-500 ease-in-out group-hover:text-[#6CA082] mt-[14px]"
+                  style="font-family: 'Minion Pro'; transform: scale(1); transition: transform 0.3s ease-in-out, color 0.5s ease-in-out;"
+                >
+                  Explore Us
+                </p>
+              </div>
+            </div>
+
+            <div class="absolute top-1/2  md:right-[10%] xl:right-[24%] lg:right-[10%] -translate-y-1/2 z-20">
+              <div
+                onmouseenter="playVideo('bookVideo')"
+                onmouseleave="pauseVideo('bookVideo')"
+                class="py-[24.5px]  md:mt-52    h-[83px] group hover:italic cursor-pointer justify-items-center"
+              >
+                <button
+                  class="
+                  hidden md:flex
+                    w-[40px] h-[40px] text-black rounded-full items-center justify-center border-black border-2
+                    transition-all duration-500 ease-in-out group-hover:text-white group-hover:bg-[#6CA082] group-hover:border-[#6CA082]
+                  "
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    class="w-[15.7px] h-[15.7px]"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                  </svg>
+                </button>
+                <p
+                  class="text-black hidden md:block text-[28px] transition-all duration-500 ease-in-out group-hover:text-[#6CA082] mt-[14px]"
+                  style="font-family: 'Minion Pro'; transform: scale(1); transition: transform 0.3s ease-in-out, color 0.5s ease-in-out;"
+                >
+                  Shop Now
+                </p>
+              </div>
+            </div>
+            <div class="video-container">
+                  <!-- Default Video (always visible initially) -->
+                  <video class="default hidden md:block" muted loop playsinline>
+                      <source src="{{ 'Left_Click.mp4' | asset_url }}" type="video/mp4">
+                  </video>
+                  <!-- Default Video (always visible initially) for small device -->
+                  <video class="default block md:hidden" muted loop playsinline autoPlay preload="auto">
+                      <source src="{{ 'Left_Click.mp4' | asset_url }}" type="video/mp4">
+                  </video>
+
+                  <!-- Wardrobe Video (Mobile) -->
+                  <video id="wardrobeVideo" muted playsinline>
+                      <source src="{{ 'Left_Click.mp4' | asset_url }}" type="video/mp4">
+                  </video>
+
+                  <!-- Book Video (Mobile) -->
+                  <video id="bookVideo" muted playsinline>
+                      <source src="{{ 'Right_Click.mp4' | asset_url }}" type="video/mp4">
+                  </video>
+
+                  <!-- Hover Areas for Desktop -->
+                  <div class="hover-left" onmouseenter="playVideo('wardrobeVideo')" onmouseleave="pauseVideo('wardrobeVideo')"></div>
+                  <div class="hover-right" onmouseenter="playVideo('bookVideo')" onmouseleave="pauseVideo('bookVideo')"></div>
+              </div>
+
+          </div>
+          <div class="w-full md:hidden flex justify-center z-20 ">
+            <div class=" flex  justify-center items-center gap-2 group hover:italic cursor-pointer ">
+              <button
+                class="
+                  w-[28px] h-[28px] text-black rounded-full flex items-center justify-center border-black border-2
+                  transition-all duration-500 ease-in-out group-hover:text-white group-hover:bg-[#6CA082] group-hover:border-[#6CA082] z-20
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-[15.7px] h-[15.7px] z-20"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+              </button>
+              <p
+                class="text-black text-[20px]   transition-all duration-500 ease-in-out group-hover:text-[#6CA082]"
+                style="font-family: 'Minion Pro'; transform: scale(1); transition: transform 0.3s ease-in-out, color 0.5s ease-in-out;mt-[12px]"
+              >
+                Explore Us
+              </p>
+            </div>
+            <div class="z-20   flex  justify-center items-center gap-2 group hover:italic cursor-pointer ">
+              <button
+                class="
+                  w-[28px] h-[28px] ms-[70px] text-black rounded-full flex items-center justify-center border-black border-2
+                  transition-all duration-500 ease-in-out group-hover:text-white group-hover:bg-[#6CA082] group-hover:border-[#6CA082] z-20
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-[15.7px] h-[15.7px] z-20"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+              </button>
+              <p
+                class="text-black  text-[20px] mb-[12px]  transition-all duration-500 ease-in-out group-hover:text-[#6CA082] mt-[12px]"
+                style="font-family: 'Minion Pro'; transform: scale(1); transition: transform 0.3s ease-in-out, color 0.5s ease-in-out;"
+              >
+                Shop Now
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div
+      class="relative h-[560px] bg-cover bg-center mt-4 md:mt-0 flex items-center absolute mt-30px text-white p-6 "
+      style="background-image: url({{ 'FooterImage.png' | asset_url }});"
+    >
+      <div class="w-[540px] md:ml-[150px] ">
+        <p style="font-family: 'Minion Pro'; font-weight: 700; font-size: 40px; line-height: 48px;">
+          Top Kitchen and Bath Designers in Orange County
+        </p>
+
+        <p style="font-family: 'Roboto'; font-weight: 500; font-size: 24px; line-height: 33.6px; margin-top: 20px;">
+          Phone: (909) 525-3605
+        </p>
+        <p style="font-family: 'Roboto'; font-weight: 500; font-size: 24px; line-height: 33.6px; margin-top: 20px;">
+          Email: hello@ivyandkareem.com
+        </p>
+
+        <div class="mt-[48px]">
+          <div class="flex space-x-5">
+            <a href="https://www.x.com" target="_blank">
+              <img width="32px" height="32px" src="{{ 'twitter.png' | asset_url }}" alt="X">
+            </a>
+            <a href="https://www.linkedin.com" target="_blank">
+              <img width="32px" height="32px" src="{{ 'linkedin.png' | asset_url }}" alt="LinkedIn">
+            </a>
+            <a href="https://www.facebook.com" target="_blank">
+              <img width="32px" height="32px" src="{{ 'facebook.png' | asset_url }}" alt="Facebook">
+            </a>
+            <a href="https://www.youtube.com" target="_blank">
+              <img width="32px" height="32px" src="{{ 'youtube.png' | asset_url }}" alt="YouTube">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+              <img width="32px" height="32px" src="{{ 'instagram.png' | asset_url }}" alt="Instagram">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function playVideo(videoId) {
+        const video = document.getElementById(videoId); 
+        const defaultVideo = document.querySelector('.default');
+
+        defaultVideo.classList.remove('active'); 
+        video.classList.add('active'); 
+        video.play(); 
+      }
+
+   
+      function pauseVideo(videoId) {
+        const video = document.getElementById(videoId); 
+        const defaultVideo = document.querySelector('.default'); 
+
+        video.classList.remove('active');
+        defaultVideo.classList.add('active'); 
+        video.pause(); 
+        video.currentTime = 0; 
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const carousel = document.getElementById('carousel');
+        const slides = document.querySelectorAll('.slide');
+        const visibleSlides = 3;
+        const gap = 50; // Gap in pixels
+        const slideWidth = slides[0].offsetWidth + gap;
+        let currentIndex = 0;
+        let isTransitioning = false;
+
+   
+        slides.forEach((slide) => {
+          let clone = slide.cloneNode(true);
+          carousel.appendChild(clone);
+        });
+
+        function moveCarousel() {
+          if (isTransitioning) return;
+          isTransitioning = true;
+
+          currentIndex++;
+          carousel.style.transition = 'transform 1s ease-in-out';
+          carousel.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
+
+          setTimeout(() => {
+            if (currentIndex >= slides.length) {
+              carousel.style.transition = 'none';
+              currentIndex = 0;
+              carousel.style.transform = `translateX(${0}px)`;
+            }
+            isTransitioning = false;
+          }, 1000); 
+        }
+
+        setInterval(moveCarousel, 3000);
+      });
+
+      const carousel = document.getElementById('carousel');
+      const slides = carousel.children;
+      const totalSlides = slides.length;
+      const visibleSlides = 3;
+      const gap = 50; 
+      const slideWidth = slides[0].offsetWidth + gap;
+
+  
+      for (let i = 0; i < visibleSlides; i++) {
+        const cloneFirst = slides[i].cloneNode(true); 
+        const cloneLast = slides[totalSlides - 1 - i].cloneNode(true);
+        carousel.appendChild(cloneFirst); 
+        carousel.prepend(cloneLast); 
+      }
+
+      let currentIndex = visibleSlides; 
+      carousel.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
+
+ 
+      function moveCarousel(direction) {
+        currentIndex += direction;
+
+        carousel.style.transition = 'transform 1s ease-in-out';
+        carousel.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
+
+        
+        setTimeout(() => {
+          if (currentIndex >= totalSlides + visibleSlides) {
+         
+            currentIndex = visibleSlides;
+            carousel.style.transition = 'none';
+            carousel.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
+          } else if (currentIndex < visibleSlides) {
+     
+            currentIndex = totalSlides + visibleSlides - 1;
+            carousel.style.transition = 'none';
+            carousel.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
+          }
+        }, 1000); 
+      }
+
+
+      setInterval(() => moveCarousel(1), 3000);
+
+      document.getElementById('menu-btn').addEventListener('click', function () {
+        let menu = document.getElementById('menu');
+        menu.classList.toggle('hidden');
+      });
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const menu = document.getElementById('menu');
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+
+        function showMenu() {
+          menu.classList.remove('hidden');
+          setTimeout(() => {
+            menu.classList.remove('opacity-0', 'scale-95');
+          }, 10);
+        }
+
+        function hideMenu() {
+          menu.classList.add('opacity-0', 'scale-95');
+          setTimeout(() => {
+            menu.classList.add('hidden');
+          }, 500);
+        }
+
+        menuBtn.addEventListener('click', showMenu);
+        closeBtn.addEventListener('click', hideMenu);
+      });
+    </script>
+    {% comment %} {{ content_for_layout }} {% endcomment %}
+  </body>
+</html>
