@@ -1,0 +1,196 @@
+<style>
+  #carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  #carousel {
+    display: flex;
+    gap: 50px;
+    animation: scroll 15s linear infinite;
+  }
+
+  .slide {
+    flex-shrink: 0;
+    width: calc(100% / 3);
+  }
+
+  .slide img {
+    width: 100%;
+    height: 337px;
+    object-fit: cover;
+  }
+  .artistry-action-section {
+    display: block;
+  }
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  @media (max-width: 768px) {
+    .artistry-action-section {
+      display: none;
+    }
+  }
+</style>
+
+<div class="h-[606px] artistry-action-section">
+  <div>
+    <div class=" max-w-[1440px] mx-auto ">
+      <div class="mt-[76px] p-2 flex justify-start">
+        <div class="text-[80px] text-[#6CA082] line-height-[96px]">
+          {{ section.settings.heading_part1 }}
+          <span class="italic text-black text-[64px]">{{ section.settings.heading_part2 }}</span>
+        </div>
+      </div>
+      <span class="w-[350px] hidden md:block p-2 md:w-auto px-0 lg:px-10" style="font-family: 'Roboto'; font-weight: 500; font-size: 20px; line-height: 32px;">
+        {{ section.settings.description }}
+      </span>
+      <p class="w-[350px] ms-4 md:hidden text-center p-2" style="font-family: 'Roboto'; font-weight: 500; font-size: 20px; line-height: 32px;">
+        {{ section.settings.mobile_description | default: section.settings.description }}
+      </p>
+    </div>
+  </div>
+
+  <div id="carousel-container" class="md:h-[337px] mt-[53px] w-full overflow-hidden relative">
+    <div id="carousel" class="flex gap-[50px]">
+      {% for block in section.blocks %}
+        <div class="slide h-[200px] md:h-[337px] w-[calc(100%/3)] overflow-hidden flex-shrink-0">
+          {% if block.settings.image != blank %}
+            <img
+              src="{{ block.settings.image | img_url: '800x' }}"
+              alt="{{ block.settings.image.alt | escape }}"
+              class="object-cover w-full h-full"
+              loading="lazy"
+              width="800"
+              height="800">
+          {% else %}
+            <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+              <span>Image {{ forloop.index }}</span>
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.getElementById('carousel');
+    const slides = document.querySelectorAll('.slide');
+    
+    if (slides.length === 0) return;
+    
+    const visibleSlides = window.innerWidth < 768 ? (window.innerWidth < 480 ? 1 : 2) : 3;
+    const gap = 50;
+    const slideWidth = slides[0].offsetWidth + gap;
+    let currentIndex = 0;
+    let isTransitioning = false;
+    
+    // Clone slides for infinite loop
+    slides.forEach((slide) => {
+      let clone = slide.cloneNode(true);
+      carousel.appendChild(clone);
+    });
+    
+    function moveCarousel() {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      
+      currentIndex++;
+      carousel.style.transition = 'transform 1s ease-in-out';
+      carousel.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
+      
+      setTimeout(() => {
+        if (currentIndex >= slides.length) {
+          carousel.style.transition = 'none';
+          currentIndex = 0;
+          carousel.style.transform = `translateX(0)`;
+        }
+        isTransitioning = false;
+      }, 1000);
+    }
+    
+    // Adjust on resize
+    window.addEventListener('resize', function() {
+      const newVisibleSlides = window.innerWidth < 768 ? (window.innerWidth < 480 ? 1 : 2) : 3;
+      if (newVisibleSlides !== visibleSlides) {
+        location.reload(); // Simplest way to handle responsive changes
+      }
+    });
+    
+    // Start autoplay if there are enough slides
+    if (slides.length > visibleSlides) {
+      setInterval(moveCarousel, 3000);
+    }
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Artistry Carousel",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading_part1",
+        "label": "Heading Part 1 (Green)",
+        "default": "Artistry"
+      }, {
+        "type": "text",
+        "id": "heading_part2",
+        "label": "Heading Part 2 (Black Italic)",
+        "default": "in Action"
+      }, {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description (Desktop)",
+        "default": "Discover innovative designs and exceptional craftsmanship in our curated collection."
+      }, {
+        "type": "textarea",
+        "id": "mobile_description",
+        "label": "Description (Mobile)",
+        "info": "Optional: Different text for mobile. If blank, desktop version will be used."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Carousel Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "Recommended size: 800x800px"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Artistry Carousel",
+        "category": "Image",
+        "settings": {
+          "heading_part1": "Artistry",
+          "heading_part2": "in Action",
+          "description": "Discover innovative designs and exceptional craftsmanship in our curated collection."
+        },
+        "blocks": [
+          {
+            "type": "image"
+          }, {
+            "type": "image"
+          }, {
+            "type": "image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
