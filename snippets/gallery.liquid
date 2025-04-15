@@ -1,0 +1,343 @@
+<style>
+.section-container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Gallery section style */
+.gallery-section {
+  padding: 60px 150px 60px 150px;
+}
+
+.gallery-section h2 {
+  color: #000;
+  font-size: 80px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 160%;
+  text-transform: capitalize;
+  text-align: end;
+}
+
+.gallery-section h2 span {
+  color: #6b9b37;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 64px;
+  margin-bottom: 40px;
+}
+
+/* Image container for hover effect */
+.gallery-item {
+  position: relative;
+  width: 100%;
+  height: 360px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+/* Larger image in the first row and fourth item, spanning two columns */
+.gallery-grid .gallery-item:nth-child(1):not([style*="display: none"]),
+.gallery-grid .gallery-item:nth-child(4):not([style*="display: none"]) {
+  grid-column: span 2;
+}
+
+/* Overlay for hover effect */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.overlay-text {
+  color: #fff;
+  font-size: 28px;
+  line-height: 39px;
+  text-align: center;
+  padding: 40px 40px 20px 40px;
+}
+
+/* Explore Now button styling */
+.explore-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24.5px 0;
+  height: 83px;
+  cursor: pointer;
+  transition: font-style 0.3s ease-in-out;
+}
+
+.explore-wrapper:hover {
+  font-style: italic;
+}
+
+.explore-btn {
+  width: 40px;
+  height: 40px;
+  color: white;
+  border-radius: 100%;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.explore-wrapper:hover .explore-btn {
+  color: black;
+  background-color: #fff;
+}
+
+.explore-wrapper:hover .explore-btn svg {
+  color: black;
+}
+
+.explore-text {
+  color: white;
+  font-size: 28px;
+  font-family: 'Minion Pro', serif;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out, color 0.5s ease-in-out;
+}
+
+/* Show overlay on hover */
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+/* Scale image on hover */
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.tab-btn {
+  width: 30px;
+  height: 5px;
+  background-color: #ddd;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.tab-btn.active {
+  background-color: #6b9b37;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .gallery-section {
+    padding: 60px 80px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .gallery-section {
+    padding: 50px 60px;
+  }
+
+  .gallery-section h2 {
+    font-size: 60px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-grid .gallery-item:nth-child(1):not([style*="display: none"]),
+  .gallery-grid .gallery-item:nth-child(4):not([style*="display: none"]) {
+    grid-column: span 2;
+  }
+
+  .gallery-item {
+    height: 300px;
+  }
+
+  .overlay-text {
+    font-size: 24px;
+    padding: 30px;
+  }
+
+  .explore-text {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-section {
+    padding: 40px 30px;
+  }
+
+  .gallery-section h2 {
+    font-size: 48px;
+    line-height: 120%;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 40px;
+  }
+
+  .gallery-grid .gallery-item:nth-child(1):not([style*="display: none"]),
+  .gallery-grid .gallery-item:nth-child(4):not([style*="display: none"]) {
+    grid-column: span 1;
+  }
+
+  .gallery-item {
+    height: 250px;
+  }
+
+  .overlay-text {
+    font-size: 20px;
+    padding: 20px;
+  }
+
+  .explore-wrapper {
+    height: 60px;
+  }
+
+  .explore-text {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-section {
+    padding: 30px 20px;
+  }
+
+  .gallery-section h2 {
+    font-size: 36px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item {
+    height: 200px;
+    grid-column: span 1;
+  }
+
+  .overlay-text {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .explore-wrapper {
+    padding: 15px 0;
+    height: 50px;
+  }
+
+  .explore-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .explore-text {
+    font-size: 18px;
+  }
+}
+</style>
+
+<section style="background-color: #9DB8A824;">
+  <div class="gallery-section section-container">
+    <h2>{{ section.settings.section_title1 }} <span>{{ section.settings.section_title2 }}</span></h2>
+    <div class="gallery-grid" id="gallery-grid">
+      {% for block in section.blocks %}
+        <div class="gallery-item" data-tab="{{ block.settings.tab_id | escape }}" style="display: none;">
+          <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt | escape }}">
+          <div class="overlay">
+            <div class="overlay-text">{{ block.settings.text | escape }}</div>
+            <a href="{{ block.settings.button_url | escape }}" class="explore-wrapper" style="text-decoration: none;">
+              <button class="explore-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+                  <path d="M6.9165 9.58342H1.49984C0.901529 9.58342 0.416504 9.09839 0.416504 8.50008C0.416504 7.90177 0.901529 7.41675 1.49984 7.41675H6.9165V2.00008C6.9165 1.40177 7.40153 0.916748 7.99984 0.916748C8.59815 0.916748 9.08317 1.40177 9.08317 2.00008V7.41675H14.4998C15.0981 7.41675 15.5832 7.90177 15.5832 8.50008C15.5832 9.09839 15.0981 9.58342 14.4998 9.58342H9.08317V15.0001C9.08317 15.5984 8.59815 16.0834 7.99984 16.0834C7.40153 16.0834 6.9165 15.5984 6.9165 15.0001V9.58342Z" fill="currentColor" />
+                </svg>
+              </button>
+              <p class="explore-text">{{ block.settings.button_text | escape }}</p>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="tab-buttons">
+      {% assign tabs = '' %}
+      {% for block in section.blocks %}
+        {% assign tab_id = block.settings.tab_id | escape %}
+        {% unless tabs contains tab_id %}
+          <button class="tab-btn {% if tab_id == section.settings.active_tab %}active{% endif %}" data-tab="{{ tab_id }}" onclick="changeGallery('{{ tab_id }}')"></button>
+          {% assign tabs = tabs | append: tab_id | append: ',' %}
+        {% endunless %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+function changeGallery(tabId) {
+  const galleryGrid = document.querySelector('#gallery-grid');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  const tabButtons = document.querySelectorAll('.tab-btn');
+
+  // Hide all gallery items
+  galleryItems.forEach(item => {
+    item.style.display = 'none';
+  });
+
+  // Show items for the selected tab
+  const activeItems = document.querySelectorAll(`.gallery-item[data-tab="${tabId}"]`);
+  activeItems.forEach(item => {
+    item.style.display = 'block';
+  });
+
+  // Update active tab button
+  tabButtons.forEach(btn => {
+    btn.classList.remove('active');
+    if (btn.getAttribute('data-tab') === tabId) {
+      btn.classList.add('active');
+    }
+  });
+
+  // Force grid reflow to handle spanning items
+  galleryGrid.style.display = 'none';
+  galleryGrid.offsetHeight; // Trigger reflow
+  galleryGrid.style.display = 'grid';
+}
+
+// Initialize the gallery with the active tab
+document.addEventListener('DOMContentLoaded', () => {
+  const activeTab = '{{ section.settings.active_tab | escape }}';
+  if (activeTab) {
+    changeGallery(activeTab);
+  }
+});
+</script>

@@ -7,25 +7,52 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
     "footer": {
       "type": "footer",
+      "blocks": {
+        "social_icon_jgLzc8": {
+          "type": "social_icon",
+          "settings": {
+            "image": "shopify://shop_images/facebook.svg",
+            "link": ""
+          }
+        },
+        "social_icon_icnVWe": {
+          "type": "social_icon",
+          "settings": {
+            "image": "shopify://shop_images/facebook.svg",
+            "link": ""
+          }
+        },
+        "social_icon_j8EVte": {
+          "type": "social_icon",
+          "settings": {
+            "image": "shopify://shop_images/facebook.svg",
+            "link": ""
+          }
+        },
+        "social_icon_KKCiXn": {
+          "type": "social_icon",
+          "settings": {
+            "image": "shopify://shop_images/facebook.svg",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "social_icon_jgLzc8",
+        "social_icon_icnVWe",
+        "social_icon_j8EVte",
+        "social_icon_KKCiXn"
+      ],
       "settings": {
-        "color_scheme": "scheme-1",
-        "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
-        "enable_follow_on_shop": true,
-        "show_social": true,
-        "enable_country_selector": true,
-        "enable_language_selector": true,
-        "payment_enable": true,
-        "show_policy": true,
-        "margin_top": 0,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "title": "Top Kitchen and Bath Designers in Orange County",
+        "phone": "(909) 525-3605",
+        "email": "hello@ivyandkareem.com"
       }
     }
   },

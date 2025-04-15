@@ -8,10 +8,15 @@
     height: 560px;
     width: 100%;
     position: relative;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)),
-    url("{{ section.settings.footer_img | asset_url | default: 'footerImg.png' | asset_url }}") no-repeat;
+    {% if section.settings.footer_img %}
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)),
+        url("{{ section.settings.footer_img | img_url: 'master' }}") no-repeat;
+    {% else %}
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)),
+        url("{{ 'footerImg.png' | asset_url }}") no-repeat;
+    {% endif %}
     background-size: cover;
-  }
+}
 
   .footer-content-container {
     display: flex;
@@ -134,7 +139,7 @@
       },
       {
         "type": "image_picker",
-        "id": "footer_image",
+        "id": "footer_img",
         "label": "Footer Background Image",
         "info": "Image size: 1920 x 560px"
       },
