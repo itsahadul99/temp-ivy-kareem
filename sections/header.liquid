@@ -121,7 +121,11 @@
       display: none;
     }
   }
-
+@media(max-width: 425px){
+  .desk-nav{
+    display: none;
+  }
+}
   @media (min-width: 768px) and (max-width: 1023px) {
     #background-container {
       height: 1194px;
@@ -281,7 +285,7 @@
     {% endif %}
 
     <!-- Desktop Navigation -->
-    <nav class="display-hidden flex space-x-8 text-white text-sm font-medium desktop-menu">
+    <nav class="desk-nav md:flex md:space-x-4 lg:space-x-6 xl:space-x-8 text-white text-sm font-medium desktop-menu">
       {% for link in linklists[section.settings.menu].links %}
         <a href="{{ link.url }}" class="hover:text-[#6CA082]">{{ link.title }}</a>
       {% endfor %}
@@ -296,7 +300,7 @@
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="mobile-menu">
     <button class="menu-close-btn" id="menu-close">✕</button>
-    <div class="flex flex-col items-center justify-center h-full space-y-8">
+    <div class="flex flex-col items-center pt-12 justify-start h-full space-y-8">
       {% for link in linklists[section.settings.menu].links %}
         <a href="{{ link.url }}" class="text-white text-2xl hover:text-[#6CA082]">{{ link.title }}</a>
       {% endfor %}
@@ -308,8 +312,8 @@
 
   <!-- Hero Content -->
   <div class="tab-class lg:ms-[200px] justify-items-center">
-    <div class="mt-[100px] h-[294px] lg:flex gap-4 px-10 2xl:ml-[100px] lg:mt-[240px]">
-      <div class="lg:w-[539px] display-hidden justify-items-center lg:mr-[180px]">
+    <div class="mt-[100px] h-[294px] lg:flex gap-4 px-10 2xl:ml-[100px] lg:mt-[140px] xl:mt-[240px]">
+      <div class="xl:w-[539px] display-hidden justify-items-center lg:mr-[180px]">
         {% if section.settings.hero_image %}
           <img
             src="{{ section.settings.hero_image  | img_url: 'master'}}"

@@ -3,28 +3,24 @@
     margin-top: 51px;
   }
 
-  .service-title-container {
-    display: flex;
-    gap: {{ section.settings.text_gap | escape }}px;
-    justify-content: center;
-    height: 128px;
-  }
-
-  .service-title {
-    font-weight: 700;
-    line-height: 128px;
+  .service-title-container h1 {
+    color: #000;
     text-align: center;
-    font-size: {{ section.settings.font_size_mobile | escape }}px;
+    font-family: "Minion Pro";
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 160%;
+    text-transform: capitalize;
   }
-
-  .service-title--second {
-    color: {{ section.settings.second_color | escape }};
+  .service-title-container h1 span {
     font-style: italic;
+    color: {{ section.settings.second_color | escape }};
   }
 
   @media (min-width: 768px) {
-    .service-title {
-      font-size: {{ section.settings.font_size_desktop | escape }}px;
+    .service-title-container h1 {
+      font-size: 48px;
     }
   }
 
@@ -74,7 +70,7 @@
     width: 100%;
     margin-left: 30px;
     margin-bottom: 64px;
-    padding: 0px 16px;
+    padding: 0 16px;
   }
 
   .service-text-inner {
@@ -163,7 +159,7 @@
   .view-more:hover .view-more-text {
     color: {{ section.settings.second_color | escape }};
   }
-  .financing-container{
+  .financing-container {
     display: none;
   }
   /* Responsive Styles */
@@ -207,79 +203,82 @@
     .service-description {
       max-width: 440px;
     }
-     /* Financing Circle */
-  .financing-container {
-    margin-top: 16px;
-    width: 200px;
-    height: 200px;
-    border: 2px solid #979595;
-    border-radius: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: border-color 0.5s ease-in-out;
-  }
+    /* Financing Circle */
+    .financing-container {
+      margin-top: 16px;
+      width: 200px;
+      height: 200px;
+      border: 2px solid #979595;
+      border-radius: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.5s ease-in-out;
+    }
 
-  .financing-container:hover {
-    border-color: {{ section.settings.second_color | escape }};
-  }
+    .financing-container:hover {
+      border-color: {{ section.settings.second_color | escape }};
+    }
 
-  .financing-circle {
-    width: 160px;
-    height: 160px;
-    border: 2px dashed #979595;
-    border-radius: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: rotate(-30deg);
-    transition: all 0.5s ease-in-out;
-  }
+    .financing-circle {
+      width: 160px;
+      height: 160px;
+      border: 2px dashed #979595;
+      border-radius: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotate(-30deg);
+      transition: all 0.5s ease-in-out;
+    }
 
-  .financing-container:hover .financing-circle {
-    border-color: {{ section.settings.second_color | escape }};
-    transform: rotate(0deg);
-  }
+    .financing-container:hover .financing-circle {
+      border-color: {{ section.settings.second_color | escape }};
+      transform: rotate(0deg);
+    }
 
-  .financing-inner-circle {
-    width: 120px;
-    height: 120px;
-    border: 2px solid #979595;
-    border-radius: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: rotate(-30deg);
-    transition: all 0.5s ease-in-out;
-    padding: 5px;
-  }
+    .financing-inner-circle {
+      width: 120px;
+      height: 120px;
+      border: 2px solid #979595;
+      border-radius: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotate(-30deg);
+      transition: all 0.5s ease-in-out;
+      padding: 5px;
+    }
 
-  .financing-container:hover .financing-inner-circle {
-    border-color: {{ section.settings.second_color | escape }};
-    transform: rotate(0deg);
-  }
+    .financing-container:hover .financing-inner-circle {
+      border-color: {{ section.settings.second_color | escape }};
+      transform: rotate(0deg);
+    }
 
-  .financing-text {
-    color: #6CA082;
-    text-align: center;
-    font-family: "Minion Pro";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 22px;
-    transform: rotate(30deg);
-    transition: all 0.5s ease-in-out;
-  }
+    .financing-text {
+      color: #6CA082;
+      text-align: center;
+      font-family: "Minion Pro";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 22px;
+      transform: rotate(30deg);
+      transition: all 0.5s ease-in-out;
+    }
 
-  .financing-container:hover .financing-text {
-    color: {{ section.settings.second_color | escape }};
-    transform: rotate(0deg);
-  }
+    .financing-container:hover .financing-text {
+      color: {{ section.settings.second_color | escape }};
+      transform: rotate(0deg);
+    }
   }
 
   @media (min-width: 1024px) {
     .service-subsection-content {
       padding: 0 14px;
+    }
+    .service-title-container h1 {
+      font-size: 80px;
     }
   }
 
@@ -293,25 +292,25 @@
     .service-image--tablet {
       display: none;
     }
-       /* Financing Circle */
-  .financing-container {
-    margin-top: 16px;
-    width: 307px;
-    height: 307px;
-  }
+    /* Financing Circle */
+    .financing-container {
+      margin-top: 16px;
+      width: 307px;
+      height: 307px;
+    }
 
-  .financing-circle {
-    width: 267px;
-    height: 267px;
-  }
+    .financing-circle {
+      width: 267px;
+      height: 267px;
+    }
 
-  .financing-inner-circle {
-    width: 170px;
-    height: 170px;
-  }
-  .financing-text {
-    font-size: 22px;
-  }
+    .financing-inner-circle {
+      width: 170px;
+      height: 170px;
+    }
+    .financing-text {
+      font-size: 22px;
+    }
   }
 
   /* Specific Subsection Adjustments */
@@ -332,8 +331,9 @@
 <section class="service-section">
   <!-- Title -->
   <div class="service-title-container">
-    <p class="service-title service-title--first">{{ section.settings.title_first | escape }}</p>
-    <p class="service-title service-title--second">{{ section.settings.title_second | escape }}</p>
+    <h1>{{ section.settings.title_first | escape }}
+      <span>{{ section.settings.title_second | escape }}</span>
+    </h1>
   </div>
 
   <!-- Subsections -->

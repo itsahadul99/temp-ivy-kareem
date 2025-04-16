@@ -45,7 +45,7 @@
     z-index: 1;
   }
   video {
-    width: 900px;
+    width: {{ section.settings.video_width}}px;
     height: auto;
     z-index: 1;
   }
@@ -60,6 +60,7 @@
     color: #000;
     /* padding: 0 20px; */
     width: 200px !important;
+    text-wrap: nowrap;
 
   }
 
@@ -110,6 +111,9 @@
     display: none;
   }
   @media(max-width: 1024px) {
+    .craft-kitchen h1{
+      font-size: 48px;
+    }
     #left-video,
     #right-video {
       max-width: 600px;
@@ -236,42 +240,36 @@
       </div>
       <p>{{ section.settings.explore_text }}</p>
     </a>
-    {% if section.settings.left_video %}
-      <video
-        class="left-video"
-        style="display: none"
-        muted
-        playsinline>
-        <source src="{{ section.settings.left_video | video_url }}" type="video/mp4">
-      </video>
-    {% else %}
-      <video
-        class="left-video"
-        style="display: none"
-        muted
-        playsinline>
-        <source src="{{ 'Left_Click.mp4' |  asset_url }}" type="video/mp4">
-      </video>
-    {% endif %}
-    {% if section.settings.right_video %}
-      <video
-        class="right-video"
-        autoplay
-        muted
-        playsinline
-        loop>
-        <source src="{{ section.settings.right_video | video_url }}" type="video/mp4">
-      </video>
-    {% else %}
-      <video
-        class="right-video"
-        autoplay
-        muted
-        playsinline
-        loop>
-        <source src="{{ 'Right_Click.mp4' |  asset_url }}" type="video/mp4">
-      </video>
-    {% endif %}
+   {% comment %} Left Video (Hidden) {% endcomment %}
+{% if section.settings.left_video %}
+  {{ section.settings.left_video | video_tag: 
+    autoplay: false,
+    muted:false,
+    playsinline: true,
+    loop: false,
+    class: 'left-video',
+    style: 'display: none;'
+  }}
+{% else %}
+  <video class="left-video" style="display: none" muted playsinline>
+    <source src="{{ 'Left_Click.mp4' | asset_url }}" type="video/mp4">
+  </video>
+{% endif %}
+
+{% comment %} Right Video (Autoplay + Looping) {% endcomment %}
+{% if section.settings.right_video %}
+  {{ section.settings.right_video | video_tag:
+    autoplay: true,
+    muted: true,
+    playsinline: true,
+    loop: true,
+    class: 'right-video'
+  }}
+{% else %}
+  <video class="right-video" autoplay muted playsinline loop>
+    <source src="{{ 'Right_Click.mp4' | asset_url }}" type="video/mp4">
+  </video>
+{% endif %}
     <a href="{{section.settings.right_button_url}}" class="right-button">
       <div class="circle">
         <span class="plus">+</span>
@@ -315,6 +313,7 @@
       leftVideo.style.display = "block";
       rightVideo.style.display = "none";
       rightVideo.pause();
+      rightVideo.currentTime = 0;
       leftVideo.play().catch(e => console.log("Video play error:", e));
     };
   
@@ -323,6 +322,7 @@
       rightVideo.style.display = "block";
       leftVideo.style.display = "none";
       leftVideo.pause();
+      leftVideo.currentTime = 0;
       rightVideo.play().catch(e => console.log("Video play error:", e));
     };
   
@@ -401,6 +401,15 @@
         "type": "video",
         "id": "right_video",
         "label": "Right Video"
+      },
+      {
+        "type": "range",
+        "id": "video_width",
+        "label": "Desktop Video Max Width",
+        "default": 900,
+        "min": 600,
+        "max": 1200,
+        "step": 10
       }
     ],
     "presets": [
