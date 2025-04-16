@@ -1,113 +1,413 @@
-<link rel="preload" href="{{ 'Left_Click.mp4' | asset_url }}" as="video">
-<link rel="preload" href="{{ 'Right_Click.mp4' | asset_url }}" as="video">
+<link
+  rel="preload"
+  href="{{ 'Left_Click.mp4' | asset_url }}"
+  as="video">
+<link
+  rel="preload"
+  href="{{ 'Right_Click.mp4' | asset_url }}"
+  as="video">
 
 <style>
-
-
-  video {
-    position: absolute;
-    top: 0;
-    left: 0;
+  .craft-kitchen {
+    padding: 60px 48px;
+    max-width: 1440px;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    -webkit-transform: translate3d(0, 0, 0);
+    margin: 0 auto;
+  }
+
+  .craft-kitchen h1 {
+    color: #000;
+    text-align: center;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 160%;
+    text-transform: capitalize;
+  }
+
+  .craft-kitchen h1 span {
+    font-style: italic;
+    color: #5f8a6b;
+  }
+
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .main-image {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
     z-index: 1;
   }
+  video {
+    width: 900px;
+    height: auto;
+    z-index: 1;
+  }
+  .left-button,
+  .right-button {
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 28px;
+    cursor: pointer;
+    color: #000;
+    /* padding: 0 20px; */
+    width: 200px !important;
 
-  video.default {
-    opacity: 1;
-    z-index: 2;
   }
 
-  video.active {
-    opacity: 1;
-    z-index: 3;
-  }
+  .left-button {
 
-  /* Hover areas */
-  .hover-left,
-  .hover-right {
-    position: absolute;
-    top: 0;
-    width: 50%;
-    height: 100%;
+    transform: translate(99%, 95%);
     z-index: 10;
   }
 
-  .hover-left { left: 0; }
-  .hover-right { right: 0; }
+  .right-button {
+    transform: translate(-99%, 95%);
+    z-index: 10;
 
-  @media screen and (max-width: 799px) {
-    .video-container {
-      width: 700px;
-      height: 98%;
-      clip-path: inset(22% 0 0 0);
+  }
+  .left-button:hover,
+  .right-button:hover {
+    font-style: italic;
+    color: #5f8a6b;
+
+  }
+
+
+  .circle {
+    border: 1px solid #000;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .left-button:hover .circle,
+  .right-button:hover .circle {
+    background-color: #5f8a6b;
+    border: 1px solid #5f8a6b;
+  }
+
+  .left-button:hover .plus,
+  .right-button:hover .plus {
+    color: white;
+
+  }
+
+  .mobile-screen-btn {
+    display: none;
+  }
+  @media(max-width: 1024px) {
+    #left-video,
+    #right-video {
+      max-width: 600px;
     }
-    
-    /* Hide hover areas on mobile */
-    .hover-left,
-    .hover-right {
+    .left-button {
+
+      transform: translate(70%, 80%);
+      z-index: 10;
+    }
+
+    .right-button {
+      transform: translate(-70%, 80%);
+      z-index: 10;
+
+    }
+  }
+  @media (max-width: 768px) {
+    .left-button,
+    .right-button {
       display: none;
     }
+    .craft-kitchen h2 {
+      font-size: 36px;
+    }
+    .image-container {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      /* gap: 25px; */
+      /* position: relative; */
+    }
+    #left-video,
+    #right-video {
+      max-width: 500px;
+    }
+    .mobile-screen-btn {
+      display: flex;
+    }
+    .mbl-left-button,
+    .mbl-right-button {
+      /* position: absolute; */
+      display: flex;
+      /* flex-direction: column; */
+
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      color: #000;
+      /* padding: 0 20px; */
+      width: 200px;
+
+    }
+
+    .mbl-circle {
+      border: 1px solid #000;
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .mbl-left-button:hover .mbl-circle,
+    .mbl-right-button:hover .circle {
+      background-color: #5f8a6b;
+      border: 1px solid #5f8a6b;
+    }
+
+    .mbl-left-button:hover .mbl-plus,
+    .mbl-right-button:hover .plus {
+      color: white;
+
+    }
+    .mbl-left-button:hover,
+    .mbl-right-button:hover {
+      font-style: italic;
+      color: #5f8a6b;
+
+    }
+
+    .craft-kitchen-heading {
+      font-size: 42px;
+      font-weight: 700;
+
+    }
+  }
+  @media (max-width: 480px) {
+    .craft-kitchen {
+      padding: 24px 0;
+    }
+    .craft-kitchen h1 {
+      font-size: 42px;
+      line-height: 120%;
+    }
+    .left-button,
+    .right-button {
+      width: 100%;
+      font-size: 18px;
+    }
+    .mbl-left-button,
+    .mbl-right-button {
+      width: 150px;
+      text-wrap: nowrap;
+    }
+    .mobile-screen-btn {
+      justify-content: space-between;
+    }
+
   }
 </style>
 
-<div class="justify-center">
-  <div class="md:flex items-center">
-    <div class=" w-full">
-        <div class="py-[24.5px] md:mt-52 h-[83px] group hover:italic cursor-pointer justify-items-center">
-          <button class="w-[40px] h-[40px] text-black rounded-full flex items-center justify-center border-black border-2 transition-all duration-500 ease-in-out group-hover:text-white group-hover:bg-[#6CA082] group-hover:border-[#6CA082]">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-[15.7px] h-[15.7px]">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-            </svg>
-          </button>
-          <p class="text-black text-[28px] transition-all duration-500 ease-in-out group-hover:text-[#6CA082] mt-[14px]" style="font-family: 'Minion Pro'">
-            Explore Us
-          </p>
+<div class="craft-kitchen">
+  <h1>{{ section.settings.section_title1 }}
+    <span>{{ section.settings.section_title2 }}</span>
+  </h1>
+  <div class="image-container">
+    <a href="{{section.settings.left_button_url}}" class="left-button">
+      <div class="circle">
+        <span class="plus">+</span>
+      </div>
+      <p>{{ section.settings.explore_text }}</p>
+    </a>
+    {% if section.settings.left_video %}
+      <video
+        class="left-video"
+        style="display: none"
+        muted
+        playsinline>
+        <source src="{{ section.settings.left_video | video_url }}" type="video/mp4">
+      </video>
+    {% else %}
+      <video
+        class="left-video"
+        style="display: none"
+        muted
+        playsinline>
+        <source src="{{ 'Left_Click.mp4' |  asset_url }}" type="video/mp4">
+      </video>
+    {% endif %}
+    {% if section.settings.right_video %}
+      <video
+        class="right-video"
+        autoplay
+        muted
+        playsinline
+        loop>
+        <source src="{{ section.settings.right_video | video_url }}" type="video/mp4">
+      </video>
+    {% else %}
+      <video
+        class="right-video"
+        autoplay
+        muted
+        playsinline
+        loop>
+        <source src="{{ 'Right_Click.mp4' |  asset_url }}" type="video/mp4">
+      </video>
+    {% endif %}
+    <a href="{{section.settings.right_button_url}}" class="right-button">
+      <div class="circle">
+        <span class="plus">+</span>
+      </div>
+      <p>{{ section.settings.shop_text }}</p>
+    </a>
+
+    <div class="mobile-screen-btn">
+      <a href="{{section.settings.left_button_url}}" class="mbl-left-button">
+        <div class="mbl-circle">
+          <span class="mbl-plus">+</span>
         </div>
+        <p>{{ section.settings.explore_text }}</p>
+      </a>
+      <a href="{{section.settings.right_button_url}}" class="mbl-right-button">
+        <div class="mbl-circle">
+          <span class="mbl-plus">+</span>
+        </div>
+        <p>{{ section.settings.shop_text }}</p>
+      </a>
     </div>
   </div>
 </div>
 
 <script>
-  // Initialize videos when DOM is loaded
   document.addEventListener('DOMContentLoaded', function() {
-    // Preload videos
-    const videos = document.querySelectorAll('video');
-    videos.forEach(video => {
-      video.load();
+  const kitchenSections = document.querySelectorAll('.craft-kitchen');
+  
+  kitchenSections.forEach(section => {
+    // Elements
+    const leftVideo = section.querySelector('.left-video');
+    const rightVideo = section.querySelector('.right-video');
+    const leftButton = section.querySelector('.left-button');
+    const rightButton = section.querySelector('.right-button');
+    const mobileLeft = section.querySelector('.mbl-left-button');
+    const mobileRight = section.querySelector('.mbl-right-button');
+  
+    // Video control functions
+    const showLeftVideo = () => {
+      if (!leftVideo) return;
+      leftVideo.style.display = "block";
+      rightVideo.style.display = "none";
+      rightVideo.pause();
+      leftVideo.play().catch(e => console.log("Video play error:", e));
+    };
+  
+    const showRightVideo = () => {
+      if (!rightVideo) return;
+      rightVideo.style.display = "block";
+      leftVideo.style.display = "none";
+      leftVideo.pause();
+      rightVideo.play().catch(e => console.log("Video play error:", e));
+    };
+  
+    // Event handlers
+    const setupEvents = () => {
+      // Desktop
+      if (leftButton) leftButton.addEventListener('mouseenter', showLeftVideo);
+      if (rightButton) rightButton.addEventListener('mouseenter', showRightVideo);
+      
+      // Mobile
+      if (mobileLeft) mobileLeft.addEventListener('mouseenter', showLeftVideo);
+      if (mobileRight) mobileRight.addEventListener('mouseenter', showRightVideo);
+      
+      // Reset on mouse leave (desktop)
+      section.addEventListener('mouseleave', () => {
+        if (window.innerWidth > 768) {
+          showRightVideo();
+        }
+      });
+    };
+  
+    // Initialize
+    setupEvents();
+    
+    // Handle responsive changes
+    window.addEventListener('resize', () => {
+      // Reset to default state on resize
+      if (window.innerWidth <= 768) {
+        showRightVideo();
+      }
     });
-
-    // Set default video to play automatically
-    const defaultVideo = document.querySelector('.default');
-    if (defaultVideo) {
-      defaultVideo.play().catch(e => console.log('Autoplay prevented:', e));
-    }
   });
-
-  function playVideo(videoId) {
-    const video = document.getElementById(videoId);
-    const defaultVideo = document.querySelector('.default');
-    
-    if (video && defaultVideo) {
-      defaultVideo.classList.remove('active');
-      video.classList.add('active');
-      video.play().catch(e => console.log('Play prevented:', e));
-    }
-  }
-
-  function pauseVideo(videoId) {
-    const video = document.getElementById(videoId);
-    const defaultVideo = document.querySelector('.default');
-    
-    if (video && defaultVideo) {
-      video.classList.remove('active');
-      defaultVideo.classList.add('active');
-      video.pause();
-      video.currentTime = 0;
-    }
-  }
+  });
 </script>
+
+{% schema %}
+  {
+    "name": "Craft Kitchen",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_title1",
+        "label": "Section Title",
+        "default": "Crafting"
+      },
+      {
+        "type": "text",
+        "id": "section_title2",
+        "label": "Section Title Color Part",
+        "default": "the Kitchen"
+      },
+      {
+        "type": "text",
+        "id": "explore_text",
+        "label": "Explore Button Text",
+        "default": "Explore Us"
+      },
+      {
+        "type": "url",
+        "id": "left_button_url",
+        "label": "Left Button URL"
+      }, {
+        "type": "url",
+        "id": "right_button_url",
+        "label": "Right Button URL"
+      }, {
+        "type": "text",
+        "id": "shop_text",
+        "label": "Shop Button Text",
+        "default": "Shop Now"
+      }, {
+        "type": "video",
+        "id": "left_video",
+        "label": "Left Video"
+      }, {
+        "type": "video",
+        "id": "right_video",
+        "label": "Right Video"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Craft Kitchen Section",
+        "category": "Custom Sections"
+      }
+    ]
+  }
+{% endschema %}

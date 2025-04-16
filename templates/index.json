@@ -181,13 +181,11 @@
     "kitchen_section_XkrqxW": {
       "type": "kitchen-section",
       "settings": {
-        "title": "Crafting",
-        "highlight_title": "the Kitchen",
-        "default_video": "shopify://files/videos/Right_Click.mp4",
-        "explore_video": "shopify://files/videos/Left_Click.mp4",
-        "shop_video": "shopify://files/videos/Right_Click.mp4",
-        "explore_button_text": "Explore Us",
-        "shop_button_text": "Shop Now"
+        "heading": "Crafting The Kitchen",
+        "explore_text": "Explore Us",
+        "left_button_url": "",
+        "right_button_url": "",
+        "shop_text": "Shop Now"
       }
     }
   },
