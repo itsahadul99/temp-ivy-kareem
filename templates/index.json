@@ -11,7 +11,15 @@
   "sections": {
     "hero-section": {
       "type": "hero-section",
-      "settings": {}
+      "settings": {
+        "title_line1": "Top Kitchen and Bath Designers",
+        "title_line2": "in Orange Country",
+        "description": "We Turn Spaces Into Stories. From Modern Elegance To Cozy Charm, Our Designs Blend Style And Function To Create Interiors.",
+        "button_text": "Explore Us",
+        "button_link": "",
+        "menu": "",
+        "shop_button_link": ""
+      }
     },
     "our_services_mWyPmG": {
       "type": "our-services",
@@ -70,40 +78,40 @@
         "text_gap": 4
       }
     },
-    "gallery_g44taC": {
-      "type": "gallery",
+    "home_gallery_XNFdUr": {
+      "type": "home-gallery",
       "blocks": {
-        "gallery_item_HnKTYb": {
+        "gallery_item_QRxMhn": {
           "type": "gallery_item",
           "settings": {
-            "image": "shopify://shop_images/gallaryImg1.png",
-            "text": "Gallery Item Description",
+            "image": "shopify://shop_images/Header_bg.jpg",
+            "text": "Item 1",
             "button_text": "Explore Now",
             "button_url": ""
           }
         },
-        "gallery_item_RqmWfT": {
+        "gallery_item_DXDdVU": {
           "type": "gallery_item",
           "settings": {
-            "image": "shopify://shop_images/Cabinetry.png",
-            "text": "Gallery Item Description",
+            "image": "shopify://shop_images/Illume_Catalina_Como_Ash_2_Venetian_Antracita.png",
+            "text": "Item 2",
             "button_text": "Explore Now",
             "button_url": ""
           }
         },
-        "gallery_item_8YyFbe": {
+        "gallery_item_Dq9TWM": {
           "type": "gallery_item",
           "settings": {
-            "image": "shopify://shop_images/Cabinetry.png",
-            "text": "Gallery Item Description",
+            "image": "shopify://shop_images/home-design_2.png",
+            "text": "Item 3",
             "button_text": "Explore Now",
             "button_url": ""
           }
         },
-        "gallery_item_BngGNU": {
+        "gallery_item_3gQJW3": {
           "type": "gallery_item",
           "settings": {
-            "image": "shopify://shop_images/Cabinetry.png",
+            "image": "shopify://shop_images/Header_bg.jpg",
             "text": "Gallery Item Description",
             "button_text": "Explore Now",
             "button_url": ""
@@ -111,15 +119,16 @@
         }
       },
       "block_order": [
-        "gallery_item_HnKTYb",
-        "gallery_item_RqmWfT",
-        "gallery_item_8YyFbe",
-        "gallery_item_BngGNU"
+        "gallery_item_QRxMhn",
+        "gallery_item_DXDdVU",
+        "gallery_item_Dq9TWM",
+        "gallery_item_3gQJW3"
       ],
+      "name": "Home Gallery Section",
       "settings": {
         "section_title1": "Our",
         "section_title2": "Work Gallery",
-        "see_more_text": "See Full Gallery",
+        "see_more_text": "Work Gallery",
         "see_more_url": ""
       }
     },
@@ -181,18 +190,20 @@
     "kitchen_section_XkrqxW": {
       "type": "kitchen-section",
       "settings": {
-        "heading": "Crafting The Kitchen",
+        "section_title1": "Crafting",
+        "section_title2": "the Kitchen",
         "explore_text": "Explore Us",
         "left_button_url": "",
         "right_button_url": "",
-        "shop_text": "Shop Now"
+        "shop_text": "Shop Now",
+        "video_width": 900
       }
     }
   },
   "order": [
     "hero-section",
     "our_services_mWyPmG",
-    "gallery_g44taC",
+    "home_gallery_XNFdUr",
     "artistry_action_cEtgX4",
     "kitchen_section_XkrqxW"
   ]

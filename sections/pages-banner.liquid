@@ -1,0 +1,141 @@
+<style>
+  .section-container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  /* Banner section style */
+  .pages-banner-section {
+    {% if section.settings.pages_background_image %}
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%)
+      , url('{{ section.settings.pages_background_image | img_url: 'master' }}') lightgray 50% / cover no-repeat;
+    {% else %}
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%)
+      , url('{{'pagesBanner.png' | asset_url}}') lightgray 50% / cover no-repeat;
+    {% endif %}
+    height: 621px;
+    display: flex;
+    justify-content: start;
+    align-items: end;
+  }
+
+  .banner-content-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 180px;
+    padding: 0 106px 134px 107px;
+  }
+
+  .pages-banner-title {
+    color: var(--6-ca-082, #6CA082);
+    font-size: 42px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: normal;
+  }
+  /* Responsive Styles */
+  @media (max-width: 1200px) {
+
+    .banner-content-container {
+      gap: 100px;
+      padding: 0 60px 100px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .pages-banner-section {
+      height: 500px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .pages-banner-section {
+      height: 400px;
+    }
+
+    .banner-content-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      padding: 0 30px 60px;
+    }
+
+    .pages-banner-title {
+      font-size: 32px;
+    }
+
+  }
+
+  @media (max-width: 480px) {
+    .pages-banner-section {
+      height: 300px;
+    }
+    .banner-content-container {
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px 40px;
+      gap: 0;
+    }
+    .pages-banner-logo {
+      width: 150px;
+      height: 120px;
+      object-fit: contain;
+    }
+
+    .pages-banner-title {
+      font-size: 24px;
+    }
+  }
+</style>
+<section class="pages-banner-section section-container">
+  <div class="banner-content-container">
+    {% if section.settings.pages_banner_logo %}
+      <img
+        class="pages-banner-logo"
+        src="{{ section.settings.pages_banner_logo | image_url }}"
+        alt="pages-banner-logo">
+    {% else %}
+      <img
+        class="pages-banner-logo"
+        src="{{ 'bannerLogo.png' |  asset_url}}"
+        alt="pages-banner-logo">
+    {% endif %}
+    <div class="pages-banner-title">
+      <h1>{{ section.settings.pages_banner_title }}</h1>
+      <h1 style="color: #FFF;">{{ section.settings.pages_banner_title2 }}</h1>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Pages Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "pages_background_image",
+        "label": "Banner Background Image"
+      }, {
+        "type": "image_picker",
+        "id": "pages_banner_logo",
+        "label": "Banner Logo"
+      }, {
+        "type": "text",
+        "id": "pages_banner_title",
+        "label": "Banner Title",
+        "default": "Top Kitchen and Bath Designers"
+      }, {
+        "type": "text",
+        "id": "pages_banner_title2",
+        "label": "Banner Second Title",
+        "default": "in Orange County"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Pages Banner",
+        "category": "Custom Sections"
+      }
+    ]
+  }
+{% endschema %}

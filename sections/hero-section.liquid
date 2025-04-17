@@ -1,225 +1,287 @@
-{% comment %} 
-    <div class="justify-items-center mb-[100px]">
-      <div class="w-[1107px] h-[294px] flex gap-4 px-15 mt-[297px]">
-        <!-- Image -->
-        <div class="w-[539px] justify-items-center mr-[180px]">
-        
-          {% comment %} <img 
-            src="{{ section.settings.hero_image | section.settings.hero_image | asset_url }}" 
-            alt="{{ section.settings.hero_image_alt_text }}" 
-            height="190" 
-            width="359" /> {% endcomment %}
-            
-            <img 
-              src="{{ section.settings.hero_image | asset_url }}" 
-              alt="{{ section.settings.hero_image_alt_text }}" 
-              height="190" 
-              width="359" />
+{% schema %}
+  {
+    "name": "Animated Hero Banner",
+    "tag": "section",
+    "settings": [
+
+      {
+        "type": "image_picker",
+        "id": "hero_image",
+        "label": "Hero Logo",
+        "info": "Recommended size: 359x190px"
+      },
+      {
+        "type": "text",
+        "id": "title_line1",
+        "label": "Title Line 1",
+        "default": "Top Kitchen and Bath Designers"
+      },
+      {
+        "type": "text",
+        "id": "title_line2",
+        "label": "Title Line 2",
+        "default": "in Orange Country"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description",
+        "default": "We Turn Spaces Into Stories. From Modern Elegance To Cozy Charm, Our Designs Blend Style And Function To Create Interiors."
+      }, {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text",
+        "default": "Explore Us"
+      }, {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      }, {
+        "type": "image_picker",
+        "id": "background_image1",
+        "label": "Main Background Image",
+        "info": "Desktop background image"
+      }, {
+        "type": "image_picker",
+        "id": "background_image2",
+        "label": "Secondary Background Image",
+        "info": "Desktop background image for animation"
+      }, {
+        "type": "image_picker",
+        "id": "tablet_background1",
+        "label": "Tablet Background Image 1"
+      }, {
+        "type": "image_picker",
+        "id": "tablet_background2",
+        "label": "Tablet Background Image 2"
+      }, {
+        "type": "header",
+        "content": "Navigation Settings"
+      }, {
+        "type": "link_list",
+        "id": "menu",
+        "label": "Select Menu",
+        "info": "Choose which menu to display"
+      }, {
+        "type": "url",
+        "id": "shop_button_link",
+        "label": "Shop Button Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero Section",
+        "category": "Custom Sections"
+      }
+    ]
+  }
+{% endschema %}
+
+<style>
+  /* Animation Styles */
+  #background-container {
+    {% if section.settings.background_image1 %}
+      background-image: url('{{ section.settings.background_image1 | img_url: 'master' }}');
+    {% else %}
+      background-image: url('{{ 'Header_bg.png' | asset_url }}');
+    {% endif %}
+    background-size: cover;
+    background-position: center;
+    height: 750px;
+    position: relative;
+    animation: backgroundChange 5s infinite;
+  }
+
+  .animate-expand {
+    position: absolute;
+    width: 2px;
+    background-color: #6CA082;
+    min-height: 40px;
+    overflow: hidden;
+    animation: expandHeight 1s ease-in-out forwards;
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .display-hidden {
+      display: none;
+    }
+  }
+  @media(max-width: 425px) {
+    .desk-nav {
+      display: none;
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    #background-container {
+      height: 1194px;
+      {% if section.settings.tablet_background1 %}
+        background-image: url('{{ section.settings.tablet_background1 | img_url: 'master' }}');
+      {% else %}
+        background-image: url('{{ 'Header_bg_tablet.png' | asset_url }}');
+      {% endif %}
+      position: relative;
+    }
+
+    .tab-class {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      bottom: 270px;
+      width: 100%;
+    }
+
+    .tab-bg-title {
+      display: block !important;
+    }
+    .tab-bg-des {
+      display: block !important;
+    }
+  }
+
+  /* Animation Keyframes */
+  @keyframes expandHeight {
+    0% {
+      height: 0;
+      bottom: 0;
+      left: 47%;
+    }
+    100% {
+      height: 45%;
+      bottom: 0;
+      left: 47%;
+    }
+  }
+
+  @keyframes backgroundChange {
+    0% {
+      {% if section.settings.background_image1 %}
+        background-image: url('{{ section.settings.background_image1 | img_url: 'master' }}');
+      {% else %}
+        background-image: url('{{ 'Header_bg.png' | asset_url }}');
+      {% endif %}
+    }
+    50% {
+      {% if section.settings.background_image2 %}
+        background-image: url('{{ section.settings.background_image2 | img_url: 'master' }}');
+      {% else %}
+        background-image: url('{{ 'Header_bg2.png' | asset_url }}');
+      {% endif %}
+    }
+    100% {
+      {% if section.settings.background_image1 %}
+        background-image: url('{{ section.settings.background_image1 | img_url: 'master' }}');
+      {% else %}
+        background-image: url('{{ 'Header_bg.png' | asset_url }}');
+      {% endif %}
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1023px) {
+  @keyframes backgroundChange {
+    0% {
+      {% if section.settings.tablet_background1 %}
+        background-image: url('{{ section.settings.tablet_background1 | img_url: 'master' }}');
+      {% else %}
+        background-image: url('{{ 'Header_bg_tablet.png' | asset_url }}');
+      {% endif %}
+    }
+    50% {
+      {% if section.settings.tablet_background2 %}
+        background-image: url('{{ section.settings.tablet_background2 | img_url: 'master' }}');
+      {% else %}
+        background-image: url('{{ 'Header_bg2_tablet.png' | asset_url }}');
+      {% endif %}
+    }
+    100% {
+      {% if section.settings.tablet_background1 %}
+        background-image: url('{{ section.settings.tablet_background1 | img_url: 'master' }}');
+      {% else %}
+        background-image: url('{{ 'Header_bg_tablet.png' | asset_url }}');
+      {% endif %}
+    }
+  }
+}
+</style>
+
+<div class="min-h-screen w-full">
+  <div id="background-container" class="relative h-[750px] bg-cover bg-center relative">
+    <!-- Hero Content -->
+    <div class="tab-class lg:ms-[200px] justify-items-center">
+      <div class="pt-[100px] h-[294px] lg:flex gap-4 px-10 2xl:ml-[100px] lg:pt-[280px] xl:pt-[400px]">
+        <div class="xl:w-[539px] display-hidden justify-items-center lg:mr-[180px]">
+          {% if section.settings.hero_image %}
+            <img
+              src="{{ section.settings.hero_image  | img_url: 'master'}}"
+              alt="{{ section.settings.hero_image.alt | escape }}"
+              loading="lazy"
+              width="359"
+              height="190">
+          {% else %}
+            <img
+              src="{{ 'IVYKAREEM.png' | asset_url }}"
+              alt="Hero Logo Img"
+              loading="lazy"
+              width="359"
+              height="190">
+          {% endif %}
         </div>
-  
-        <!-- Text Content -->
-        <div class="w-full">
-          <p class="text-[#6CA082] text-[6vw] md:text-[42px] font-bold italic" style="font-family: 'Minion Pro'">
-            {{ section.settings.hero_title }}
+
+        <div class="w-[2px] display-hidden bg-white h-0 animate-expand"></div>
+
+        <div class="lg:w-full pl-0 lg:pr-12">
+          <!-- Title Variations -->
+          <p class="text-[#6CA082] display-hidden text-[42px] text-center md:text-left font-bold italic break-words" style="font-family: 'Minion Pro'">
+            {{ section.settings.title_line1 }}
           </p>
-          <p class="text-white text-[6vw] md:text-[42px] font-bold" style="font-family: 'Minion Pro'; font-weight: 700;">
-            {{ section.settings.hero_subtitle }}
+          <p class="text-[#6CA082] md:hidden text-[42px] text-center lg:text-left font-bold italic break-words md:whitespace-nowrap" style="font-family: 'Minion Pro'">
+            {{ section.settings.title_line1 | replace: ' and ', '<br>' }}
           </p>
-          <p class="w-full md:w-[568px] text-[4vw] md:text-[24px] text-white" style="font-family: Roboto; line-height: 1.5em; font-weight: 400;">
-            {{ section.settings.hero_description }}
+          <p class="text-[#6CA082] tab-bg-title hidden text-[42px] text-center lg:text-left font-bold italic break-words md:whitespace-nowrap" style="font-family: 'Minion Pro'">
+            {{ section.settings.title_line1 | replace: ' Bath ', ' Bath<br>' }}
           </p>
-  
-          <!-- Explore Us Button -->
-          <div class="mt-[30px] flex gap-[16px]">
-            <button class="w-[40px] h-[40px] text-white rounded-full flex items-center justify-center border-white border-2">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-              </svg>
-            </button>
-            <p class="text-white text-[28px]" style="font-family: 'Minion Pro'">{{ section.settings.explore_text }}</p>
+
+          <p class="text-white text-[42px] font-bold text-center lg:text-left lg:text-nowrap" style="font-family: 'Minion Pro'; font-weight: 700;">
+            {{ section.settings.title_line2 }}
+          </p>
+
+          <!-- Description Variations -->
+          <p class="w-full display-hidden max-w-[700px] text-[23px] text-white pr-1" style="font-family: Roboto; line-height: 1.5em; font-weight: 400;">
+            {{ section.settings.description }}
+          </p>
+          <p class="w-full tab-bg-des hidden max-w-[568px] text-2xl text-white text-center mx-auto mt-3" style="font-family: Roboto; line-height: 1.5em; font-weight: 400;">
+            {{ section.settings.description | replace: '. ', '.<br>' }}
+          </p>
+          <p class="w-full md:hidden max-w-[568px] text-2xl text-white text-center mx-auto" style="font-family: Roboto; line-height: 1.5em; font-weight: 400;">
+            {{ section.settings.description | escape }}
+          </p>
+
+          <!-- CTA Button -->
+          <div class="mt-[30px]">
+            <a href="{{ section.settings.button_link }}" class="flex justify-center lg:justify-start gap-[16px] group hover:italic cursor-pointer">
+              <button class="w-[40px] h-[40px] text-white rounded-full flex items-center justify-center border-white border-2 transition-all duration-500 ease-in-out group-hover:text-white group-hover:bg-[#6CA082] group-hover:border-[#6CA082]">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-4 h-4">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+              </button>
+              <p class="text-white text-[28px] transition-all duration-500 ease-in-out group-hover:text-[#6CA082]" style="font-family: 'Minion Pro'">
+                {{ section.settings.button_text }}
+              </p>
+            </a>
           </div>
         </div>
       </div>
     </div>
-  
-{% schema %}
-{
-  "name": "Hero Section",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "background_image",
-      "label": "Background Image",
-      "default": "hero-default-bg.jpg"
-    },
-    {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "Logo",
-      "default": "default-logo.png"
-    },
-    {
-      "type": "text",
-      "id": "logo_alt_text",
-      "label": "Logo Alt Text",
-      "default": "Company Logo"
-    },
-    {
-      "type": "text",
-      "id": "shop_button_text",
-      "label": "Shop Button Text",
-      "default": "Shop Now"
-    },
-    {
-      "type": "url",
-      "id": "shop_button_url",
-      "label": "Shop Button URL",
-      "default": "#"
-    },
-    {
-      "type": "image_picker",
-      "id": "hero_image",
-      "label": "Hero Image",
-       "default": "IVYKAREEM.png"
-    },
-    {
-      "type": "text",
-      "id": "hero_image_alt_text",
-      "label": "Hero Image Alt Text",
-      "default": "Default Hero Image"
-    },
-    {
-      "type": "text",
-      "id": "hero_title",
-      "label": "Hero Title",
-      "default": "Top Kitchen and Bath Designers"
-    },
-    {
-      "type": "text",
-      "id": "hero_subtitle",
-      "label": "Hero Subtitle",
-      "default": "In Orange County"
-    },
-    {
-      "type": "text",
-      "id": "hero_description",
-      "label": "Hero Description",
-      "default": "We Turn Spaces Into Stories. From Modern Elegance To Cozy Charm, Our Designs Blend Style And Function To Create Interiors."
-    },
-    {
-      "type": "text",
-      "id": "explore_text",
-      "label": "Explore Us Text",
-      "default": "Explore Us"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "link",
-      "name": "Navigation Link",
-      "settings": [
-        {
-          "type": "text",
-          "id": "link_text",
-          "label": "Link Text",
-          "default": "Home"
-        },
-        {
-          "type": "url",
-          "id": "link_url",
-          "label": "Link URL",
-          "default": "/"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Hero Section",
-    }
-  ]
-}
-{% endschema %}
-
-  
-
-
-{% comment %} <div
-    class="hero-section"
-    style="
-      background-image: url(
-   =
-         {{ section.settings.banner_image | image_url  }}
-
-        );
-    "
->
-<h1>hello </h1>
-
-
-<img
-    src="{{ section.settings.banner_image | image_url }}"
-    class="article-image"
-    alt="Article Image"
-    height="100%"
-    width="100%"
-  >
+  </div>
 </div>
-
-
-
-
-{% schema %}
-{
-  "name": "Hero section",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "banner_image",
-      "label": "Banner Image"
-    },
-    {
-      "type": "text",
-      "id": "banner_title",
-      "label": "Banner Title",
-      "default": "Banner Title"
-    },
-    {
-      "type": "text",
-      "id": "banner_subtitle",
-      "label": "Banner Subtitle",
-      "default": "Banner Subtitle"
-    },
-    {
-      "type": "text",
-      "id": "section_text_under_button",
-      "default": "Banner Subtitle",
-      "label": "Section Text Under Button"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "button",
-      "name": "Button",
-      "limit": 2,
-      "settings": [
-        {
-          "type": "text",
-          "id": "button_label",
-          "label": "Button label"
-        },
-        {
-          "type": "url",
-          "id": "button_url",
-          "label": "Button Link"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Promo Banner"
-    }
-  ]
-}
-{% endschema %} {% endcomment %} {% endcomment %}
