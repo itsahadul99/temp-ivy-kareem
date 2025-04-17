@@ -87,9 +87,10 @@
     {% endif %}
     background-size: cover;
     background-position: center;
-    height: 750px;
+    height: 100vh;
+    min-height: 750px;
     position: relative;
-    animation: backgroundChange 5s infinite;
+    animation: backgroundChange 10s infinite;
   }
 
   .animate-expand {
@@ -99,126 +100,111 @@
     min-height: 40px;
     overflow: hidden;
     animation: expandHeight 1s ease-in-out forwards;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .display-hidden {
-      display: none;
-    }
-  }
-  @media(max-width: 425px) {
-    .desk-nav {
-      display: none;
-    }
-  }
-  @media (min-width: 768px) and (max-width: 1023px) {
+  /* Responsive Adjustments */
+  @media (max-width: 1024px) {
     #background-container {
-      height: 1194px;
       {% if section.settings.tablet_background1 %}
         background-image: url('{{ section.settings.tablet_background1 | img_url: 'master' }}');
-      {% else %}
-        background-image: url('{{ 'Header_bg_tablet.png' | asset_url }}');
       {% endif %}
-      position: relative;
+      height: 100vh;
+      min-height: 600px;
     }
 
     .tab-class {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      bottom: 270px;
-      width: 100%;
-    }
-
-    .tab-bg-title {
-      display: block !important;
-    }
-    .tab-bg-des {
-      display: block !important;
+      bottom: 20vh;
     }
   }
 
-  /* Animation Keyframes */
-  @keyframes expandHeight {
-    0% {
-      height: 0;
-      bottom: 0;
-      left: 47%;
+  @media (max-width: 768px) {
+    #background-container {
+      background-position: 65% center;
     }
-    100% {
+
+    .hero-logo {
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    .title-line {
+      font-size: 32px !important;
+      text-align: center !important;
+    }
+
+    .description-text {
+      font-size: 18px !important;
+      padding: 0 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #background-container {
+      {% if section.settings.mobile_background %}
+        background-image: url('{{ section.settings.mobile_background | img_url: 'master' }}');
+      {% endif %}
+      min-height: 642px;
+    }
+
+    .title-line {
+      font-size: 28px !important;
+    }
+  }
+
+  /* Animation Fixes */
+  @keyframes expandHeight {
+    to {
       height: 45%;
       bottom: 0;
-      left: 47%;
     }
   }
 
   @keyframes backgroundChange {
-    0% {
+    0,
+    100% {
       {% if section.settings.background_image1 %}
         background-image: url('{{ section.settings.background_image1 | img_url: 'master' }}');
-      {% else %}
-        background-image: url('{{ 'Header_bg.png' | asset_url }}');
       {% endif %}
     }
     50% {
       {% if section.settings.background_image2 %}
         background-image: url('{{ section.settings.background_image2 | img_url: 'master' }}');
-      {% else %}
-        background-image: url('{{ 'Header_bg2.png' | asset_url }}');
-      {% endif %}
-    }
-    100% {
-      {% if section.settings.background_image1 %}
-        background-image: url('{{ section.settings.background_image1 | img_url: 'master' }}');
-      {% else %}
-        background-image: url('{{ 'Header_bg.png' | asset_url }}');
       {% endif %}
     }
   }
 
-  @media (min-width: 769px) and (max-width: 1023px) {
+  @media (max-width: 1024px) {
   @keyframes backgroundChange {
-    0% {
+    0,
+    100% {
       {% if section.settings.tablet_background1 %}
         background-image: url('{{ section.settings.tablet_background1 | img_url: 'master' }}');
-      {% else %}
-        background-image: url('{{ 'Header_bg_tablet.png' | asset_url }}');
       {% endif %}
     }
     50% {
       {% if section.settings.tablet_background2 %}
         background-image: url('{{ section.settings.tablet_background2 | img_url: 'master' }}');
-      {% else %}
-        background-image: url('{{ 'Header_bg2_tablet.png' | asset_url }}');
-      {% endif %}
-    }
-    100% {
-      {% if section.settings.tablet_background1 %}
-        background-image: url('{{ section.settings.tablet_background1 | img_url: 'master' }}');
-      {% else %}
-        background-image: url('{{ 'Header_bg_tablet.png' | asset_url }}');
       {% endif %}
     }
   }
 }
 </style>
 
-<div class="min-h-screen w-full">
-  <div id="background-container" class="relative h-[750px] bg-cover bg-center relative">
-    <!-- Hero Content -->
-    <div class="tab-class lg:ms-[200px] justify-items-center">
-      <div class="pt-[100px] h-[294px] lg:flex gap-4 px-10 2xl:ml-[100px] lg:pt-[280px] xl:pt-[400px]">
-        <div class="xl:w-[539px] display-hidden justify-items-center lg:mr-[180px]">
+<div class="relative w-full overflow-hidden">
+  <div id="background-container" class="flex items-center justify-center">
+    <div class="max-w-screen-xl w-full px-4 lg:px-8 mx-auto">
+      <div class="relative pt-24 lg:pt-[250px] xl:pt-[300px] flex flex-col lg:flex-row items-center gap-8">
+        <!-- Hero Logo -->
+        <div class="hero-logo lg:w-1/2 flex justify-center">
           {% if section.settings.hero_image %}
             <img
-              src="{{ section.settings.hero_image  | img_url: 'master'}}"
-              alt="{{ section.settings.hero_image.alt | escape }}"
-              loading="lazy"
-              width="359"
-              height="190">
+              src="{{ section.settings.hero_image | img_url: 'master' }}"
+              alt="{{ section.settings.hero_image.alt }}"
+              class="w-full max-w-[359px] h-auto"
+              loading="lazy">
+
           {% else %}
             <img
               src="{{ 'IVYKAREEM.png' | asset_url }}"
@@ -229,57 +215,40 @@
           {% endif %}
         </div>
 
-        <div class="w-[2px] display-hidden bg-white h-0 animate-expand"></div>
+        <!-- Vertical Line Animation -->
+        <div class="animate-expand hidden lg:block"></div>
 
-        <div class="lg:w-full pl-0 lg:pr-12">
-          <!-- Title Variations -->
-          <p class="text-[#6CA082] display-hidden text-[42px] text-center md:text-left font-bold italic break-words" style="font-family: 'Minion Pro'">
-            {{ section.settings.title_line1 }}
-          </p>
-          <p class="text-[#6CA082] md:hidden text-[42px] text-center lg:text-left font-bold italic break-words md:whitespace-nowrap" style="font-family: 'Minion Pro'">
-            {{ section.settings.title_line1 | replace: ' and ', '<br>' }}
-          </p>
-          <p class="text-[#6CA082] tab-bg-title hidden text-[42px] text-center lg:text-left font-bold italic break-words md:whitespace-nowrap" style="font-family: 'Minion Pro'">
-            {{ section.settings.title_line1 | replace: ' Bath ', ' Bath<br>' }}
-          </p>
+        <!-- Text Content -->
+        <div class="lg:w-1/2 text-center lg:text-left">
+          <h1 class="title-line mb-4 text-4xl lg:text-5xl font-semibold italic text-[#6CA082]">
+            {{ section.settings.title_line1 }}<br>
+            <span class="text-white mt-2 block" style="font-style: normal;">{{ section.settings.title_line2 }}</span>
+          </h1>
 
-          <p class="text-white text-[42px] font-bold text-center lg:text-left lg:text-nowrap" style="font-family: 'Minion Pro'; font-weight: 700;">
-            {{ section.settings.title_line2 }}
-          </p>
-
-          <!-- Description Variations -->
-          <p class="w-full display-hidden max-w-[700px] text-[23px] text-white pr-1" style="font-family: Roboto; line-height: 1.5em; font-weight: 400;">
+          <p class="description-text mb-8 text-white text-lg lg:text-xl">
             {{ section.settings.description }}
-          </p>
-          <p class="w-full tab-bg-des hidden max-w-[568px] text-2xl text-white text-center mx-auto mt-3" style="font-family: Roboto; line-height: 1.5em; font-weight: 400;">
-            {{ section.settings.description | replace: '. ', '.<br>' }}
-          </p>
-          <p class="w-full md:hidden max-w-[568px] text-2xl text-white text-center mx-auto" style="font-family: Roboto; line-height: 1.5em; font-weight: 400;">
-            {{ section.settings.description | escape }}
           </p>
 
           <!-- CTA Button -->
-          <div class="mt-[30px]">
-            <a href="{{ section.settings.button_link }}" class="flex justify-center lg:justify-start gap-[16px] group hover:italic cursor-pointer">
-              <button class="w-[40px] h-[40px] text-white rounded-full flex items-center justify-center border-white border-2 transition-all duration-500 ease-in-out group-hover:text-white group-hover:bg-[#6CA082] group-hover:border-[#6CA082]">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  class="w-4 h-4">
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 4.5v15m7.5-7.5h-15" />
-                </svg>
-              </button>
-              <p class="text-white text-[28px] transition-all duration-500 ease-in-out group-hover:text-[#6CA082]" style="font-family: 'Minion Pro'">
-                {{ section.settings.button_text }}
-              </p>
-            </a>
-          </div>
+          <a href="{{ section.settings.button_link }}" class="flex justify-center lg:justify-start gap-[16px] group hover:italic cursor-pointer">
+            <button class="w-[40px] h-[40px] text-white rounded-full flex items-center justify-center border-white border-2 transition-all duration-500 ease-in-out group-hover:text-white group-hover:bg-[#6CA082] group-hover:border-[#6CA082]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="w-4 h-4">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </button>
+            <p class="text-white text-[28px] transition-all duration-500 ease-in-out group-hover:text-[#6CA082]" style="font-family: 'Minion Pro'">
+              {{ section.settings.button_text }}
+            </p>
+          </a>
         </div>
       </div>
     </div>
