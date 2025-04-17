@@ -1,0 +1,268 @@
+<style>
+  .why-this-partner-section .section-container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .why-this-partner-section-title {
+    color: #000;
+    font-family: "Minion Pro";
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 160%;
+    /* 128px */
+    text-transform: capitalize;
+  }
+
+  .why-this-partner-section {
+    background-color: #F4F4F4;
+  }
+
+  .why-this-partner-content {
+    padding: 100px 150px;
+  }
+
+  .why-this-partner-card {
+    display: flex;
+    padding: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    border: 1px solid #BDA87F;
+    height: 308px;
+    box-sizing: border-box;
+    /* Added for proper sizing */
+  }
+
+  .why-this-partner-card-title {
+    color: #252531;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .why-this-partner-card-des {
+    color: rgba(0, 0, 0, 0.60);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+  }
+
+  .why-this-partner-card-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(285px, 1fr));
+    gap: 16px;
+    align-self: stretch;
+    margin-top: 64px;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 1200px) {
+    .why-this-partner-content {
+      padding: 80px 100px;
+    }
+    .why-this-partner-card-container {
+      grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+    }
+    .why-this-partner-card {
+      height: auto;
+      /* Make height flexible */
+      min-height: 280px;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .why-this-partner-content {
+      padding: 60px 50px;
+    }
+
+    .why-this-partner-section-title {
+      font-size: 48px;
+    }
+
+    .why-this-partner-card-container {
+      flex-wrap: wrap;
+      /* Allow cards to wrap */
+    }
+
+    .why-this-partner-card {
+      flex: 1 1 calc(50% - 8px);
+      /* Two cards per row */
+      min-width: 0;
+      /* Fix flexbox overflow issue */
+    }
+
+    .why-this-partner-card-title {
+      font-size: 28px;
+    }
+
+    .why-this-partner-card-des {
+      font-size: 16px;
+      line-height: 28px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .why-this-partner-content {
+      padding: 50px 30px;
+    }
+
+    .why-this-partner-section-title {
+      font-size: 48px;
+    }
+
+    .why-this-partner-card-container {
+      margin-top: 40px;
+      gap: 12px;
+    }
+
+    .why-this-partner-card {
+      padding: 20px;
+      min-height: 240px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .why-this-partner-content {
+      padding: 40px 20px;
+    }
+
+    .why-this-partner-section-title {
+      font-size: 42px;
+    }
+
+    .why-this-partner-card-container {
+      flex-direction: column;
+      /* Stack cards vertically */
+    }
+
+    .why-this-partner-card {
+      width: 100%;
+      flex: none;
+    }
+
+    .why-this-partner-card-title {
+      font-size: 24px;
+    }
+
+    .why-this-partner-card-des {
+      font-size: 15px;
+      line-height: 26px;
+    }
+  }
+</style>
+<section class="why-this-partner-section">
+  <div class="why-this-partner-content section-container">
+    <div>
+      <h1 class="why-this-partner-section-title">
+        {{ section.settings.title_part1 }}
+        <span style="color: {{ section.settings.colored_text_color }}; font-style: italic;">
+          {{ section.settings.title_part2 }}
+        </span>
+      </h1>
+    </div>
+
+    <div class="why-this-partner-card-container">
+      {% for block in section.blocks %}
+        <div class="why-this-partner-card" {{ block.shopify_attributes }}>
+          {% if block.settings.icon %}
+            <img
+              src="{{ block.settings.icon | img_url: '100x' }}"
+              alt="{{ block.settings.title | escape }}"
+              loading="lazy"
+              width="100"
+              height="100"
+              class="partner-card-icon">
+          {% else %}
+            <img src="{{'cross-browser.png' |  asset_url}}" alt="">
+          {% endif %}
+          <h3 class="why-this-partner-card-title">{{ block.settings.title }}</h3>
+          <p class="why-this-partner-card-des">{{ block.settings.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Why These Partners",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title_part1",
+        "label": "Title Part 1",
+        "default": "Why These"
+      }, {
+        "type": "text",
+        "id": "title_part2",
+        "label": "Title Part 2 (Colored)",
+        "default": "Partners?"
+      }, {
+        "type": "color",
+        "id": "colored_text_color",
+        "label": "Accent Color",
+        "default": "#6CA082"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "partner_card",
+        "name": "Partner Card",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Card Icon"
+          }, {
+            "type": "text",
+            "id": "title",
+            "label": "Card Title",
+            "default": "Feature Title"
+          }, {
+            "type": "textarea",
+            "id": "description",
+            "label": "Card Description",
+            "default": "Feature description text goes here."
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Why These Partners",
+        "category": "Custom",
+        "blocks": [
+          {
+            "type": "partner_card",
+            "settings": {
+              "title": "Proven Quality",
+              "description": "Each partner has a long-standing reputation for excellence."
+            }
+          }, {
+            "type": "partner_card",
+            "settings": {
+              "title": "Design Compatibility",
+              "description": "Their product aesthetics align with our luxury design philosophy."
+            }
+          }, {
+            "type": "partner_card",
+            "settings": {
+              "title": "Client Satisfaction",
+              "description": "Trusted by thousands of homeowners and builders nationwide."
+            }
+          }, {
+            "type": "partner_card",
+            "settings": {
+              "title": "Sustainability Commitment",
+              "description": "Many of our partners prioritize eco-conscious manufacturing."
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
