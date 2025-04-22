@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabuwood Info page</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Why trust fabuwood */
+    .why-trust-fabuwood-section-title {
+        color: #000;
+        font-size: 64px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    .why-trust-fabuwood-section {
+        background: rgba(157, 184, 168, 0.14);
+    }
+
+    .why-trust-fabuwood-content {
+        padding: 100px 150px;
+    }
+
+    .why-trust-fabuwood-flex-container {
+        display: flex;
+        align-items: center;
+        gap: 64px;
+        margin-top: 64px;
+        width: 100%;
+    }
+
+    .why-trust-fabuwood-flex-img {
+        width: 538px;
+        height: 307px;
+    }
+
+    .why-trust-fabuwood-point-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .why-trust-fabuwood-point {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .why-trust-fabuwood-point p {
+        color: rgba(0, 0, 0, 0.60);
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+    }
+
+    /* Downloads section  */
+    .download-section-flex-container {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        margin-top: 64px;
+        width: 100%;
+    }
+
+    /* Style for Laptop */
+    @media (max-width: 1024px) {
+
+
+        .why-trust-fabuwood-content {
+            padding: 70px 100px;
+        }
+
+        .why-trust-fabuwood-flex-img {
+            width: 450px;
+        }
+    }
+
+    /* Style for tablet */
+
+    @media (max-width: 768px) {
+
+        /* Why choose financing */
+        .why-trust-fabuwood-content {
+            padding: 40px 32px;
+        }
+
+        .why-trust-fabuwood-section-title {
+            font-size: 48px;
+            line-height: 100%;
+        }
+
+        .why-trust-fabuwood-flex-container {
+            gap: 24px;
+        }
+
+        .why-trust-fabuwood-flex-img {
+            width: 373px;
+            height: 312px;
+        }
+    }
+
+    /* Style for mobile/small device */
+    @media(max-width: 425px) {
+
+        /* Why choose financing */
+        .why-trust-fabuwood-content {
+            padding: 32px 20px;
+        }
+
+        .why-trust-fabuwood-section-title {
+            font-size: 42px;
+            line-height: 100%;
+        }
+
+        .why-trust-fabuwood-flex-container {
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .why-trust-fabuwood-flex-img {
+            width: 100%;
+        }
+    }
+</style>
+
+<body>
+    <section class="why-trust-fabuwood-section">
+        <div class="why-trust-fabuwood-content why-trust-fabuwood-section-container">
+            <div>
+                <h1 class="why-trust-fabuwood-section-title">Why We Trust<span
+                        style="color: #6CA082; font-style: italic;">Fabuwood</span>
+                </h1>
+            </div>
+            <div class="why-trust-fabuwood-flex-container">
+                <div>
+                    <img class="why-trust-fabuwood-flex-img" src="./image/trustImg.png" alt="">
+                </div>
+                <div class="why-trust-fabuwood-point-container">
+                    <div class="why-trust-fabuwood-point">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                            <g clip-path="url(#clip0_105_1635)">
+                                <path
+                                    d="M10 0.714233C8.02219 0.714233 6.08879 1.30072 4.4443 2.39954C2.79981 3.49835 1.51809 5.06014 0.761209 6.8874C0.00433284 8.71466 -0.193701 10.7253 0.192152 12.6651C0.578004 14.6049 1.53041 16.3868 2.92894 17.7853C4.32746 19.1838 6.10929 20.1362 8.0491 20.5221C9.98891 20.9079 11.9996 20.7099 13.8268 19.953C15.6541 19.1962 17.2159 17.9144 18.3147 16.2699C19.4135 14.6254 20 12.692 20 10.7142C20 8.06207 18.9464 5.51853 17.0711 3.64317C15.1957 1.7678 12.6522 0.714233 10 0.714233ZM14.78 8.41423L9.11 14.0842C8.96938 14.2247 8.77876 14.3036 8.58 14.3036C8.38125 14.3036 8.19063 14.2247 8.05 14.0842L5.22 11.2542C5.08752 11.1121 5.0154 10.924 5.01883 10.7297C5.02226 10.5354 5.10097 10.35 5.23838 10.2126C5.3758 10.0752 5.56118 9.99649 5.75548 9.99306C5.94978 9.98963 6.13783 10.0618 6.28 10.1942L8.58 12.4942L13.72 7.35423C13.8622 7.22175 14.0502 7.14963 14.2445 7.15306C14.4388 7.15649 14.6242 7.2352 14.7616 7.37261C14.899 7.51002 14.9778 7.69541 14.9812 7.88971C14.9846 8.08401 14.9125 8.27206 14.78 8.41423Z"
+                                    fill="#6CA082" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_105_1635">
+                                    <rect width="20" height="20" fill="white" transform="translate(0 0.714233)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <p>No upfront large payments</p>
+                    </div>
+                    <div class="why-trust-fabuwood-point">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                            <g clip-path="url(#clip0_105_1635)">
+                                <path
+                                    d="M10 0.714233C8.02219 0.714233 6.08879 1.30072 4.4443 2.39954C2.79981 3.49835 1.51809 5.06014 0.761209 6.8874C0.00433284 8.71466 -0.193701 10.7253 0.192152 12.6651C0.578004 14.6049 1.53041 16.3868 2.92894 17.7853C4.32746 19.1838 6.10929 20.1362 8.0491 20.5221C9.98891 20.9079 11.9996 20.7099 13.8268 19.953C15.6541 19.1962 17.2159 17.9144 18.3147 16.2699C19.4135 14.6254 20 12.692 20 10.7142C20 8.06207 18.9464 5.51853 17.0711 3.64317C15.1957 1.7678 12.6522 0.714233 10 0.714233ZM14.78 8.41423L9.11 14.0842C8.96938 14.2247 8.77876 14.3036 8.58 14.3036C8.38125 14.3036 8.19063 14.2247 8.05 14.0842L5.22 11.2542C5.08752 11.1121 5.0154 10.924 5.01883 10.7297C5.02226 10.5354 5.10097 10.35 5.23838 10.2126C5.3758 10.0752 5.56118 9.99649 5.75548 9.99306C5.94978 9.98963 6.13783 10.0618 6.28 10.1942L8.58 12.4942L13.72 7.35423C13.8622 7.22175 14.0502 7.14963 14.2445 7.15306C14.4388 7.15649 14.6242 7.2352 14.7616 7.37261C14.899 7.51002 14.9778 7.69541 14.9812 7.88971C14.9846 8.08401 14.9125 8.27206 14.78 8.41423Z"
+                                    fill="#6CA082" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_105_1635">
+                                    <rect width="20" height="20" fill="white" transform="translate(0 0.714233)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <p>No upfront large payments</p>
+                    </div>
+                    <div class="why-trust-fabuwood-point">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                            <g clip-path="url(#clip0_105_1635)">
+                                <path
+                                    d="M10 0.714233C8.02219 0.714233 6.08879 1.30072 4.4443 2.39954C2.79981 3.49835 1.51809 5.06014 0.761209 6.8874C0.00433284 8.71466 -0.193701 10.7253 0.192152 12.6651C0.578004 14.6049 1.53041 16.3868 2.92894 17.7853C4.32746 19.1838 6.10929 20.1362 8.0491 20.5221C9.98891 20.9079 11.9996 20.7099 13.8268 19.953C15.6541 19.1962 17.2159 17.9144 18.3147 16.2699C19.4135 14.6254 20 12.692 20 10.7142C20 8.06207 18.9464 5.51853 17.0711 3.64317C15.1957 1.7678 12.6522 0.714233 10 0.714233ZM14.78 8.41423L9.11 14.0842C8.96938 14.2247 8.77876 14.3036 8.58 14.3036C8.38125 14.3036 8.19063 14.2247 8.05 14.0842L5.22 11.2542C5.08752 11.1121 5.0154 10.924 5.01883 10.7297C5.02226 10.5354 5.10097 10.35 5.23838 10.2126C5.3758 10.0752 5.56118 9.99649 5.75548 9.99306C5.94978 9.98963 6.13783 10.0618 6.28 10.1942L8.58 12.4942L13.72 7.35423C13.8622 7.22175 14.0502 7.14963 14.2445 7.15306C14.4388 7.15649 14.6242 7.2352 14.7616 7.37261C14.899 7.51002 14.9778 7.69541 14.9812 7.88971C14.9846 8.08401 14.9125 8.27206 14.78 8.41423Z"
+                                    fill="#6CA082" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_105_1635">
+                                    <rect width="20" height="20" fill="white" transform="translate(0 0.714233)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <p>No upfront large payments</p>
+                    </div>
+                    <div class="why-trust-fabuwood-point">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                            <g clip-path="url(#clip0_105_1635)">
+                                <path
+                                    d="M10 0.714233C8.02219 0.714233 6.08879 1.30072 4.4443 2.39954C2.79981 3.49835 1.51809 5.06014 0.761209 6.8874C0.00433284 8.71466 -0.193701 10.7253 0.192152 12.6651C0.578004 14.6049 1.53041 16.3868 2.92894 17.7853C4.32746 19.1838 6.10929 20.1362 8.0491 20.5221C9.98891 20.9079 11.9996 20.7099 13.8268 19.953C15.6541 19.1962 17.2159 17.9144 18.3147 16.2699C19.4135 14.6254 20 12.692 20 10.7142C20 8.06207 18.9464 5.51853 17.0711 3.64317C15.1957 1.7678 12.6522 0.714233 10 0.714233ZM14.78 8.41423L9.11 14.0842C8.96938 14.2247 8.77876 14.3036 8.58 14.3036C8.38125 14.3036 8.19063 14.2247 8.05 14.0842L5.22 11.2542C5.08752 11.1121 5.0154 10.924 5.01883 10.7297C5.02226 10.5354 5.10097 10.35 5.23838 10.2126C5.3758 10.0752 5.56118 9.99649 5.75548 9.99306C5.94978 9.98963 6.13783 10.0618 6.28 10.1942L8.58 12.4942L13.72 7.35423C13.8622 7.22175 14.0502 7.14963 14.2445 7.15306C14.4388 7.15649 14.6242 7.2352 14.7616 7.37261C14.899 7.51002 14.9778 7.69541 14.9812 7.88971C14.9846 8.08401 14.9125 8.27206 14.78 8.41423Z"
+                                    fill="#6CA082" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_105_1635">
+                                    <rect width="20" height="20" fill="white" transform="translate(0 0.714233)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <p>No upfront large payments</p>
+                    </div>
+                    <div class="why-trust-fabuwood-point">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                            <g clip-path="url(#clip0_105_1635)">
+                                <path
+                                    d="M10 0.714233C8.02219 0.714233 6.08879 1.30072 4.4443 2.39954C2.79981 3.49835 1.51809 5.06014 0.761209 6.8874C0.00433284 8.71466 -0.193701 10.7253 0.192152 12.6651C0.578004 14.6049 1.53041 16.3868 2.92894 17.7853C4.32746 19.1838 6.10929 20.1362 8.0491 20.5221C9.98891 20.9079 11.9996 20.7099 13.8268 19.953C15.6541 19.1962 17.2159 17.9144 18.3147 16.2699C19.4135 14.6254 20 12.692 20 10.7142C20 8.06207 18.9464 5.51853 17.0711 3.64317C15.1957 1.7678 12.6522 0.714233 10 0.714233ZM14.78 8.41423L9.11 14.0842C8.96938 14.2247 8.77876 14.3036 8.58 14.3036C8.38125 14.3036 8.19063 14.2247 8.05 14.0842L5.22 11.2542C5.08752 11.1121 5.0154 10.924 5.01883 10.7297C5.02226 10.5354 5.10097 10.35 5.23838 10.2126C5.3758 10.0752 5.56118 9.99649 5.75548 9.99306C5.94978 9.98963 6.13783 10.0618 6.28 10.1942L8.58 12.4942L13.72 7.35423C13.8622 7.22175 14.0502 7.14963 14.2445 7.15306C14.4388 7.15649 14.6242 7.2352 14.7616 7.37261C14.899 7.51002 14.9778 7.69541 14.9812 7.88971C14.9846 8.08401 14.9125 8.27206 14.78 8.41423Z"
+                                    fill="#6CA082" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_105_1635">
+                                    <rect width="20" height="20" fill="white" transform="translate(0 0.714233)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <p>No upfront large payments</p>
+                    </div>
+                    <p style="color: #000;
+                    font-size: 24px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;">We use Fabuwood because they share our commitment to quality, durability, and
+                        beautiful design.” — Ivy and Kareem</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Downdsload section -->
+    <section class="why-trust-fabuwood-section">
+        <div class="why-trust-fabuwood-content why-trust-fabuwood-section-container">
+            <div>
+                <h1 class="why-trust-fabuwood-section-title">Why We Trust<span
+                        style="color: #6CA082; font-style: italic;">Fabuwood</span>
+                </h1>
+            </div>
+            <div class="download-section-flex-container">
+                <div style="display: flex;
+                padding: 32px;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 24px;
+                flex: 1 0 0;
+                border: 1px solid #BDA87F;">
+                    <h3 style="color: #000;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                padding-bottom: 24px;
+                border-bottom: 1px solid #BDA87F;
+                width: 100%;
+                ">Product Brochure</h3>
+
+                </div>
+                <div style="display: flex;
+                padding: 32px;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 24px;
+                flex: 1 0 0;
+                border: 1px solid #BDA87F;">
+
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
