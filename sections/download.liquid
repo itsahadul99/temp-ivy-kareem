@@ -1,0 +1,333 @@
+<style>
+  .download-section-container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .download-section-title {
+    color: #000;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .download-section {
+    background: rgba(157, 184, 168, 0.14);
+  }
+
+  .download-content {
+    padding: 100px 150px;
+  }
+
+  .download-flex-container {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    margin-top: 64px;
+    width: 100%;
+  }
+
+  .download-flex-img {
+    width: 538px;
+    height: 307px;
+  }
+
+  /* Downloads section */
+  .download-section-flex-container {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-top: 64px;
+    width: 100%;
+  }
+
+  .download-card {
+    display: flex;
+    padding: 32px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    border: 1px solid #BDA87F;
+    width: 100%;
+    max-width: 554px;
+  }
+
+  .download-card img {
+    max-width: 490px;
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  .download-card-title {
+    color: #000;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #BDA87F;
+    width: 100%;
+  }
+
+  .download-card-des {
+    color: rgba(0, 0, 0, 0.60);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  .download-card-button-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .download-card-button {
+    color: rgba(37, 37, 49, 0.80);
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 750;
+    line-height: normal;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    filter: blur(0.15000000596046448px);
+    display: flex;
+    height: 48px;
+    padding: 8px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 10px;
+    border: 1px solid #9DB8A8;
+    cursor: pointer;
+  }
+
+  /* Style for Laptop */
+  @media (max-width: 1024px) {
+    .download-content {
+      padding: 70px 100px;
+    }
+  }
+
+  /* Style for tablet */
+  @media (max-width: 768px) {
+    .download-content {
+      padding: 40px 32px;
+    }
+
+    .download-section-title {
+      font-size: 48px;
+      line-height: 100%;
+    }
+
+    .download-card {
+      width: 100%;
+    }
+
+    .download-card img {
+      width: 100%;
+    }
+
+    .download-card-title {
+      font-size: 18px;
+    }
+
+    .download-card-des {
+      font-size: 16px;
+    }
+
+    .download-card-button-container {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .download-card-button {
+      width: 100%;
+    }
+  }
+
+  /* Style for mobile/small device */
+  @media(max-width: 425px) {
+    .download-content {
+      padding: 32px 20px;
+    }
+
+    .download-section-title {
+      font-size: 42px;
+      line-height: 100%;
+    }
+
+    .download-card-button {
+      width: 100%;
+    }
+
+    .download-card-button-container {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .download-section-flex-container {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .download-card {
+      width: 100%;
+      padding: 20px;
+    }
+
+    .download-card img {
+      width: 100%;
+    }
+  }
+</style>
+
+<section class="download-section">
+  <div class="download-content download-section-container">
+    <div>
+      <h1 class="download-section-title">
+        {{ section.settings.title | default: 'Brochures & ' }}
+        <span style="color: #6CA082; font-style: italic;">
+          {{ section.settings.subtitle | default: 'Downloads' }}
+        </span>
+      </h1>
+    </div>
+    <div class="download-section-flex-container">
+      {% for block in section.blocks %}
+        <div class="download-card">
+          <h3 class="download-card-title">{{ block.settings.card_subtitle | default: 'Product Brochure' }}</h3>
+          <img src="{{ block.settings.preview_image | img_url: 'master' }}" alt="{{ block.settings.card_title }} Preview">
+          <h3 class="download-card-title">{{ block.settings.card_title }}</h3>
+          <p class="download-card-des">{{ block.settings.description }}</p>
+          <div class="download-card-button-container">
+            <button class="download-card-button" onclick="previewPDF('{{ block.settings.pdf_file }}')">
+              Preview
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M10 2C5.58 2 2 5.58 2 10C2 14.42 5.58 18 10 18C14.42 18 18 14.42 18 10C18 5.58 14.42 2 10 2ZM10 16C6.69 16 4 13.31 4 10C4 6.69 6.69 4 10 4C13.31 4 16 6.69 16 10C16 13.31 13.31 16 10 16ZM9 7V9H7V11H9V13H11V11H13V9H11V7H9Z" fill="black"/>
+              </svg>
+            </button>
+            <button class="download-card-button" onclick="downloadPDF('{{ block.settings.pdf_file }}', '{{ block.settings.card_title | escape }}')">
+              Download
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M10 12.586L14.293 8.293C14.683 7.902 15.317 7.902 15.707 8.293C16.098 8.683 16.098 9.317 15.707 9.707L10.707 14.707C10.317 15.098 9.683 15.098 9.293 14.707L4.293 9.707C3.902 9.317 3.902 8.683 4.293 8.293C4.683 7.902 5.317 7.902 5.707 8.293L10 12.586ZM10 2C10.552 2 11 2.448 11 3V6H9V3C9 2.448 9.448 2 10 2ZM10 18C9.448 18 9 17.552 9 17V14H11V17C11 17.552 10.552 18 10 18Z" fill="black"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Function to preview PDF (opens in new tab)
+  function previewPDF(pdfUrl) {
+    if (pdfUrl) {
+      window.open(pdfUrl, '_blank');
+    } else {
+      alert('PDF file not found.');
+    }
+  }
+
+  // Function to download PDF
+  function downloadPDF(pdfUrl, pdfTitle) {
+    if (pdfUrl) {
+      const link = document.createElement('a');
+      link.href = pdfUrl;
+      link.download = pdfTitle + '.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      alert('PDF file not found.');
+    }
+  }
+</script>
+
+{% schema %}
+{
+  "name": "PDF Download Section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Brochures & "
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Color Title",
+      "default": "Downloads"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pdf_card",
+      "name": "PDF Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "card_subtitle",
+          "label": "Card Subtitle",
+          "default": "Product Brochure"
+        },
+        {
+          "type": "text",
+          "id": "card_title",
+          "label": "Card Title",
+          "default": "Fabuwood Full Product Catalog"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Explore all available cabinetry styles, finishes, and inspirations."
+        },
+        {
+          "type": "image_picker",
+          "id": "preview_image",
+          "label": "Preview Image"
+        },
+        {
+          "type": "url",
+          "id": "pdf_file",
+          "label": "PDF File URL",
+          "info": "Upload PDF to Settings > Files and paste the URL here."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDF Download Section",
+      "blocks": [
+        {
+          "type": "pdf_card",
+          "settings": {
+            "card_subtitle": "Product Brochure",
+            "card_title": "Fabuwood Full Product Catalog",
+            "description": "Explore all available cabinetry styles, finishes, and inspirations.",
+            "preview_image": null,
+            "pdf_file": ""
+          }
+        },
+        {
+          "type": "pdf_card",
+          "settings": {
+            "card_subtitle": "Product Brochure",
+            "card_title": "Fabuwood Product Brochure",
+            "description": "Discover our latest cabinetry collections and features.",
+            "preview_image": null,
+            "pdf_file": ""
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
