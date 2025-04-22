@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>PeerJS Screen Share Only</title>
+  <style>
+
+
+    #remote-video {
+      width: 45%;
+      border: 1px solid #333;
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>PeerJS Screen Share Only</h2>
+
+  <p>Your ID: <span id="my-id">...</span></p>
+  <input type="text" id="peer-id" placeholder="Enter peer ID to call">
+  <button onclick="startScreenShareCall()">Share Screen</button>
+
+  <h3>Remote Stream</h3>
+  <video id="remote-video" autoplay playsinline></video>
+
+  <!-- PeerJS CDN -->
+  <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+
+  <script>
+    let localPeerId = getOrCreatePeerId();
+    const peer = new Peer(localPeerId, {
+      host: '23.98.93.20',
+      port: 9000,
+      path: '/myapp',
+      config: {
+        iceServers: [
+          { url: 'stun:stun.l.google.com:19302' },
+          { url: 'stun:23.98.93.20:3478' },
+          {
+            url: 'turn:23.98.93.20:3478',
+            username: 'testuser',
+            credential: 'testpass'
+          }
+        ]
+      }
+    });
+
+    let currentCall;
+
+    peer.on('open', (id) => {
+      document.getElementById('my-id').textContent = id;
+    });
+
+    // Answer incoming screen share call
+    peer.on('call', (call) => {
+      navigator.mediaDevices.getDisplayMedia({ video: true, audio: true })
+        .then((screenStream) => {
+          // document.getElementById('my-video').srcObject = screenStream;
+          call.answer(screenStream);
+          call.on('stream', (remoteStream) => {
+            document.getElementById('remote-video').srcObject = remoteStream;
+          });
+          currentCall = call;
+
+          screenStream.getVideoTracks()[0].addEventListener('ended', () => {
+            alert('Screen sharing stopped.');
+            call.close();
+          });
+        })
+        .catch((err) => {
+          alert('Failed to get screen for answering call.');
+          console.error(err);
+        });
+    });
+
+    // Start screen sharing to a peer
+    function startScreenShareCall() {
+      const peerId = document.getElementById('peer-id').value;
+      if (!peerId) return alert("Enter a peer ID!");
+
+      navigator.mediaDevices.getDisplayMedia({ video: true, audio: true })
+        .then((screenStream) => {
+          // document.getElementById('my-video').srcObject = screenStream;
+          const call = peer.call(peerId, screenStream);
+          call.on('stream', (remoteStream) => {
+            document.getElementById('remote-video').srcObject = remoteStream;
+          });
+          currentCall = call;
+
+          screenStream.getVideoTracks()[0].addEventListener('ended', () => {
+            alert('Screen sharing stopped.');
+            call.close();
+          });
+        })
+        .catch((err) => {
+          alert('Failed to access screen.');
+          console.error(err);
+        });
+    }
+
+    function getOrCreatePeerId() {
+      const savedId = localStorage.getItem('peerjs_admin_id');
+      if (savedId) return savedId;
+      const now = new Date();
+      const datePart = now.toISOString().slice(0, 10).replace(/-/g, '');
+      const timePart = now.toTimeString().split(' ')[0].replace(/:/g, '');
+      const millis = now.getMilliseconds().toString();
+      const peerId = `Admin_${datePart}${timePart}${millis}`;
+      localStorage.setItem('peerjs_admin_id', peerId);
+      return peerId;
+    }
+  </script>
+</body>
+
+</html>

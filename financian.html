@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financing Page</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .how-financing-work-section-container,
+    .why-choose-financing-section-container {
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+
+    .how-financing-section-title {
+        color: #000;
+        font-size: 64px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    .how-financing-work-section {
+        background-color: rgba(157, 184, 168, 0.14);
+    }
+
+    /* How financing work  */
+    .how-financing-work-content {
+        padding: 100px 150px;
+    }
+
+    .how-financing-work-card-container {
+        display: flex;
+        gap: 16px;
+        margin-top: 64px;
+        width: 100%;
+    }
+
+    .how-financing-work-card {
+        display: flex;
+        padding: 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        border: 1px solid #BDA87F;
+        width: 370px;
+        min-height: 217px;
+    }
+
+    .how-financing-work-card-title {
+        color: #252531;
+        font-size: 34px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    .how-financing-work-card-des {
+        color: rgba(0, 0, 0, 0.60);
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 32px;
+    }
+
+    /* Why choose financing */
+    .why-choose-financing-section-title {
+        color: #000;
+        font-size: 64px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    .why-choose-financing-section {
+        background-color: rgba(255, 255, 255, 1);
+    }
+
+    .why-choose-financing-content {
+        padding: 100px 150px;
+    }
+
+    .why-choose-financing-flex-container {
+        display: flex;
+        align-items: center;
+        gap: 64px;
+        margin-top: 64px;
+        width: 100%;
+    }
+
+    .why-choose-financing-flex-img {
+        width: 538px;
+        height: 307px;
+    }
+
+    .why-choose-financing-point-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .why-choose-financing-point {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .why-choose-financing-point p {
+        color: rgba(0, 0, 0, 0.60);
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+    }
+
+    /* Style for Laptop */
+    @media (max-width: 1024px) {
+
+        .how-financing-work-content,
+        .why-choose-financing-content {
+            padding: 70px 100px;
+        }
+
+        .why-choose-financing-flex-img {
+            width: 450px;
+        }
+    }
+
+    /* Style for tablet */
+
+    @media (max-width: 768px) {
+
+        /* How financing work  */
+        .how-financing-work-content {
+            padding: 40px 32px;
+        }
+
+        .how-financing-section-title {
+            font-size: 48px;
+            line-height: 100%;
+        }
+
+        .how-financing-work-card {
+            width: 234px;
+            height: 221px;
+        }
+
+        .how-financing-work-card-title {
+            font-size: 24px;
+        }
+
+        .how-financing-work-card-des {
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        /* Why choose financing */
+        .why-choose-financing-content {
+            padding: 40px 32px;
+        }
+
+        .why-choose-financing-section-title {
+            font-size: 48px;
+            line-height: 100%;
+        }
+
+        .why-choose-financing-flex-container {
+            gap: 24px;
+        }
+
+        .why-choose-financing-flex-img {
+            width: 373px;
+            height: 312px;
+        }
+    }
+
+    /* Style for mobile/small device */
+    @media(max-width: 425px) {
+
+        /* How financing work  */
+        .how-financing-work-content {
+            padding: 32px 20px;
+        }
+
+        .how-financing-section-title {
+            font-size: 42px;
+            line-height: 100%;
+        }
+
+        .how-financing-work-card-container {
+            flex-direction: column;
+        }
+
+        .how-financing-work-card {
+            width: 100%;
+
+        }
+
+        .how-financing-work-card-des {
+            font-size: 18px;
+            line-height: 24px;
+        }
+
+        /* Why choose financing */
+        .why-choose-financing-content {
+            padding: 32px 20px;
+        }
+
+        .why-choose-financing-section-title {
+            font-size: 42px;
+            line-height: 100%;
+        }
+
+        .why-choose-financing-flex-container {
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .why-choose-financing-flex-img {
+            width: 100%;
+        }
+    }
+</style>
+
+<body>
+    <!-- How Financing work  -->
+    <section class="how-financing-work-section">
+        <div class="how-financing-work-content how-financing-work-section-container">
+            <div>
+                <h1 class="how-financing-section-title">How Financing <span
+                        style="color: #6CA082; font-style: italic;">Works </span>
+                </h1>
+            </div>
+            <div class="how-financing-work-card-container">
+                <div class="how-financing-work-card">
+                    <img src="./image/cross-browser.png" alt="">
+                    <h3 class="how-financing-work-card-title">Apply Online</h3>
+                    <p class="how-financing-work-card-des"> Each partner has a long-standing reputation for excellence.
+                    </p>
+                </div>
+                <div class="how-financing-work-card">
+                    <img src="./image/cross-browser.png" alt="">
+                    <h3 class="how-financing-work-card-title">Apply Online</h3>
+                    <p class="how-financing-work-card-des"> Each partner has a long-standing reputation for excellence.
+                    </p>
+                </div>
+                <div class="how-financing-work-card">
+                    <img src="./image/cross-browser.png" alt="">
+                    <h3 class="how-financing-work-card-title">Apply Online</h3>
+                    <p class="how-financing-work-card-des"> Each partner has a long-standing reputation for excellence.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why choose financing -->
+    <section class="why-choose-financing-section">
+        <div class="why-choose-financing-content why-choose-financing-section-container">
+            <div>
+                <h1 class="why-choose-financing-section-title">Why Choose<span
+                        style="color: #6CA082; font-style: italic;">Financing</span>
+                </h1>
+            </div>
+            <div class="why-choose-financing-flex-container">
+                <div>
+                    <img class="why-choose-financing-flex-img" src="./image/why-choose-financing.png" alt="">
+                </div>
+                <div class="why-choose-financing-point-container">
+                    <div class="why-choose-financing-point">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                            <g clip-path="url(#clip0_105_1635)">
+                                <path
+                                    d="M10 0.714233C8.02219 0.714233 6.08879 1.30072 4.4443 2.39954C2.79981 3.49835 1.51809 5.06014 0.761209 6.8874C0.00433284 8.71466 -0.193701 10.7253 0.192152 12.6651C0.578004 14.6049 1.53041 16.3868 2.92894 17.7853C4.32746 19.1838 6.10929 20.1362 8.0491 20.5221C9.98891 20.9079 11.9996 20.7099 13.8268 19.953C15.6541 19.1962 17.2159 17.9144 18.3147 16.2699C19.4135 14.6254 20 12.692 20 10.7142C20 8.06207 18.9464 5.51853 17.0711 3.64317C15.1957 1.7678 12.6522 0.714233 10 0.714233ZM14.78 8.41423L9.11 14.0842C8.96938 14.2247 8.77876 14.3036 8.58 14.3036C8.38125 14.3036 8.19063 14.2247 8.05 14.0842L5.22 11.2542C5.08752 11.1121 5.0154 10.924 5.01883 10.7297C5.02226 10.5354 5.10097 10.35 5.23838 10.2126C5.3758 10.0752 5.56118 9.99649 5.75548 9.99306C5.94978 9.98963 6.13783 10.0618 6.28 10.1942L8.58 12.4942L13.72 7.35423C13.8622 7.22175 14.0502 7.14963 14.2445 7.15306C14.4388 7.15649 14.6242 7.2352 14.7616 7.37261C14.899 7.51002 14.9778 7.69541 14.9812 7.88971C14.9846 8.08401 14.9125 8.27206 14.78 8.41423Z"
+                                    fill="#6CA082" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_105_1635">
+                                    <rect width="20" height="20" fill="white" transform="translate(0 0.714233)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <p>No upfront large payments</p>
+                    </div>
+                    <div class="why-choose-financing-point">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                            <g clip-path="url(#clip0_105_1635)">
+                                <path
+                                    d="M10 0.714233C8.02219 0.714233 6.08879 1.30072 4.4443 2.39954C2.79981 3.49835 1.51809 5.06014 0.761209 6.8874C0.00433284 8.71466 -0.193701 10.7253 0.192152 12.6651C0.578004 14.6049 1.53041 16.3868 2.92894 17.7853C4.32746 19.1838 6.10929 20.1362 8.0491 20.5221C9.98891 20.9079 11.9996 20.7099 13.8268 19.953C15.6541 19.1962 17.2159 17.9144 18.3147 16.2699C19.4135 14.6254 20 12.692 20 10.7142C20 8.06207 18.9464 5.51853 17.0711 3.64317C15.1957 1.7678 12.6522 0.714233 10 0.714233ZM14.78 8.41423L9.11 14.0842C8.96938 14.2247 8.77876 14.3036 8.58 14.3036C8.38125 14.3036 8.19063 14.2247 8.05 14.0842L5.22 11.2542C5.08752 11.1121 5.0154 10.924 5.01883 10.7297C5.02226 10.5354 5.10097 10.35 5.23838 10.2126C5.3758 10.0752 5.56118 9.99649 5.75548 9.99306C5.94978 9.98963 6.13783 10.0618 6.28 10.1942L8.58 12.4942L13.72 7.35423C13.8622 7.22175 14.0502 7.14963 14.2445 7.15306C14.4388 7.15649 14.6242 7.2352 14.7616 7.37261C14.899 7.51002 14.9778 7.69541 14.9812 7.88971C14.9846 8.08401 14.9125 8.27206 14.78 8.41423Z"
+                                    fill="#6CA082" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_105_1635">
+                                    <rect width="20" height="20" fill="white" transform="translate(0 0.714233)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <p>No upfront large payments</p>
+                    </div>
+                    <div class="why-choose-financing-point">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                            <g clip-path="url(#clip0_105_1635)">
+                                <path
+                                    d="M10 0.714233C8.02219 0.714233 6.08879 1.30072 4.4443 2.39954C2.79981 3.49835 1.51809 5.06014 0.761209 6.8874C0.00433284 8.71466 -0.193701 10.7253 0.192152 12.6651C0.578004 14.6049 1.53041 16.3868 2.92894 17.7853C4.32746 19.1838 6.10929 20.1362 8.0491 20.5221C9.98891 20.9079 11.9996 20.7099 13.8268 19.953C15.6541 19.1962 17.2159 17.9144 18.3147 16.2699C19.4135 14.6254 20 12.692 20 10.7142C20 8.06207 18.9464 5.51853 17.0711 3.64317C15.1957 1.7678 12.6522 0.714233 10 0.714233ZM14.78 8.41423L9.11 14.0842C8.96938 14.2247 8.77876 14.3036 8.58 14.3036C8.38125 14.3036 8.19063 14.2247 8.05 14.0842L5.22 11.2542C5.08752 11.1121 5.0154 10.924 5.01883 10.7297C5.02226 10.5354 5.10097 10.35 5.23838 10.2126C5.3758 10.0752 5.56118 9.99649 5.75548 9.99306C5.94978 9.98963 6.13783 10.0618 6.28 10.1942L8.58 12.4942L13.72 7.35423C13.8622 7.22175 14.0502 7.14963 14.2445 7.15306C14.4388 7.15649 14.6242 7.2352 14.7616 7.37261C14.899 7.51002 14.9778 7.69541 14.9812 7.88971C14.9846 8.08401 14.9125 8.27206 14.78 8.41423Z"
+                                    fill="#6CA082" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_105_1635">
+                                    <rect width="20" height="20" fill="white" transform="translate(0 0.714233)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <p>No upfront large payments</p>
+                    </div>
+                    <div class="why-choose-financing-point">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                            <g clip-path="url(#clip0_105_1635)">
+                                <path
+                                    d="M10 0.714233C8.02219 0.714233 6.08879 1.30072 4.4443 2.39954C2.79981 3.49835 1.51809 5.06014 0.761209 6.8874C0.00433284 8.71466 -0.193701 10.7253 0.192152 12.6651C0.578004 14.6049 1.53041 16.3868 2.92894 17.7853C4.32746 19.1838 6.10929 20.1362 8.0491 20.5221C9.98891 20.9079 11.9996 20.7099 13.8268 19.953C15.6541 19.1962 17.2159 17.9144 18.3147 16.2699C19.4135 14.6254 20 12.692 20 10.7142C20 8.06207 18.9464 5.51853 17.0711 3.64317C15.1957 1.7678 12.6522 0.714233 10 0.714233ZM14.78 8.41423L9.11 14.0842C8.96938 14.2247 8.77876 14.3036 8.58 14.3036C8.38125 14.3036 8.19063 14.2247 8.05 14.0842L5.22 11.2542C5.08752 11.1121 5.0154 10.924 5.01883 10.7297C5.02226 10.5354 5.10097 10.35 5.23838 10.2126C5.3758 10.0752 5.56118 9.99649 5.75548 9.99306C5.94978 9.98963 6.13783 10.0618 6.28 10.1942L8.58 12.4942L13.72 7.35423C13.8622 7.22175 14.0502 7.14963 14.2445 7.15306C14.4388 7.15649 14.6242 7.2352 14.7616 7.37261C14.899 7.51002 14.9778 7.69541 14.9812 7.88971C14.9846 8.08401 14.9125 8.27206 14.78 8.41423Z"
+                                    fill="#6CA082" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_105_1635">
+                                    <rect width="20" height="20" fill="white" transform="translate(0 0.714233)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <p>No upfront large payments</p>
+                    </div>
+                    <div class="why-choose-financing-point">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                            <g clip-path="url(#clip0_105_1635)">
+                                <path
+                                    d="M10 0.714233C8.02219 0.714233 6.08879 1.30072 4.4443 2.39954C2.79981 3.49835 1.51809 5.06014 0.761209 6.8874C0.00433284 8.71466 -0.193701 10.7253 0.192152 12.6651C0.578004 14.6049 1.53041 16.3868 2.92894 17.7853C4.32746 19.1838 6.10929 20.1362 8.0491 20.5221C9.98891 20.9079 11.9996 20.7099 13.8268 19.953C15.6541 19.1962 17.2159 17.9144 18.3147 16.2699C19.4135 14.6254 20 12.692 20 10.7142C20 8.06207 18.9464 5.51853 17.0711 3.64317C15.1957 1.7678 12.6522 0.714233 10 0.714233ZM14.78 8.41423L9.11 14.0842C8.96938 14.2247 8.77876 14.3036 8.58 14.3036C8.38125 14.3036 8.19063 14.2247 8.05 14.0842L5.22 11.2542C5.08752 11.1121 5.0154 10.924 5.01883 10.7297C5.02226 10.5354 5.10097 10.35 5.23838 10.2126C5.3758 10.0752 5.56118 9.99649 5.75548 9.99306C5.94978 9.98963 6.13783 10.0618 6.28 10.1942L8.58 12.4942L13.72 7.35423C13.8622 7.22175 14.0502 7.14963 14.2445 7.15306C14.4388 7.15649 14.6242 7.2352 14.7616 7.37261C14.899 7.51002 14.9778 7.69541 14.9812 7.88971C14.9846 8.08401 14.9125 8.27206 14.78 8.41423Z"
+                                    fill="#6CA082" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_105_1635">
+                                    <rect width="20" height="20" fill="white" transform="translate(0 0.714233)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <p>No upfront large payments</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

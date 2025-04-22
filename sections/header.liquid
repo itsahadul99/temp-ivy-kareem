@@ -183,9 +183,7 @@
     
     /* Responsive Styles */
     @media (max-width: 768px) {
-      .desk-nav {
-        display: flex;
-      }
+  
       
       .dropdown-menu {
         position: static;
@@ -196,6 +194,11 @@
     
     @media (min-width: 769px) {
       .mobile-menu-btn {
+        display: none;
+      }
+    }
+    @media(max-width: 425px){
+      .desk-nav {
         display: none;
       }
     }
