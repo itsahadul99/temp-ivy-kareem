@@ -2,24 +2,24 @@
 <html>
 
 <head>
-  <title>Client</title>
+  <title>PeerJS Screen Share Only</title>
   <style>
 
 
+    #remote-video {
+      width: 45%;
+      border: 1px solid #333;
+      margin: 10px;
+    }
   </style>
 </head>
 
 <body>
-  <h2>This is Client part</h2>
-  
+  <h2>Client part</h2>
 
   <p>Your ID: <span id="my-id">...</span></p>
-  <input type="text" id="peer-id" placeholder="Enter admin id">
-  <button onclick="startScreenShareCall()">Share Screen</button>
-  <p>NB: Please, collect id from your admin and put it in your input box.</p>
 
-
-
+  
   <!-- PeerJS CDN -->
   <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
 
@@ -52,7 +52,11 @@
     peer.on('call', (call) => {
       navigator.mediaDevices.getDisplayMedia({ video: true, audio: true })
         .then((screenStream) => {
+          // document.getElementById('my-video').srcObject = screenStream;
           call.answer(screenStream);
+          call.on('stream', (remoteStream) => {
+            document.getElementById('remote-video').srcObject = remoteStream;
+          });
           currentCall = call;
 
           screenStream.getVideoTracks()[0].addEventListener('ended', () => {
@@ -73,7 +77,11 @@
 
       navigator.mediaDevices.getDisplayMedia({ video: true, audio: true })
         .then((screenStream) => {
+          // document.getElementById('my-video').srcObject = screenStream;
           const call = peer.call(peerId, screenStream);
+          call.on('stream', (remoteStream) => {
+            document.getElementById('remote-video').srcObject = remoteStream;
+          });
           currentCall = call;
 
           screenStream.getVideoTracks()[0].addEventListener('ended', () => {
