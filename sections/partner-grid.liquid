@@ -1,0 +1,226 @@
+<style>
+  /* Base styles */
+  .partner-grid-section {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .partner-grid-section-title {
+    color: #000;
+    font-family: "Minion Pro";
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 160%;
+    /* 128px */
+    text-transform: capitalize;
+    text-align: center;
+  }
+
+  .partner-grid-content {
+    padding: 100px 20px;
+  }
+
+  .partner-grid-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 64px;
+  }
+
+  .partner-grid-card {
+    display: flex;
+    width: 285px;
+    height: 200px;
+    padding: 51px 8px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #E9E9EA;
+    transition: all 0.1s ease-in-out;
+  }
+
+  .partner-grid-card:hover {
+    background-color: rgba(108, 160, 130, 0.14);
+  }
+
+  .partner-grid-card:hover img {
+    filter: brightness(0) saturate(100%) invert(59%) sepia(16%) saturate(661%) hue-rotate(76deg) brightness(93%) contrast(85%);
+  }
+
+  .partner-grid-card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 1200px) {
+    .partner-grid-content {
+      padding: 80px 20px;
+    }
+    
+    .partner-grid-section-title {
+      font-size: 56px;
+    }
+    
+    .partner-grid-card {
+      width: calc(33.33% - 16px);
+    }
+  }
+
+  @media (max-width: 992px) {
+    .partner-grid-content {
+      padding: 60px 20px;
+    }
+    
+    .partner-grid-section-title {
+      font-size: 48px;
+    }
+    
+    .partner-grid-card {
+      width: calc(50% - 16px);
+      height: 180px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .partner-grid-content {
+      padding: 40px 20px;
+    }
+    
+    .partner-grid-section-title {
+      font-size: 48px;
+    }
+    
+    .partner-grid-card {
+      width: 100%;
+      max-width: 285px;
+      height: 160px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .partner-grid-content {
+      padding: 30px 15px;
+    }
+    
+    .partner-grid-section-title {
+      font-size: 42px;
+    }
+    
+    .partner-grid-card {
+      height: 140px;
+        width: 100%;
+      padding: 30px 8px;
+    }
+  }
+</style>
+<section class="partner-grid-section">
+  <div class="partner-grid-content ">
+    <div class="partner-grid-header">
+      <h1 class="partner-grid-section-title">
+        {{ section.settings.title_part1 }}
+        <span style="color: {{ section.settings.accent_color }}; font-style: italic;">
+          {{ section.settings.title_part2 }}
+        </span>
+      </h1>
+    </div>
+
+    <div class="partner-grid-card-container">
+      {% for block in section.blocks %}
+        <div class="partner-grid-card" {{ block.shopify_attributes }}>
+          {% if block.settings.logo %}
+            <img
+              src="{{ block.settings.logo | img_url: '300x' }}"
+              alt="{{ block.settings.alt_text | default: 'Partner logo' | escape }}"
+              loading="lazy"
+              width="300"
+              height="{{ 300 | divided_by: block.settings.logo.aspect_ratio | round }}"
+              class="partner-logo">
+          {% else %}
+            <img src="{{'company1.png' | asset_url}}" alt="Logo img">
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "Partner Grid",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title_part1",
+        "label": "Title Part 1",
+        "default": "Explore Our"
+      }, {
+        "type": "text",
+        "id": "title_part2",
+        "label": "Title Part 2 (Colored)",
+        "default": "Partner Grid"
+      }, {
+        "type": "color",
+        "id": "accent_color",
+        "label": "Accent Color",
+        "default": "#6CA082"
+      }, {
+        "type": "range",
+        "id": "columns",
+        "label": "Logos per row",
+        "min": 2,
+        "max": 6,
+        "step": 1,
+        "default": 4
+      }
+    ],
+    "blocks": [
+      {
+        "type": "partner_logo",
+        "name": "Partner Logo",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Partner Logo"
+          }, {
+            "type": "text",
+            "id": "alt_text",
+            "label": "Alt Text",
+            "info": "Description for accessibility"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Partner Grid",
+        "category": "Custom",
+        "blocks": [
+          {
+            "type": "partner_logo"
+          },
+          {
+            "type": "partner_logo"
+          },
+          {
+            "type": "partner_logo"
+          },
+          {
+            "type": "partner_logo"
+          }, {
+            "type": "partner_logo"
+          }, {
+            "type": "partner_logo"
+          }, {
+            "type": "partner_logo"
+          }, {
+            "type": "partner_logo"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,334 +1,339 @@
 <style>
-.service-section {
-  margin-top: 51px;
-}
-
-.service-title-container {
-  display: flex;
-  gap: {{ section.settings.text_gap | escape }}px;
-  justify-content: center;
-  height: 128px;
-}
-
-.service-title {
-  font-family: 'Minion Pro', serif;
-  font-weight: 700;
-  line-height: 128px;
-  text-align: center;
-  font-size: {{ section.settings.font_size_mobile | escape }}px;
-}
-
-.service-title--second {
-  color: {{ section.settings.second_color | escape }};
-  font-style: italic;
-}
-
-@media (min-width: 768px) {
-  .service-title {
-    font-size: {{ section.settings.font_size_desktop | escape }}px;
+  .service-section {
+    margin-top: 51px;
   }
-}
 
-/* Subsection Common Styles */
-.service-subsection {
-  margin-top: 76px;
-  display: grid;
-  justify-items: center;
-}
+  .service-title-container h1 {
+    color: #000;
+    text-align: center;
+    font-family: "Minion Pro";
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 160%;
+    text-transform: capitalize;
+  }
+  .service-title-container h1 span {
+    font-style: italic;
+    color: {{ section.settings.second_color | escape }};
+  }
 
-.service-subsection-container {
-  max-width: 1110px;
-  width: 100%;
-  padding: 0 11px;
-}
+  @media (min-width: 768px) {
+    .service-title-container h1 {
+      font-size: 48px;
+    }
+  }
 
-.service-subsection-content {
-  display: flex;
-  gap: 59px;
-  align-items: flex-start;
-}
-
-.service-image {
-  width: 100%;
-  max-width: 481px;
-}
-
-.service-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Mobile Image */
-.service-mobile-image {
-  width: 300px;
-  margin: 0 auto;
-}
-
-.service-mobile-image img {
-  width: 100%;
-  margin-bottom: 40px;
-}
-
-/* Subsection Text */
-.service-text {
-  max-width: 490px;
-  margin-left: 30px;
-  margin-bottom: 64px;
-}
-
-.service-text-inner {
-  display: flex;
-  gap: 23px;
-}
-
-.service-number {
-  width: 37px;
-  height: 38px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 32px;
-  font-weight: 600;
-  line-height: 37.5px;
-  color: {{ section.settings.second_color | escape }};
-}
-
-.service-subtitle {
-  font-family: 'Minion Pro', serif;
-  font-weight: 700;
-  font-size: 40px;
-  line-height: 76.8px;
-}
-
-.service-description {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 23.44px;
-  opacity: 0.6;
-  max-width: 240px;
-}
-
-.view-more {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 24.5px 0;
-  height: 83px;
-  cursor: pointer;
-  transition: font-style 0.3s ease-in-out;
-}
-
-.view-more:hover {
-  font-style: italic;
-}
-
-.view-more-btn {
-  width: 40px;
-  height: 40px;
-  border: 2px solid black;
-  border-radius: 100%;
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease-in-out;
-}
-
-.view-more-btn svg {
-  width: 15.7px;
-  height: 15.7px;
-  stroke: black;
-}
-
-.view-more:hover .view-more-btn {
-  background: {{ section.settings.second_color | escape }};
-  border-color: {{ section.settings.second_color | escape }};
-}
-
-.view-more:hover .view-more-btn svg {
-  stroke: white;
-}
-
-.view-more-text {
-  font-family: 'Minion Pro', serif;
-  font-size: 28px;
-  color: black;
-  transition: color 0.5s ease-in-out;
-}
-
-.view-more:hover .view-more-text {
-  color: {{ section.settings.second_color | escape }};
-}
-
-/* Financing Circle */
-.financing-container {
-  margin-top: 16px;
-  width: 176px;
-  height: 176px;
-  border: 2px solid #d1d5db;
-  border-radius: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: border-color 0.5s ease-in-out;
-}
-
-.financing-container:hover {
-  border-color: {{ section.settings.second_color | escape }};
-}
-
-.financing-circle {
-  width: 128px;
-  height: 128px;
-  border: 2px dashed #d1d5db;
-  border-radius: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: rotate(-30deg);
-  transition: all 0.5s ease-in-out;
-}
-
-.financing-container:hover .financing-circle {
-  border-color: {{ section.settings.second_color | escape }};
-  transform: rotate(0deg);
-}
-
-.financing-inner-circle {
-  width: 96px;
-  height: 96px;
-  border: 2px solid #d1d5db;
-  border-radius: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: rotate(-30deg);
-  transition: all 0.5s ease-in-out;
-}
-
-.financing-container:hover .financing-inner-circle {
-  border-color: {{ section.settings.second_color | escape }};
-  transform: rotate(0deg);
-}
-
-.financing-text {
-  font-family: 'Minion Pro', serif;
-  font-size: 14px;
-  color: #d1d5db;
-  text-align: center;
-  transform: rotate(30deg);
-  transition: all 0.5s ease-in-out;
-}
-
-.financing-container:hover .financing-text {
-  color: {{ section.settings.second_color | escape }};
-  transform: rotate(0deg);
-}
-
-/* Responsive Styles */
-@media (max-width: 767px) {
+  /* Subsection Common Styles */
   .service-subsection {
-    margin-top: 0;
-  }
-
-  .service-text {
-    margin-left: 0;
-    margin-bottom: 0;
-  }
-
-  .service-subtitle {
-    font-size: 40px;
-  }
-
-  .service-image {
-    display: none;
+    margin-top: 76px;
+    display: grid;
+    justify-items: center;
   }
 
   .service-subsection-container {
-    padding: 0;
+    max-width: 1440px;
+    width: 100%;
+    padding: 0 50px;
   }
 
-  .financing-container {
-    margin-left: auto;
-    margin-right: auto;
+  .service-subsection-content {
+    display: flex;
+    gap: 59px;
+    align-items: flex-start;
   }
-}
 
-@media (min-width: 768px) {
+  .service-image {
+    width: 100%;
+    max-width: 481px;
+  }
+
+  .service-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Mobile Image */
   .service-mobile-image {
-    display: none;
+    width: 300px;
+    margin: 0 auto;
   }
 
+  .service-mobile-image img {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  /* Subsection Text */
   .service-text {
-    margin-left: 0;
+    width: 100%;
+    margin-left: 30px;
+    margin-bottom: 64px;
+    padding: 0 16px;
+  }
+
+  .service-text-inner {
+    display: flex;
+    gap: 23px;
+  }
+
+  .service-number {
+    width: 37px;
+    height: 38px;
+    font-family: 'Roboto'
+    , sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 37.5px;
+    color: {{ section.settings.second_color | escape }};
   }
 
   .service-subtitle {
-    font-size: 60px;
+    font-family: 'Minion Pro'
+    , serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 76.8px;
   }
 
   .service-description {
-    max-width: 440px;
+    font-family: 'Roboto'
+    , sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23.44px;
+    opacity: 0.6;
+    max-width: 240px;
   }
-}
 
-@media (min-width: 1024px) {
-  .service-subsection-content {
-    padding: 0 14px;
+  .view-more {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24.5px 0;
+    height: 83px;
+    cursor: pointer;
+    transition: font-style 0.3s ease-in-out;
   }
 
+  .view-more:hover {
+    font-style: italic;
+  }
+
+  .view-more-btn {
+    width: 40px;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 100%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .view-more-btn svg {
+    width: 15.7px;
+    height: 15.7px;
+    stroke: black;
+  }
+
+  .view-more:hover .view-more-btn {
+    background: {{ section.settings.second_color | escape }};
+    border-color: {{ section.settings.second_color | escape }};
+  }
+
+  .view-more:hover .view-more-btn svg {
+    stroke: white;
+  }
+
+  .view-more-text {
+    font-family: 'Minion Pro'
+    , serif;
+    font-size: 28px;
+    color: black;
+    transition: color 0.5s ease-in-out;
+  }
+
+  .view-more:hover .view-more-text {
+    color: {{ section.settings.second_color | escape }};
+  }
   .financing-container {
-    width: 192px;
-    height: 192px;
-  }
-
-  .financing-circle {
-    width: 160px;
-    height: 160px;
-  }
-
-  .financing-inner-circle {
-    width: 96px;
-    height: 96px;
-  }
-
-  .financing-text {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 1023px) {
-  .service-image--desktop {
     display: none;
   }
-}
+  /* Responsive Styles */
+  @media (max-width: 767px) {
+    .service-subsection {
+      margin-top: 0;
+    }
 
-@media (min-width: 1024px) {
-  .service-image--tablet {
-    display: none;
+    .service-text {
+      margin-left: 0;
+      margin-bottom: 0;
+    }
+
+    .service-subtitle {
+      font-size: 40px;
+    }
+
+    .service-image {
+      display: none;
+    }
+
+    .service-subsection-container {
+      padding: 0;
+    }
+
   }
-}
 
-/* Specific Subsection Adjustments */
-.service-subsection--bathrooms {
-  margin-top: 86px;
-}
+  @media (min-width: 768px) {
+    .service-mobile-image {
+      display: none;
+    }
 
-.service-subsection--bathrooms .service-subsection-content {
-  flex-direction: row-reverse;
-}
+    .service-text {
+      margin-left: 0;
+    }
 
-.service-subsection--cabinetry .service-mobile-image {
-  margin-top: 100px;
-  margin-bottom: 56px;
-}
+    .service-subtitle {
+      font-size: 60px;
+    }
+
+    .service-description {
+      max-width: 440px;
+    }
+    /* Financing Circle */
+    .financing-container {
+      margin-top: 16px;
+      width: 200px;
+      height: 200px;
+      border: 2px solid #979595;
+      border-radius: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.5s ease-in-out;
+    }
+
+    .financing-container:hover {
+      border-color: {{ section.settings.second_color | escape }};
+    }
+
+    .financing-circle {
+      width: 160px;
+      height: 160px;
+      border: 2px dashed #979595;
+      border-radius: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotate(-30deg);
+      transition: all 0.5s ease-in-out;
+    }
+
+    .financing-container:hover .financing-circle {
+      border-color: {{ section.settings.second_color | escape }};
+      transform: rotate(0deg);
+    }
+
+    .financing-inner-circle {
+      width: 120px;
+      height: 120px;
+      border: 2px solid #979595;
+      border-radius: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotate(-30deg);
+      transition: all 0.5s ease-in-out;
+      padding: 5px;
+    }
+
+    .financing-container:hover .financing-inner-circle {
+      border-color: {{ section.settings.second_color | escape }};
+      transform: rotate(0deg);
+    }
+
+    .financing-text {
+      color: #6CA082;
+      text-align: center;
+      font-family: "Minion Pro";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 22px;
+      transform: rotate(30deg);
+      transition: all 0.5s ease-in-out;
+    }
+
+    .financing-container:hover .financing-text {
+      color: {{ section.settings.second_color | escape }};
+      transform: rotate(0deg);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .service-subsection-content {
+      padding: 0 14px;
+    }
+    .service-title-container h1 {
+      font-size: 80px;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .service-image--desktop {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .service-image--tablet {
+      display: none;
+    }
+    /* Financing Circle */
+    .financing-container {
+      margin-top: 16px;
+      width: 307px;
+      height: 307px;
+    }
+
+    .financing-circle {
+      width: 267px;
+      height: 267px;
+    }
+
+    .financing-inner-circle {
+      width: 170px;
+      height: 170px;
+    }
+    .financing-text {
+      font-size: 22px;
+    }
+  }
+
+  /* Specific Subsection Adjustments */
+  .service-subsection--bathrooms {
+    margin-top: 86px;
+  }
+
+  .service-subsection--bathrooms .service-subsection-content {
+    flex-direction: row-reverse;
+  }
+
+  .service-subsection--cabinetry .service-mobile-image {
+    margin-top: 100px;
+    margin-bottom: 56px;
+  }
 </style>
 
 <section class="service-section">
   <!-- Title -->
   <div class="service-title-container">
-    <p class="service-title service-title--first">{{ section.settings.title_first | escape }}</p>
-    <p class="service-title service-title--second">{{ section.settings.title_second | escape }}</p>
+    <h1>{{ section.settings.title_first | escape }}
+      <span>{{ section.settings.title_second | escape }}</span>
+    </h1>
   </div>
 
   <!-- Subsections -->
@@ -337,9 +342,15 @@
       <!-- Mobile Image -->
       <div class="service-mobile-image">
         {% if block.settings.image %}
-          <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt | escape }}" loading="lazy">
+          <img
+            src="{{ block.settings.image | img_url: 'master' }}"
+            alt="{{ block.settings.image.alt | escape }}"
+            loading="lazy">
         {% else %}
-          <img src="https://via.placeholder.com/300" alt="Placeholder" loading="lazy">
+          <img
+            src="https://via.placeholder.com/300"
+            alt="Placeholder"
+            loading="lazy">
         {% endif %}
       </div>
 
@@ -348,18 +359,30 @@
           <!-- Tablet Image -->
           <div class="service-image service-image--tablet">
             {% if block.settings.image %}
-              <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt | escape }}" loading="lazy">
+              <img
+                src="{{ block.settings.image | img_url: 'master' }}"
+                alt="{{ block.settings.image.alt | escape }}"
+                loading="lazy">
             {% else %}
-              <img src="https://via.placeholder.com/481" alt="Placeholder" loading="lazy">
+              <img
+                src="https://via.placeholder.com/481"
+                alt="Placeholder"
+                loading="lazy">
             {% endif %}
           </div>
 
           <!-- Desktop Image -->
           <div class="service-image service-image--desktop">
             {% if block.settings.image %}
-              <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt | escape }}" loading="lazy">
+              <img
+                src="{{ block.settings.image | img_url: 'master' }}"
+                alt="{{ block.settings.image.alt | escape }}"
+                loading="lazy">
             {% else %}
-              <img src="https://via.placeholder.com/481" alt="Placeholder" loading="lazy">
+              <img
+                src="https://via.placeholder.com/481"
+                alt="Placeholder"
+                loading="lazy">
             {% endif %}
           </div>
 
@@ -372,24 +395,33 @@
                 <div class="service-description">{{ block.settings.description | escape }}</div>
                 <a href="{{ block.settings.button_url | escape }}" class="view-more">
                   <button class="view-more-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 4.5v15m7.5-7.5h-15" />
                     </svg>
                   </button>
                   <p class="view-more-text">{{ block.settings.button_text | escape }}</p>
                 </a>
-
-                {% if block.settings.show_financing %}
-                  <div class="financing-container">
-                    <div class="financing-circle">
-                      <div class="financing-inner-circle">
-                        <div class="financing-text">{{ block.settings.financing_text | escape }}</div>
-                      </div>
-                    </div>
-                  </div>
-                {% endif %}
               </div>
             </div>
+            {% if block.settings.show_financing %}
+              <div class="flex justify-end w-full">
+                <div class="financing-container">
+                  <div class="financing-circle">
+                    <div class="financing-inner-circle">
+                      <div class="financing-text">{{ block.settings.financing_text | escape }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
           </div>
         </div>
       </div>
@@ -398,169 +430,161 @@
 </section>
 
 {% schema %}
-{
-  "name": "Our Service",
-  "settings": [
-    {
-      "type": "text",
-      "id": "title_first",
-      "label": "First Title Part",
-      "default": "Our",
-      "info": "The first part of the title (e.g., 'Our')."
-    },
-    {
-      "type": "text",
-      "id": "title_second",
-      "label": "Second Title Part",
-      "default": "Service",
-      "info": "The second part of the title (e.g., 'Service')."
-    },
-    {
-      "type": "color",
-      "id": "second_color",
-      "label": "Second Title Color",
-      "default": "#6CA082",
-      "info": "Color for the second title and accents."
-    },
-    {
-      "type": "range",
-      "id": "font_size_mobile",
-      "label": "Font Size (Mobile)",
-      "min": 20,
-      "max": 80,
-      "step": 1,
-      "unit": "px",
-      "default": 52,
-      "info": "Font size for mobile screens."
-    },
-    {
-      "type": "range",
-      "id": "font_size_desktop",
-      "label": "Font Size (Desktop)",
-      "min": 20,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 80,
-      "info": "Font size for desktop screens."
-    },
-    {
-      "type": "range",
-      "id": "text_gap",
-      "label": "Gap Between Titles",
-      "min": 0,
-      "max": 20,
-      "step": 1,
-      "unit": "px",
-      "default": 4,
-      "info": "Space between the two title parts."
-    }
-  ],
-  "blocks": [
-    {
-      "type": "service_item",
-      "name": "Service Item",
-      "settings": [
-        {
-          "type": "text",
-          "id": "number",
-          "label": "Number",
-          "default": "01",
-          "info": "Section number (e.g., '01', '02')."
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "Kitchen",
-          "info": "Title of the service (e.g., 'Kitchen')."
-        },
-        {
-          "type": "textarea",
-          "id": "description",
-          "label": "Description",
-          "default": "We specialize in remodeling kitchen. We can do the designing and interior designing, having it built and design. We can also have it installed in your home."
-        },
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image",
-          "info": "Image for the service."
-        },
-        {
-          "type": "text",
-          "id": "button_text",
-          "label": "Button Text",
-          "default": "View More"
-        },
-        {
-          "type": "url",
-          "id": "button_url",
-          "label": "Button URL",
-          "info": "Link for the View More button."
-        },
-        {
-          "type": "checkbox",
-          "id": "show_financing",
-          "label": "Show Financing Circle",
-          "default": false,
-          "info": "Show the financing circle for this item."
-        },
-        {
-          "type": "textarea",
-          "id": "financing_text",
-          "label": "Financing Text",
-          "default": "Need Financing?\nNo Problem.",
-          "info": "Text for the financing circle. Use \\n for line breaks."
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Our Service",
-      "settings": {
-        "title_first": "Our",
-        "title_second": "Service",
-        "second_color": "#6CA082",
-        "font_size_mobile": 52,
-        "font_size_desktop": 80,
-        "text_gap": 4
+  {
+    "name": "Our Service",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title_first",
+        "label": "First Title Part",
+        "default": "Our",
+        "info": "The first part of the title (e.g., 'Our')."
       },
-      "blocks": [
-        {
-          "type": "service_item",
-          "settings": {
-            "number": "01",
-            "title": "Kitchen",
-            "description": "We specialize in remodeling kitchen. We can do the designing and interior designing, having it built and design. We can also have it installed in your home.",
-            "button_text": "View More",
-            "show_financing": false
+      {
+        "type": "text",
+        "id": "title_second",
+        "label": "Second Title Part",
+        "default": "Service",
+        "info": "The second part of the title (e.g., 'Service')."
+      },
+      {
+        "type": "color",
+        "id": "second_color",
+        "label": "Second Title Color",
+        "default": "#6CA082",
+        "info": "Color for the second title and accents."
+      },
+      {
+        "type": "range",
+        "id": "font_size_mobile",
+        "label": "Font Size (Mobile)",
+        "min": 20,
+        "max": 80,
+        "step": 1,
+        "unit": "px",
+        "default": 52,
+        "info": "Font size for mobile screens."
+      }, {
+        "type": "range",
+        "id": "font_size_desktop",
+        "label": "Font Size (Desktop)",
+        "min": 20,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "default": 80,
+        "info": "Font size for desktop screens."
+      }, {
+        "type": "range",
+        "id": "text_gap",
+        "label": "Gap Between Titles",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "default": 4,
+        "info": "Space between the two title parts."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "service_item",
+        "name": "Service Item",
+        "settings": [
+          {
+            "type": "text",
+            "id": "number",
+            "label": "Number",
+            "default": "01",
+            "info": "Section number (e.g., '01', '02')."
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Kitchen",
+            "info": "Title of the service (e.g., 'Kitchen')."
+          },
+          {
+            "type": "textarea",
+            "id": "description",
+            "label": "Description",
+            "default": "We specialize in remodeling kitchen. We can do the designing and interior designing, having it built and design. We can also have it installed in your home."
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "Image for the service."
+          }, {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text",
+            "default": "View More"
+          }, {
+            "type": "url",
+            "id": "button_url",
+            "label": "Button URL",
+            "info": "Link for the View More button."
+          }, {
+            "type": "checkbox",
+            "id": "show_financing",
+            "label": "Show Financing Circle",
+            "default": false,
+            "info": "Show the financing circle for this item."
+          }, {
+            "type": "textarea",
+            "id": "financing_text",
+            "label": "Financing Text",
+            "default": "Need Financing?\nNo Problem.",
+            "info": "Text for the financing circle. Use \\n for line breaks."
           }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Our Service",
+        "settings": {
+          "title_first": "Our",
+          "title_second": "Service",
+          "second_color": "#6CA082",
+          "font_size_mobile": 52,
+          "font_size_desktop": 80,
+          "text_gap": 4
         },
-        {
-          "type": "service_item",
-          "settings": {
-            "number": "02",
-            "title": "Bathrooms",
-            "description": "Where Every Detail Counts: Elevating Bathroom Design to New Heights of Elegance, Functionality, and Precision—Creating Luxurious Spaces That Reflect Your Unique Style and Vision.",
-            "button_text": "View More",
-            "show_financing": false
+        "blocks": [
+          {
+            "type": "service_item",
+            "settings": {
+              "number": "01",
+              "title": "Kitchen",
+              "description": "We specialize in remodeling kitchen. We can do the designing and interior designing, having it built and design. We can also have it installed in your home.",
+              "button_text": "View More",
+              "show_financing": false
+            }
+          }, {
+            "type": "service_item",
+            "settings": {
+              "number": "02",
+              "title": "Bathrooms",
+              "description": "Where Every Detail Counts: Elevating Bathroom Design to New Heights of Elegance, Functionality, and Precision—Creating Luxurious Spaces That Reflect Your Unique Style and Vision.",
+              "button_text": "View More",
+              "show_financing": false
+            }
+          }, {
+            "type": "service_item",
+            "settings": {
+              "number": "03",
+              "title": "Cabinetry",
+              "description": "Crafting Perfection in Every Detail: Beautifully Designed Cabinets That Combine Elegance, Durability, and Functionality to Transform Your Space.",
+              "button_text": "View More",
+              "show_financing": true,
+              "financing_text": "Need Financing?\nNo Problem."
+            }
           }
-        },
-        {
-          "type": "service_item",
-          "settings": {
-            "number": "03",
-            "title": "Cabinetry",
-            "description": "Crafting Perfection in Every Detail: Beautifully Designed Cabinets That Combine Elegance, Durability, and Functionality to Transform Your Space.",
-            "button_text": "View More",
-            "show_financing": true,
-            "financing_text": "Need Financing?\nNo Problem."
-          }
-        }
-      ]
-    }
-  ]
-}
+        ]
+      }
+    ]
+  }
 {% endschema %}

@@ -1,0 +1,231 @@
+<style>
+
+  .how-financing-work-section-container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .how-financing-section-title {
+    color: #000;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .how-financing-work-section {
+    background-color: rgba(157, 184, 168, 0.14);
+  }
+  /* How financing work  */
+  .how-financing-work-content {
+    padding: 100px 150px;
+  }
+
+  .how-financing-work-card-container {
+    display: flex;
+    gap: 16px;
+    margin-top: 64px;
+    width: 100%;
+  }
+
+  .how-financing-work-card {
+    display: flex;
+    padding: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    border: 1px solid #BDA87F;
+    width: 370px;
+    min-height: 217px;
+  }
+
+  .how-financing-work-card-title {
+    color: #252531;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .how-financing-work-card-des {
+    color: rgba(0, 0, 0, 0.60);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+  }
+
+  /* Style for Laptop */
+  @media (max-width: 1024px) {
+
+    .how-financing-work-content {
+      padding: 70px 100px;
+    }
+  }
+
+  /* Style for tablet */
+
+  @media (max-width: 768px) {
+
+    /* How financing work  */
+    .how-financing-work-content {
+      padding: 40px 32px;
+    }
+
+    .how-financing-section-title {
+      font-size: 48px;
+      line-height: 100%;
+    }
+
+    .how-financing-work-card {
+      width: 234px;
+      height: 221px;
+    }
+
+    .how-financing-work-card-title {
+      font-size: 24px;
+    }
+
+    .how-financing-work-card-des {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  /* Style for mobile/small device */
+  @media(max-width: 425px) {
+
+    /* How financing work  */
+    .how-financing-work-content {
+      padding: 32px 20px;
+    }
+
+    .how-financing-section-title {
+      font-size: 42px;
+      line-height: 100%;
+    }
+
+    .how-financing-work-card-container {
+      flex-direction: column;
+    }
+
+    .how-financing-work-card {
+      width: 100%;
+
+    }
+
+    .how-financing-work-card-des {
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+</style>
+<section class="how-financing-work-section">
+  <div class="how-financing-work-content how-financing-work-section-container">
+    <div>
+      <h1 class="how-financing-section-title">
+        {{ section.settings.title | default: "How Financing" }}
+        <span style="color: #6CA082; font-style: italic;">{{ section.settings.highlighted_text | default: "Works" }}</span>
+      </h1>
+    </div>
+    <div class="how-financing-work-card-container">
+      {% for block in section.blocks %}
+        <div class="how-financing-work-card" {{ block.shopify_attributes }}>
+          {% if block.settings.icon != blank %}
+            <img
+              style="max-width:48px; max-height:48px;"
+              src="{{ block.settings.icon | img_url: '96x96' }}"
+              alt="{{ block.settings.title | escape }}"
+              loading="lazy"
+              width="48"
+              height="48">
+          {% else %}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
+              fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M31.505 24.0665H9.01789C7.41582 24.0665 6.11719 22.7679 6.11719 21.1658V13.9774C6.11719 12.3754 7.41582 11.0768 9.01789 11.0768H20.1331C19.8052 10.2097 19.6375 9.29029 19.6383 8.36329C19.6383 4.12027 23.0998 0.658813 27.3428 0.658813C31.5858 0.658813 35.0451 4.12027 35.0451 8.36329C35.046 9.29027 34.8784 10.2097 34.5506 11.0768H38.0345C39.6364 11.0768 40.9352 12.3754 40.9352 13.9774V21.1658C40.9352 22.7679 39.6364 24.0665 38.0345 24.0665H37.4067V29.4815L37.4335 29.4823C40.0648 29.5476 41.881 31.2025 41.881 33.8342C41.881 33.8564 41.88 33.8787 41.878 33.9008L41.5354 37.7551C41.3856 39.4621 40.3405 40.7938 38.8611 41.6544L36.6283 42.9544C36.2927 43.15 36.1024 43.4836 36.1024 43.8723V46.5882C36.1024 46.7879 36.0231 46.9794 35.8819 47.1206C35.7407 47.2618 35.5492 47.3412 35.3495 47.3412H21.2953C21.0956 47.3412 20.9041 47.2618 20.7628 47.1206C20.6216 46.9794 20.5423 46.7879 20.5423 46.5882V43.8723C20.5423 43.6815 20.4989 43.5045 20.412 43.3499L20.4112 43.3486C19.883 42.4055 19.6383 41.481 19.6383 40.401V31.1926C19.6383 29.6839 20.8737 28.4542 22.3767 28.4542C22.7429 28.4542 23.0922 28.5259 23.4114 28.6563C23.8201 27.6246 24.8278 26.8899 26.0006 26.8899C26.5265 26.8893 27.0418 27.0385 27.4859 27.3202C28.0074 26.4343 28.9728 25.8374 30.0663 25.8374C30.5694 25.8368 31.0644 25.9639 31.505 26.2068V24.0665ZM20.9024 12.5827H9.01789C8.24754 12.5827 7.62307 13.2071 7.62307 13.9775V21.1658C7.62307 21.9362 8.24754 22.5607 9.01789 22.5607H31.505V19.7717C31.505 18.1483 32.8346 16.8187 34.4579 16.8187C36.0816 16.8187 37.4067 18.1479 37.4067 19.7717V22.5607H38.0345C38.8048 22.5607 39.4293 21.9362 39.4293 21.1658V13.9774C39.4293 13.2071 38.8048 12.5827 38.0345 12.5827H33.7818C32.4029 14.6781 30.03 16.0656 27.3428 16.0656C24.6555 16.0656 22.2818 14.678 20.9024 12.5827ZM34.7024 43.1193C34.8822 42.5075 35.2854 41.9941 35.8702 41.6533L38.1036 40.3528C39.1501 39.7442 39.9293 38.8305 40.0354 37.6234L40.0355 37.6226L40.375 33.8016C40.3596 32.0779 39.1269 31.0301 37.3947 30.9877L37.3928 30.9876L36.6333 30.967C36.4372 30.9616 36.251 30.88 36.1142 30.7394C35.9774 30.5989 35.9008 30.4105 35.9008 30.2143V19.7717C35.9008 18.9766 35.253 18.3246 34.4579 18.3246C33.6625 18.3246 33.0109 18.9762 33.0109 19.7717V28.361C33.011 28.5469 32.9424 28.7263 32.8181 28.8646C32.6939 29.0029 32.5229 29.0904 32.3381 29.1101C32.1532 29.1299 31.9676 29.0806 31.8169 28.9717C31.6663 28.8628 31.5612 28.702 31.522 28.5203C31.3767 27.8484 30.7792 27.3432 30.0663 27.3432C29.2614 27.3432 28.5956 27.9942 28.5819 28.799C28.5791 28.9678 28.5196 29.1307 28.413 29.2617C28.3063 29.3926 28.1588 29.4839 27.9941 29.5209C27.8293 29.5579 27.6569 29.5384 27.5046 29.4657C27.3522 29.3929 27.2287 29.271 27.154 29.1196C26.9429 28.6921 26.5062 28.3958 26.0006 28.3958C25.2964 28.3958 24.7228 28.9734 24.7228 29.6777V30.0079C24.7228 30.1661 24.673 30.3203 24.5804 30.4486C24.4878 30.5769 24.3572 30.6727 24.207 30.7226C24.0569 30.7724 23.8949 30.7736 23.7439 30.7262C23.593 30.6787 23.4609 30.5849 23.3663 30.4581C23.1406 30.1555 22.7818 29.9601 22.3767 29.9601C21.7002 29.9601 21.1442 30.5135 21.1442 31.1926V40.401C21.1442 41.2115 21.3288 41.905 21.7244 42.6117C21.8149 42.7724 21.8872 42.9426 21.9401 43.1193H34.7024ZM22.0481 44.6252V45.8353H34.5965V44.6252H22.0481ZM10.4505 16.5867C10.0349 16.5867 9.69752 16.2493 9.69752 15.8338C9.69752 15.4182 10.0349 15.0808 10.4505 15.0808H19.2693C19.6849 15.0808 20.0222 15.4182 20.0222 15.8338C20.0222 16.2493 19.6849 16.5867 19.2693 16.5867H10.4505ZM10.4505 20.0625C10.0349 20.0625 9.69752 19.7251 9.69752 19.3095C9.69752 18.894 10.0349 18.5566 10.4505 18.5566H26.6517C27.0673 18.5566 27.4046 18.894 27.4046 19.3095C27.4046 19.7251 27.0673 20.0625 26.6517 20.0625H10.4505ZM27.3428 14.5597C30.7562 14.5597 33.5392 11.7767 33.5392 8.36329C33.5392 4.94964 30.7563 2.1647 27.3428 2.1647C23.9291 2.1647 21.1442 4.94964 21.1442 8.36329C21.1442 11.7768 23.9292 14.5597 27.3428 14.5597ZM26.4275 7.90747L29.2734 5.0319L29.2747 5.03048C29.9678 4.33392 31.0988 4.33053 31.7954 5.02361C32.4917 5.71623 32.4963 6.843 31.8037 7.54286L31.8034 7.54314C30.4317 8.92724 29.0705 10.3196 27.6927 11.6974C26.9965 12.3936 25.8662 12.3936 25.17 11.6974L22.8867 9.41204C22.1909 8.71623 22.1895 7.59011 22.8853 6.89072L22.8867 6.88931C23.5829 6.19312 24.7132 6.19312 25.4094 6.88931L26.4275 7.90747ZM25.8979 9.50747L24.3446 7.95416C24.2926 7.90217 24.2221 7.87292 24.1485 7.8728C24.075 7.87267 24.0044 7.90169 23.9522 7.9535C23.844 8.06295 23.8428 8.23858 23.9514 8.34719L26.2348 10.6326C26.287 10.6847 26.3576 10.714 26.4314 10.714C26.5051 10.714 26.5757 10.6847 26.6279 10.6326C28.004 9.25646 29.3635 7.86587 30.7334 6.48347C30.8412 6.37448 30.8418 6.19905 30.7334 6.0911C30.6813 6.03957 30.6109 6.01077 30.5377 6.011C30.4644 6.01123 30.3943 6.04047 30.3425 6.09232L26.9655 9.50465C26.8957 9.57513 26.8126 9.63113 26.7211 9.66944C26.6296 9.70774 26.5315 9.7276 26.4323 9.72786C26.3331 9.72812 26.2348 9.70879 26.1431 9.67097C26.0514 9.63315 25.9681 9.57759 25.8979 9.50747Z"
+                fill="black" />
+            </svg>
+          {% endif %}
+          <h3 class="how-financing-work-card-title">{{ block.settings.title }}</h3>
+          <p class="how-financing-work-card-des">{{ block.settings.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "How Financing Works",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "How Financing"
+      }, {
+        "type": "text",
+        "id": "highlighted_text",
+        "label": "Highlighted Text",
+        "default": "Works"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "step",
+        "name": "Financing Step",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon",
+            "info": "48x48px recommended"
+          }, {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Apply Online"
+          }, {
+            "type": "textarea",
+            "id": "description",
+            "label": "Description",
+            "default": "Each partner has a long-standing reputation for excellence."
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "How Financing Works",
+        "category": "Custom Content",
+        "blocks": [
+          {
+            "type": "step",
+            "settings": {
+              "title": "Apply Online",
+              "description": "Complete our simple online application in minutes."
+            }
+          }, {
+            "type": "step",
+            "settings": {
+              "title": "Get Approved",
+              "description": "Receive instant approval decision with no credit impact."
+            }
+          }, {
+            "type": "step",
+            "settings": {
+              "title": "Checkout",
+              "description": "Use your financing at checkout for immediate purchases."
+            }
+          }
+        ]
+      }
+    ],
+    "max_blocks": 6
+  }
+{% endschema %}

@@ -17,29 +17,36 @@
         "social_icon_jgLzc8": {
           "type": "social_icon",
           "settings": {
-            "image": "shopify://shop_images/facebook.svg",
-            "link": ""
+            "image": "shopify://shop_images/Social_icon_ae1f291a-a86b-46c7-84d7-969328261305.png",
+            "link": "https://x.com"
           }
         },
         "social_icon_icnVWe": {
           "type": "social_icon",
           "settings": {
-            "image": "shopify://shop_images/facebook.svg",
-            "link": ""
+            "image": "shopify://shop_images/Social_icon_1.png",
+            "link": "https://linkedin.com"
           }
         },
         "social_icon_j8EVte": {
           "type": "social_icon",
           "settings": {
-            "image": "shopify://shop_images/facebook.svg",
-            "link": ""
+            "image": "shopify://shop_images/Social_icon_2.png",
+            "link": "https://facebook.com"
           }
         },
         "social_icon_KKCiXn": {
           "type": "social_icon",
           "settings": {
-            "image": "shopify://shop_images/facebook.svg",
-            "link": ""
+            "image": "shopify://shop_images/youtube_14204cc7-2ecd-4e8a-be8c-fd3f1d925a6a.png",
+            "link": "https://youtube.com"
+          }
+        },
+        "social_icon_mF3ExG": {
+          "type": "social_icon",
+          "settings": {
+            "image": "shopify://shop_images/Insta.png",
+            "link": "https://instragam.com"
           }
         }
       },
@@ -47,7 +54,8 @@
         "social_icon_jgLzc8",
         "social_icon_icnVWe",
         "social_icon_j8EVte",
-        "social_icon_KKCiXn"
+        "social_icon_KKCiXn",
+        "social_icon_mF3ExG"
       ],
       "settings": {
         "title": "Top Kitchen and Bath Designers in Orange County",

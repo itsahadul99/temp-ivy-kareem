@@ -8,68 +8,203 @@
  * ------------------------------------------------------------
  */
  {
-    "sections": {
-      "hero-section": {
-        "type": "hero-section",
-        "settings": {}
-      },
-      "gallery_g44taC": {
-        "type": "gallery",
-        "blocks": {
-          "gallery_item_HnKTYb": {
-            "type": "gallery_item",
-            "settings": {
-              "image": "shopify://shop_images/gallaryImg1.png",
-              "text": "Gallery Item Description",
-              "button_text": "Explore Now",
-              "button_url": ""
-            }
-          },
-          "gallery_item_RqmWfT": {
-            "type": "gallery_item",
-            "settings": {
-              "image": "shopify://shop_images/Cabinetry.png",
-              "text": "Gallery Item Description",
-              "button_text": "Explore Now",
-              "button_url": ""
-            }
-          },
-          "gallery_item_8YyFbe": {
-            "type": "gallery_item",
-            "settings": {
-              "image": "shopify://shop_images/Cabinetry.png",
-              "text": "Gallery Item Description",
-              "button_text": "Explore Now",
-              "button_url": ""
-            }
-          },
-          "gallery_item_BngGNU": {
-            "type": "gallery_item",
-            "settings": {
-              "image": "shopify://shop_images/Cabinetry.png",
-              "text": "Gallery Item Description",
-              "button_text": "Explore Now",
-              "button_url": ""
-            }
-          }
-        },
-        "block_order": [
-          "gallery_item_HnKTYb",
-          "gallery_item_RqmWfT",
-          "gallery_item_8YyFbe",
-          "gallery_item_BngGNU"
-        ],
-        "settings": {
-          "section_title1": "Our",
-          "section_title2": "Work Gallery",
-          "see_more_text": "See Full Gallery",
-          "see_more_url": ""
-        }
+  "sections": {
+    "hero-section": {
+      "type": "hero-section",
+      "settings": {
+        "title_line1": "Top Kitchen and Bath Designers",
+        "title_line2": "in Orange Country",
+        "description": "We Turn Spaces Into Stories. From Modern Elegance To Cozy Charm, Our Designs Blend Style And Function To Create Interiors.",
+        "button_text": "Explore Us",
+        "button_link": "",
+        "menu": "",
+        "shop_button_link": ""
       }
     },
-    "order": [
-      "hero-section",
-      "gallery_g44taC"
-    ]
-  }
-  
+    "our_services_mWyPmG": {
+      "type": "our-services",
+      "blocks": {
+        "service_item_Y8MM3b": {
+          "type": "service_item",
+          "settings": {
+            "number": "01",
+            "title": "Kitchen",
+            "description": "We specialize in remodeling kitchen. We can do the designing and interior designing, having it built and design. We can also have it installed in your home.",
+            "image": "shopify://shop_images/home-design_2.png",
+            "button_text": "View More",
+            "button_url": "",
+            "show_financing": false,
+            "financing_text": "Need Financing?\nNo Problem."
+          }
+        },
+        "service_item_mh8NcT": {
+          "type": "service_item",
+          "settings": {
+            "number": "02",
+            "title": "Bathrooms",
+            "description": "Where Every Detail Counts: Elevating Bathroom Design to New Heights of Elegance, Functionality, and Precision—Creating Luxurious Spaces That Reflect Your Unique Style and Vision.",
+            "image": "shopify://shop_images/bathroom2.png",
+            "button_text": "View More",
+            "button_url": "",
+            "show_financing": false,
+            "financing_text": "Need Financing?\nNo Problem."
+          }
+        },
+        "service_item_bLFqTP": {
+          "type": "service_item",
+          "settings": {
+            "number": "03",
+            "title": "Cabinetry",
+            "description": "Crafting Perfection in Every Detail: Beautifully Designed Cabinets That Combine Elegance, Durability, and Functionality to Transform Your Space.",
+            "image": "shopify://shop_images/Illume_Catalina_Como_Ash_2_Venetian_Antracita.png",
+            "button_text": "View More",
+            "button_url": "",
+            "show_financing": true,
+            "financing_text": "Need Financing?\nNo Problem."
+          }
+        }
+      },
+      "block_order": [
+        "service_item_Y8MM3b",
+        "service_item_mh8NcT",
+        "service_item_bLFqTP"
+      ],
+      "settings": {
+        "title_first": "Our",
+        "title_second": "Service",
+        "second_color": "#6ca082",
+        "font_size_mobile": 52,
+        "font_size_desktop": 80,
+        "text_gap": 4
+      }
+    },
+    "home_gallery_XNFdUr": {
+      "type": "home-gallery",
+      "blocks": {
+        "gallery_item_QRxMhn": {
+          "type": "gallery_item",
+          "settings": {
+            "image": "shopify://shop_images/Header_bg.jpg",
+            "text": "Item 1",
+            "button_text": "Explore Now",
+            "button_url": ""
+          }
+        },
+        "gallery_item_DXDdVU": {
+          "type": "gallery_item",
+          "settings": {
+            "image": "shopify://shop_images/Illume_Catalina_Como_Ash_2_Venetian_Antracita.png",
+            "text": "Item 2",
+            "button_text": "Explore Now",
+            "button_url": ""
+          }
+        },
+        "gallery_item_Dq9TWM": {
+          "type": "gallery_item",
+          "settings": {
+            "image": "shopify://shop_images/home-design_2.png",
+            "text": "Item 3",
+            "button_text": "Explore Now",
+            "button_url": ""
+          }
+        },
+        "gallery_item_3gQJW3": {
+          "type": "gallery_item",
+          "settings": {
+            "image": "shopify://shop_images/Header_bg.jpg",
+            "text": "Gallery Item Description",
+            "button_text": "Explore Now",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "gallery_item_QRxMhn",
+        "gallery_item_DXDdVU",
+        "gallery_item_Dq9TWM",
+        "gallery_item_3gQJW3"
+      ],
+      "name": "Home Gallery Section",
+      "settings": {
+        "section_title1": "Our",
+        "section_title2": "Work Gallery",
+        "see_more_text": "Work Gallery",
+        "see_more_url": ""
+      }
+    },
+    "artistry_action_cEtgX4": {
+      "type": "artistry-action",
+      "blocks": {
+        "image_QQKAzj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Illume_Catalina_Como_Ash_2_Venetian_Antracita.png"
+          }
+        },
+        "image_THBJN3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/home-design_2.png"
+          }
+        },
+        "image_YRd8qz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/home-design_2.png"
+          }
+        },
+        "image_h3qJVx": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Cabinetry.png"
+          }
+        },
+        "image_heqqzT": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Cabinetry.png"
+          }
+        },
+        "image_KT3LDY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Cabinetry.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_QQKAzj",
+        "image_THBJN3",
+        "image_YRd8qz",
+        "image_h3qJVx",
+        "image_heqqzT",
+        "image_KT3LDY"
+      ],
+      "settings": {
+        "heading_part1": "Artistry",
+        "heading_part2": "in Action",
+        "description": "Discover innovative designs and exceptional craftsmanship in our curated collection.",
+        "mobile_description": ""
+      }
+    },
+    "kitchen_section_XkrqxW": {
+      "type": "kitchen-section",
+      "settings": {
+        "section_title1": "Crafting",
+        "section_title2": "the Kitchen",
+        "explore_text": "Explore Us",
+        "left_button_url": "",
+        "right_button_url": "",
+        "shop_text": "Shop Now",
+        "video_width": 900
+      }
+    }
+  },
+  "order": [
+    "hero-section",
+    "our_services_mWyPmG",
+    "home_gallery_XNFdUr",
+    "artistry_action_cEtgX4",
+    "kitchen_section_XkrqxW"
+  ]
+}

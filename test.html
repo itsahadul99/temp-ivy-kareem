@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Client</title>
+  <style>
+
+
+  </style>
+</head>
+
+<body>
+  <h2>This is Client part</h2>
+  
+
+  <p>Your ID: <span id="my-id">...</span></p>
+  <input type="text" id="peer-id" placeholder="Enter admin id">
+  <button onclick="startScreenShareCall()">Share Screen</button>
+  <p>NB: Please, collect id from your admin and put it in your input box.</p>
+
+
+
+  <!-- PeerJS CDN -->
+  <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+
+  <script>
+    let localPeerId = getOrCreatePeerId();
+    const peer = new Peer(localPeerId, {
+      host: '23.98.93.20',
+      port: 9000,
+      path: '/myapp',
+      config: {
+        iceServers: [
+          { url: 'stun:stun.l.google.com:19302' },
+          { url: 'stun:23.98.93.20:3478' },
+          {
+            url: 'turn:23.98.93.20:3478',
+            username: 'testuser',
+            credential: 'testpass'
+          }
+        ]
+      }
+    });
+
+    let currentCall;
+
+    peer.on('open', (id) => {
+      document.getElementById('my-id').textContent = id;
+    });
+
+    // Answer incoming screen share call
+    peer.on('call', (call) => {
+      navigator.mediaDevices.getDisplayMedia({ video: true, audio: true })
+        .then((screenStream) => {
+          call.answer(screenStream);
+          currentCall = call;
+
+          screenStream.getVideoTracks()[0].addEventListener('ended', () => {
+            alert('Screen sharing stopped.');
+            call.close();
+          });
+        })
+        .catch((err) => {
+          alert('Failed to get screen for answering call.');
+          console.error(err);
+        });
+    });
+
+    // Start screen sharing to a peer
+    function startScreenShareCall() {
+      const peerId = document.getElementById('peer-id').value;
+      if (!peerId) return alert("Enter a peer ID!");
+
+      navigator.mediaDevices.getDisplayMedia({ video: true, audio: true })
+        .then((screenStream) => {
+          const call = peer.call(peerId, screenStream);
+          currentCall = call;
+
+          screenStream.getVideoTracks()[0].addEventListener('ended', () => {
+            alert('Screen sharing stopped.');
+            call.close();
+          });
+        })
+        .catch((err) => {
+          alert('Failed to access screen.');
+          console.error(err);
+        });
+    }
+
+    function getOrCreatePeerId() {
+      const savedId = localStorage.getItem('peerjs_admin_id');
+      if (savedId) return savedId;
+      const now = new Date();
+      const datePart = now.toISOString().slice(0, 10).replace(/-/g, '');
+      const timePart = now.toTimeString().split(' ')[0].replace(/:/g, '');
+      const millis = now.getMilliseconds().toString();
+      const peerId = `Admin_${datePart}${timePart}${millis}`;
+      localStorage.setItem('peerjs_admin_id', peerId);
+      return peerId;
+    }
+  </script>
+</body>
+
+</html>
