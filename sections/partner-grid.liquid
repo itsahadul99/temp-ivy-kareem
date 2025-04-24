@@ -58,13 +58,13 @@
   /* Responsive adjustments */
   @media (max-width: 1200px) {
     .partner-grid-content {
-      padding: 80px 20px;
+      padding: 70px 100px;
     }
-    
+
     .partner-grid-section-title {
       font-size: 56px;
     }
-    
+
     .partner-grid-card {
       width: calc(33.33% - 16px);
     }
@@ -74,11 +74,11 @@
     .partner-grid-content {
       padding: 60px 20px;
     }
-    
+
     .partner-grid-section-title {
       font-size: 48px;
     }
-    
+
     .partner-grid-card {
       width: calc(50% - 16px);
       height: 180px;
@@ -87,13 +87,13 @@
 
   @media (max-width: 768px) {
     .partner-grid-content {
-      padding: 40px 20px;
+      padding: 40px 32px;
     }
-    
+
     .partner-grid-section-title {
       font-size: 48px;
     }
-    
+
     .partner-grid-card {
       width: 100%;
       max-width: 285px;
@@ -103,16 +103,16 @@
 
   @media (max-width: 480px) {
     .partner-grid-content {
-      padding: 30px 15px;
+      padding: 33px 20px;
     }
-    
+
     .partner-grid-section-title {
       font-size: 42px;
     }
-    
+
     .partner-grid-card {
       height: 140px;
-        width: 100%;
+      width: 100%;
       padding: 30px 8px;
     }
   }
@@ -136,8 +136,8 @@
               src="{{ block.settings.logo | img_url: '300x' }}"
               alt="{{ block.settings.alt_text | default: 'Partner logo' | escape }}"
               loading="lazy"
-              width="300"
-              height="{{ 300 | divided_by: block.settings.logo.aspect_ratio | round }}"
+              width="170"
+              height="48"
               class="partner-logo">
           {% else %}
             <img src="{{'company1.png' | asset_url}}" alt="Logo img">

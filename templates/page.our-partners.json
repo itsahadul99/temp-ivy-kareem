@@ -1,0 +1,193 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "pages_banner_mNBCwQ": {
+      "type": "pages-banner",
+      "settings": {
+        "pages_banner_title": "Our Partners",
+        "pages_banner_title2": "Crafting Spaces, Together with Excellence"
+      }
+    },
+    "collaborate_UKjkcH": {
+      "type": "collaborate",
+      "blocks": {
+        "paragraph_yWebfQ": {
+          "type": "paragraph",
+          "settings": {
+            "text": "At Ivy and Kareem, our philosophy is rooted in the belief that exceptional design is a result of meaningful collaboration. We understand that transforming a space into something extraordinary takes more than just creativity — it requires trust, precision, and shared values."
+          }
+        },
+        "paragraph_bPMU7k": {
+          "type": "paragraph",
+          "settings": {
+            "text": "That's why we've cultivated relationships with a carefully curated network of industry-leading brands, artisans, and manufacturers. These partnerships go beyond transactional — they are built on mutual respect and a shared dedication to quality and innovation."
+          }
+        },
+        "paragraph_PFy4mi": {
+          "type": "paragraph",
+          "settings": {
+            "text": "Together, we deliver more than just products — we deliver experiences. When clients choose Ivy and Kareem, they're not just hiring a team — they're gaining access to a circle of trusted experts who help bring their dreams to life with care, sophistication, and integrity."
+          }
+        }
+      },
+      "block_order": [
+        "paragraph_yWebfQ",
+        "paragraph_bPMU7k",
+        "paragraph_PFy4mi"
+      ],
+      "settings": {
+        "title_part1": "We Collaborate",
+        "title_part2": "with the Best",
+        "colored_text_color": "#6ca082",
+        "collaborate_image": "shopify://shop_images/image_16.png",
+        "image_alt": "Collaboration illustration"
+      }
+    },
+    "why_this_partner_GtGEwx": {
+      "type": "why-this-partner",
+      "blocks": {
+        "partner_card_TeiTiE": {
+          "type": "partner_card",
+          "settings": {
+            "icon": "shopify://shop_images/proven.png",
+            "title": "Proven Quality",
+            "description": "Each partner has a long-standing reputation for excellence."
+          }
+        },
+        "partner_card_yFUfgm": {
+          "type": "partner_card",
+          "settings": {
+            "title": "Design Compatibility",
+            "description": "Their product aesthetics align with our luxury design philosophy."
+          }
+        },
+        "partner_card_APeQgn": {
+          "type": "partner_card",
+          "settings": {
+            "icon": "shopify://shop_images/client-satisfaction.png",
+            "title": "Client Satisfaction",
+            "description": "Trusted by thousands of homeowners and builders nationwide."
+          }
+        },
+        "partner_card_AVwDHq": {
+          "type": "partner_card",
+          "settings": {
+            "icon": "shopify://shop_images/sustainability-commitment.png",
+            "title": "Sustainability Commitment",
+            "description": "Many of our partners prioritize eco-conscious manufacturing."
+          }
+        }
+      },
+      "block_order": [
+        "partner_card_TeiTiE",
+        "partner_card_yFUfgm",
+        "partner_card_APeQgn",
+        "partner_card_AVwDHq"
+      ],
+      "settings": {
+        "title_part1": "Why These",
+        "title_part2": "Partners?",
+        "colored_text_color": "#6ca082"
+      }
+    },
+    "partner_grid_fTKWCQ": {
+      "type": "partner-grid",
+      "blocks": {
+        "partner_logo_wKgTPa": {
+          "type": "partner_logo",
+          "settings": {
+            "alt_text": ""
+          }
+        },
+        "partner_logo_U37BUW": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/Company_logo.png",
+            "alt_text": "Outreach"
+          }
+        },
+        "partner_logo_6Nr37D": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/Company_logo_1.png",
+            "alt_text": "Coin base"
+          }
+        },
+        "partner_logo_QPnH6A": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/Company_logo_2.png",
+            "alt_text": "spotify"
+          }
+        },
+        "partner_logo_qTxFQA": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/Company_logo_3.png",
+            "alt_text": "zoom"
+          }
+        },
+        "partner_logo_TUNMnh": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/Company_logo_4.png",
+            "alt_text": "webflow"
+          }
+        },
+        "partner_logo_wcxb6e": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/Company_logo_5.png",
+            "alt_text": "drop box"
+          }
+        },
+        "partner_logo_KCbMFE": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/Company_logo_6.png",
+            "alt_text": "slack"
+          }
+        }
+      },
+      "block_order": [
+        "partner_logo_wKgTPa",
+        "partner_logo_U37BUW",
+        "partner_logo_6Nr37D",
+        "partner_logo_QPnH6A",
+        "partner_logo_qTxFQA",
+        "partner_logo_TUNMnh",
+        "partner_logo_wcxb6e",
+        "partner_logo_KCbMFE"
+      ],
+      "settings": {
+        "title_part1": "Explore Our",
+        "title_part2": "Partner Grid",
+        "accent_color": "#6CA082",
+        "columns": 4
+      }
+    }
+  },
+  "order": [
+    "main",
+    "pages_banner_mNBCwQ",
+    "collaborate_UKjkcH",
+    "why_this_partner_GtGEwx",
+    "partner_grid_fTKWCQ"
+  ]
+}

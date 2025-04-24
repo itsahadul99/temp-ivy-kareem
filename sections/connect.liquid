@@ -1,0 +1,467 @@
+<style>
+    .connect-section-container {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    /* Banner section style */
+    .banner-section {
+      background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.4) 0%,
+          rgba(0, 0, 0, 0.4) 100%
+        ),
+        url("./image/pagesBanner.png") lightgray 50% / cover no-repeat;
+      height: 621px;
+      display: flex;
+      justify-content: start;
+      align-items: end;
+    }
+
+    .section-title {
+      color: #000;
+      font-size: 64px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+
+    .section-des {
+      color: rgba(0, 0, 0, 0.7);
+      font-family: Avenir LT Pro;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 160%;
+      /* 28.8px */
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    .contact-section {
+      padding: 100px 150px;
+      background-color: #fff;
+    }
+
+    .contact-section-form {
+      display: flex;
+      gap: 64px;
+      margin-top: 64px;
+    }
+
+    .contact-section-left-wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      gap: 24px;
+    }
+
+    form {
+      border-radius: 20px;
+      background: #fff;
+      position: relative;
+      box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.2);
+      display: flex;
+      padding: 50px;
+      flex-direction: column;
+      gap: 40px;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .form-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-section form input,
+    .contact-section form select,
+    .contact-section form textarea {
+      display: flex;
+      height: 50px;
+      padding: 12px 20px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      border-radius: 10px;
+      border: 1px solid #e9e9ea;
+      width: 100%;
+      color: #828282;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 26px;
+    }
+    .contact-section-left-wrapper h3 {
+      color: #252531;
+font-family: "Minion Pro";
+font-size: 34px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+    }
+    .contact-section-left-wrapper p {
+      color: rgba(0, 0, 0, 0.60);
+font-family: Roboto;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 32px; /* 177.778% */
+    }
+    .contact-section form textarea {
+      height: 140px;
+      padding: 20px;
+      color: #828282;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 26px;
+    }
+
+    .send-message-btn {
+      display: flex;
+      height: 40px;
+      padding: 10px 16px 8px 16px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border-radius: 10px;
+      border: 1.5px solid #9db8a8;
+      width: fit-content;
+      color: rgba(37, 37, 49, 0.8);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 750;
+      line-height: normal;
+      letter-spacing: 0.2px;
+      text-transform: uppercase;
+      filter: blur(0.15000000596046448px);
+      cursor: pointer;
+    }
+
+    .chat-icon{
+      position: absolute;
+      bottom: -73px;
+      right: -140px;
+      z-index: 2;
+    }
+
+    .chat-icon-img {
+      max-width: 120px;
+      width: 120px;
+    }
+
+   
+    #map {
+      height: 300px;
+      width: 100%;
+      max-width: 500px;
+      border-radius: 23px;
+      filter: grayscale(90%) brightness(110%) contrast(90%);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .map-container {
+      text-align: center;
+      /* font-family: sans-serif; */
+    }
+
+    @media (max-width: 768px) {
+      .contact-section {
+        padding: 40px 32px;
+      }
+
+      .section-title {
+        font-size: 48px;
+        font-weight: 700;
+      }
+      .section-des {
+        font-family: Avenir LT Pro;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 160%; /* 22.4px */
+        text-transform: uppercase;
+      }
+
+      .contact-section-left-wrapper {
+      width: 100%;
+    
+    }
+      .contact-section-form{
+          flex-direction: column;
+      } 
+
+      form {
+     
+      max-width: 100%;
+      width: 100%;
+      position: relative;
+    }
+
+    #map {
+     
+      width: 100%;
+     max-width: 100%;
+    }
+
+    .contact-section-left-wrapper h3 {
+font-size: 32px;
+
+    }
+    .contact-section-left-wrapper p {
+font-size: 16px;
+
+    }
+    
+
+    .chat-icon {
+ 
+  bottom: -68px;
+  right: -18px;
+}
+    }
+
+    @media (max-width: 426px) {
+
+      .contact-section {
+        padding: 20px 32px;
+      }
+      .section-title {
+  
+font-size: 42px;
+      }
+
+      .contact-section-form {
+  flex-direction: column-reverse;
+}
+
+form {
+  padding: 20px;
+}
+
+.chat-icon {
+  bottom: -93px;
+}
+.chat-icon-img{
+ 
+width: 84px;
+height: 84px;
+}
+
+.contact-section-left-wrapper h3 {
+font-size: 24px;
+
+    }
+.contact-section-left-wrapper p {
+font-size: 16px;
+
+    }
+      .section-des {
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+
+      }
+    }
+  </style>
+  <!-- Contact section -->
+<section class="contact-section">
+    <div class="contact-section-content connect-section-container">
+      <div>
+        <h1 class="section-title">
+          <span style="color: {{ section.settings.title_part1_color }}; font-style: italic">
+            {{ section.settings.section_title_part1 }}
+          </span>
+          {{ section.settings.section_title_part2 }}
+        </h1>
+        <p class="section-des">
+          {{ section.settings.section_description }}
+        </p>
+      </div>
+      <div class="contact-section-form">
+        <div class="contact-section-left-wrapper">
+          <div style="display: flex; align-items: flex-start; gap: 16px">
+            {% if section.settings.location_icon %}
+                <img width="40" height="40" src="{{ section.settings.location_icon |  image_url  }}" alt="locationIcon">
+                {% else %}
+                <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+              >
+                <path
+                  d="M20.1873 3.33521C12.8235 3.23165 6.77008 9.11737 6.66663 16.4812C6.66663 25.5616 18.9404 36.0287 19.4628 36.4698C19.6128 36.5972 19.8032 36.667 20 36.6667C20.1967 36.667 20.3871 36.5972 20.5371 36.4698C21.0595 36.0287 33.3333 25.5616 33.3333 16.4812C33.2319 9.26325 27.4053 3.43663 20.1873 3.33521ZM20 34.7233C17.6399 32.6042 8.33329 23.7777 8.33329 16.4812C8.39219 10.0923 13.611 4.95651 20 5.00004C26.3889 4.95651 31.6078 10.0923 31.6666 16.4812C31.6666 23.7712 22.3583 32.6026 20 34.7233ZM20 11.6667C17.2385 11.6667 15 13.9053 15 16.6667C15 19.4281 17.2385 21.6667 20 21.6667C22.7602 21.6637 24.9969 19.4269 25 16.6667C25 13.9053 22.7614 11.6667 20 11.6667ZM20 20C18.159 20 16.6666 18.5076 16.6666 16.6667C16.6666 14.8258 18.159 13.3334 20 13.3334C21.84 13.3357 23.331 14.8267 23.3333 16.6667C23.3333 18.5076 21.8409 20 20 20Z"
+                  fill="#6CA082"
+                />
+              </svg>
+            {% endif %}
+            <div>
+              <h3>{{ section.settings.location_heading }}</h3>
+              <p>{{ section.settings.location_address }}</p>
+            </div>
+          </div>
+          <div class="map-container">
+            <div id="map"></div>
+          </div>
+        </div>
+      
+      <form>
+        <div class="form-content">
+          <div style="display: flex; align-items: center; gap: 21px; align-self: stretch;">
+            <input
+              placeholder="First Name*"
+              type="text"
+              id="first-name"
+              name="first-name"
+              required
+            />
+            <input
+              placeholder="Last Name*"
+              type="text"
+              id="last-name"
+              name="last-name"
+              required
+            />
+          </div>
+          <input
+            placeholder="Email*"
+            type="email"
+            id="email"
+            name="email"
+            required
+          />
+          <input
+            placeholder="Phone Number*"
+            type="tel"
+            id="phone"
+            name="phone"
+            required
+          />
+          <select id="looking-for" name="looking-for">
+            <option value="">What are you looking for?</option>
+            <option value="support">Support</option>
+            <option value="sales">Sales</option>
+            <option value="other">Other</option>
+          </select>
+          <textarea
+            placeholder="Your message..."
+            id="message"
+            name="message"
+          ></textarea>
+        </div>
+        <button class="send-message-btn" type="submit">{{ section.settings.submit_button_text }}</button>
+  
+        <div class="chat-icon">
+            {% if section.settings.chat_icon %}
+          <img class="chat-icon-img" src="{{ section.settings.chat_icon | img_url }}" alt="Chat Icon">
+          {% else %}
+              <img class="chat-icon-img" src="{{ 'chat-icon.png' | asset_url }}" alt="Chat Icon" loading="lazy">
+            {% endif %}
+        </div>
+      </form>
+    </div>
+  </section>
+  {{ 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js' | script_tag }}
+  <script>
+    // Initialize the map
+    var coordinates = "{{ section.settings.map_coordinates }}".split(',');
+    var map = L.map("map").setView([parseFloat(coordinates[0]), parseFloat(coordinates[1])], {{ section.settings.map_zoom }});
+    // Use a light-colored tile layer
+    L.tileLayer(
+      "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+      {
+        attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
+        maxZoom: 19,
+      }
+    ).addTo(map);
+  
+    // Add a marker
+    L.marker([parseFloat(coordinates[0]), parseFloat(coordinates[1])])
+      .addTo(map)
+      .bindPopup("{{ section.settings.location_address }}")
+      .openPopup();
+  </script>
+
+{% schema %}
+    {
+      "name": "Contact Section",
+      "settings": [
+        {
+          "type": "text",
+          "id": "section_title_part1",
+          "label": "Section Title Part 1",
+          "default": "We'd Love to Hear"
+        },
+        {
+          "type": "text",
+          "id": "section_title_part2",
+          "label": "Section Title Part 2",
+          "default": "From You"
+        },
+        {
+          "type": "color",
+          "id": "title_part1_color",
+          "label": "First Part Title Color",
+          "default": "#6ca082"
+        },
+        {
+          "type": "textarea",
+          "id": "section_description",
+          "label": "Section Description",
+          "default": "Whether you're ready to start your dream renovation, have questions about our process, or simply want to learn more — we're just a message away."
+        },
+        {
+            "type": "image_picker",
+            "id": "location_icon",
+            "label": "Location Icon",
+            "info": "Recommended size: 40x40 px"
+        },
+        {
+          "type": "text",
+          "id": "location_heading",
+          "label": "Location Heading",
+          "default": "Our Location"
+        },
+        {
+          "type": "text",
+          "id": "location_address",
+          "label": "Location Address",
+          "default": "123 Design Street, Brooklyn, NY 11201"
+        },
+        {
+          "type": "text",
+          "id": "map_coordinates",
+          "label": "Map Coordinates",
+          "info": "Enter latitude and longitude separated by comma (e.g., 40.6943,-73.9896)",
+          "default": "40.6943,-73.9896"
+        },
+        {
+          "type": "number",
+          "id": "map_zoom",
+          "label": "Map Zoom Level",
+          "default": 16
+        },
+        {
+          "type": "text",
+          "id": "submit_button_text",
+          "label": "Submit Button Text",
+          "default": "SEND MESSAGE"
+        },
+        {
+          "type": "image_picker",
+          "id": "chat_icon",
+          "label": "Chat Icon Image"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Contact Section",
+          "category": "Custom Sections"
+        }
+      ]
+    }
+    {% endschema %}
