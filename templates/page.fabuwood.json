@@ -1,0 +1,195 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "pages_banner_mNBCwQ": {
+      "type": "pages-banner",
+      "settings": {
+        "pages_banner_title": "Discover Fabuwood",
+        "pages_banner_title2": "Elegant Cabinetry, Inspired by Life"
+      }
+    },
+    "why_choose_financing_ANKJ3b": {
+      "type": "why-choose-financing",
+      "blocks": {
+        "benefit_point_NN3jQx": {
+          "type": "benefit_point",
+          "settings": {
+            "point": "No upfront large payments"
+          }
+        },
+        "benefit_point_gdEghX": {
+          "type": "benefit_point",
+          "settings": {
+            "point": "No upfront large payments"
+          }
+        },
+        "benefit_point_eQ4XRr": {
+          "type": "benefit_point",
+          "settings": {
+            "point": "Fixed monthly installments"
+          }
+        },
+        "benefit_point_VimFC8": {
+          "type": "benefit_point",
+          "settings": {
+            "point": "Transparent terms with no hidden fees"
+          }
+        },
+        "benefit_point_CKAyWU": {
+          "type": "benefit_point",
+          "settings": {
+            "point": "Personalized support throughout the process"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_point_NN3jQx",
+        "benefit_point_gdEghX",
+        "benefit_point_eQ4XRr",
+        "benefit_point_VimFC8",
+        "benefit_point_CKAyWU"
+      ],
+      "name": "Why Choose Financing",
+      "settings": {
+        "section_bg": "",
+        "title": "Why We Trust",
+        "highlighted_text": "Fabuwood",
+        "image": "shopify://shop_images/image_24.png",
+        "point_des": "We use Fabuwood because they share our commitment to quality, durability, and beautiful design.” — Ivy and Kareem"
+      }
+    },
+    "our_services_cFhNgL": {
+      "type": "our-services",
+      "blocks": {
+        "service_item_UmBhRX": {
+          "type": "service_item",
+          "settings": {
+            "number": "01",
+            "title": "Galaxy Series",
+            "description": "A sleek, modern cabinet line known for its clean lines and minimalist appeal.",
+            "image": "shopify://shop_images/image_23.png",
+            "button_text": "Learn More",
+            "button_url": "",
+            "show_financing": false,
+            "financing_text": "Need Financing?\nNo Problem."
+          }
+        },
+        "service_item_c36Rt4": {
+          "type": "service_item",
+          "settings": {
+            "number": "02",
+            "title": "Imperio Series",
+            "description": "Classic elegance meets timeless craftsmanship in this raised panel collection.",
+            "image": "shopify://shop_images/bathroom2_1.png",
+            "button_text": "Learn More",
+            "button_url": "",
+            "show_financing": false,
+            "financing_text": "Need Financing?\nNo Problem."
+          }
+        },
+        "service_item_KVUnGY": {
+          "type": "service_item",
+          "settings": {
+            "number": "03",
+            "title": "Fusion Line",
+            "description": "A balanced blend of transitional design and practical functionality for any home.",
+            "image": "shopify://shop_images/Illume_Catalina_Como_Ash_2_Venetian_Antracita_1.png",
+            "button_text": "Learn More",
+            "button_url": "",
+            "show_financing": false,
+            "financing_text": ""
+          }
+        },
+        "service_item_b9fxEg": {
+          "type": "service_item",
+          "settings": {
+            "number": "04",
+            "title": "Onyx Collection",
+            "description": "Bold and contemporary, the Onyx Collection adds depth and drama with high-gloss finishes.",
+            "image": "shopify://shop_images/Illume_Catalina_Como_Ash_2_Venetian_Antracita_1_f8c3a523-d24e-4a31-9383-2cdb97984ae7.png",
+            "button_text": "Learn More",
+            "button_url": "",
+            "show_financing": false,
+            "financing_text": "Need Financing?\nNo Problem."
+          }
+        }
+      },
+      "block_order": [
+        "service_item_UmBhRX",
+        "service_item_c36Rt4",
+        "service_item_KVUnGY",
+        "service_item_b9fxEg"
+      ],
+      "name": "Our Service",
+      "settings": {
+        "title_first": "Cabinetry",
+        "title_second": "Collections",
+        "second_color": "#6ca082",
+        "font_size_mobile": 52,
+        "font_size_desktop": 80,
+        "text_gap": 4
+      }
+    },
+    "download_MmgVGx": {
+      "type": "download",
+      "blocks": {
+        "pdf_card_yKEVwM": {
+          "type": "pdf_card",
+          "settings": {
+            "card_subtitle": "Product Brochure",
+            "card_title": "Fabuwood Full Product Catalog",
+            "description": "Explore all available cabinetry styles, finishes, and inspirations.",
+            "preview_image": "shopify://shop_images/Frame_2087326832.png",
+            "preview_btn_text": "Preview PDF",
+            "download_btn_text": "Download PDF",
+            "pdf_file": ""
+          }
+        },
+        "pdf_card_87U6WD": {
+          "type": "pdf_card",
+          "settings": {
+            "card_subtitle": "Technical Spec Sheet",
+            "card_title": "Design & Build Specs",
+            "description": "Detailed measurements and materials for professionals.",
+            "preview_image": "shopify://shop_images/Frame_2087326832.png",
+            "preview_btn_text": "Preview PDF",
+            "download_btn_text": "Download PDF",
+            "pdf_file": ""
+          }
+        }
+      },
+      "block_order": [
+        "pdf_card_yKEVwM",
+        "pdf_card_87U6WD"
+      ],
+      "name": "PDF Download Section",
+      "settings": {
+        "title": "Brochures &",
+        "subtitle": "Downloads"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "pages_banner_mNBCwQ",
+    "why_choose_financing_ANKJ3b",
+    "our_services_cFhNgL",
+    "download_MmgVGx"
+  ]
+}

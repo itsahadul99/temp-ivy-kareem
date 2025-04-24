@@ -86,7 +86,6 @@
     font-size: 32px;
     font-weight: 600;
     line-height: 37.5px;
-    color: {{ section.settings.second_color | escape }};
   }
 
   .service-subtitle {
@@ -389,7 +388,7 @@
           <!-- Text Content -->
           <div class="service-text">
             <div class="service-text-inner">
-              <div class="service-number">{{ block.settings.number | escape }}</div>
+              <div class="service-number" style="color: {{ block.settings.number_color | escape }};">{{ block.settings.number | escape }}</div>
               <div>
                 <div class="service-subtitle">{{ block.settings.title | escape }}</div>
                 <div class="service-description">{{ block.settings.description | escape }}</div>
@@ -498,20 +497,31 @@
             "default": "01",
             "info": "Section number (e.g., '01', '02')."
           },
+          
+          {
+            "type": "color",
+            "id": "number_color",
+            "label": "Choose card number color",
+            "default": "#6CA082"
+          },
+          {
+            "type": "text",
+            "id": "service_alignment",
+            "default": "flex-start",
+            "label": "Select Alignment"
+          },
           {
             "type": "text",
             "id": "title",
             "label": "Title",
             "default": "Kitchen",
             "info": "Title of the service (e.g., 'Kitchen')."
-          },
-          {
+          }, {
             "type": "textarea",
             "id": "description",
             "label": "Description",
             "default": "We specialize in remodeling kitchen. We can do the designing and interior designing, having it built and design. We can also have it installed in your home."
-          },
-          {
+          }, {
             "type": "image_picker",
             "id": "image",
             "label": "Image",

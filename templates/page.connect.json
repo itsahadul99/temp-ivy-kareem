@@ -8,41 +8,40 @@
  * ------------------------------------------------------------
  */
  {
-    "sections": {
-      "main": {
-        "type": "main-page",
-        "disabled": true,
-        "settings": {
-          "padding_top": 28,
-          "padding_bottom": 28
-        }
-      },
-      "pages_banner_mNBCwQ": {
-        "type": "pages-banner",
-        "settings": {
-          "pages_banner_title": "Connect with",
-          "pages_banner_title2": "lvy and Kareem"
-        }
-      },
-      "connect_ixihmL": {
-        "type": "connect",
-        "settings": {
-          "section_title_part1": "We'd Love to Hear",
-          "section_title_part2": "From You",
-          "title_part1_color": "#6ca082",
-          "section_description": "Whether you're ready to start your dream renovation, have questions about our process, or simply want to learn more — we're just a message away.",
-          "location_heading": "Our Location",
-          "location_address": "123 Design Street, Brooklyn, NY 11201",
-          "map_coordinates": "40.6943,-73.9896",
-          "map_zoom": 16,
-          "submit_button_text": "SEND MESSAGE"
-        }
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     },
-    "order": [
-      "main",
-      "pages_banner_mNBCwQ",
-      "connect_ixihmL"
-    ]
-  }
-  
+    "pages_banner_mNBCwQ": {
+      "type": "pages-banner",
+      "settings": {
+        "pages_banner_title": "Connect with",
+        "pages_banner_title2": "lvy and Kareem"
+      }
+    },
+    "connect_ixihmL": {
+      "type": "connect",
+      "settings": {
+        "section_title_part1": "We'd Love to Hear",
+        "section_title_part2": "From You",
+        "title_part1_color": "#6ca082",
+        "section_description": "Whether you're ready to start your dream renovation, have questions about our process, or simply want to learn more — we're just a message away.",
+        "location_heading": "Our Location",
+        "location_address": "123 Design Street, Brooklyn, NY 11201",
+        "map_coordinates": "40.6943,-73.9896",
+        "map_zoom": 16,
+        "submit_button_text": "SEND MESSAGE"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "pages_banner_mNBCwQ",
+    "connect_ixihmL"
+  ]
+}

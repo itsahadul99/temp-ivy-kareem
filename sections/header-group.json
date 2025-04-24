@@ -42,7 +42,7 @@
           "type": "menu_item",
           "settings": {
             "title": "Home",
-            "link": "",
+            "link": "/",
             "has_dropdown": false,
             "dropdown_menu": ""
           }
@@ -51,7 +51,7 @@
           "type": "menu_item",
           "settings": {
             "title": "Our Story",
-            "link": "",
+            "link": "shopify://pages/our-story",
             "has_dropdown": false,
             "dropdown_menu": ""
           }
@@ -61,8 +61,8 @@
           "settings": {
             "title": "Gallery",
             "link": "shopify://collections/frontpage",
-            "has_dropdown": false,
-            "dropdown_menu": ""
+            "has_dropdown": true,
+            "dropdown_menu": "gallery-menu"
           }
         },
         "menu_item_j4kJWY": {
@@ -71,14 +71,14 @@
             "title": "Services",
             "link": "",
             "has_dropdown": true,
-            "dropdown_menu": ""
+            "dropdown_menu": "services-menu"
           }
         },
         "menu_item_4GRXLD": {
           "type": "menu_item",
           "settings": {
             "title": "Our Partners",
-            "link": "",
+            "link": "shopify://pages/our-partner",
             "has_dropdown": false,
             "dropdown_menu": ""
           }
@@ -87,7 +87,7 @@
           "type": "menu_item",
           "settings": {
             "title": "Contact",
-            "link": "",
+            "link": "shopify://pages/contact",
             "has_dropdown": false,
             "dropdown_menu": ""
           }
@@ -105,8 +105,8 @@
         "logo_link": "",
         "shop_button_text": "Shop",
         "shop_button_link": "",
-        "menu_text_color": "#FFFFFF",
-        "menu_hover_color": "#6CA082"
+        "menu_text_color": "#ffffff",
+        "menu_hover_color": "#6ca082"
       }
     }
   },

@@ -1,0 +1,197 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "pages_banner_dhmdDR": {
+      "type": "pages-banner",
+      "settings": {
+        "pages_banner_title": "Financing Made Simple",
+        "pages_banner_title2": "Smart Design. Flexible Financing."
+      }
+    },
+    "how_financing_work_6M76qM": {
+      "type": "how-financing-work",
+      "blocks": {
+        "step_tbDTJU": {
+          "type": "step",
+          "settings": {
+            "title": "Apply Online",
+            "description": "Simple application through our financing partner’s secure platform."
+          }
+        },
+        "step_F8VBL4": {
+          "type": "step",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_1.png",
+            "title": "Get Approved Quickly",
+            "description": "Most clients receive approval within 24–48 hours."
+          }
+        },
+        "step_nWHGPN": {
+          "type": "step",
+          "settings": {
+            "icon": "shopify://shop_images/Frame.png",
+            "title": "Start Your Project",
+            "description": "Begin your renovation with peace of mind."
+          }
+        }
+      },
+      "block_order": [
+        "step_tbDTJU",
+        "step_F8VBL4",
+        "step_nWHGPN"
+      ],
+      "settings": {
+        "title": "How Financing",
+        "highlighted_text": "Works"
+      }
+    },
+    "why_choose_financing_GaTPrr": {
+      "type": "why-choose-financing",
+      "blocks": {
+        "benefit_point_LGBNmi": {
+          "type": "benefit_point",
+          "settings": {
+            "point": "No upfront large payments"
+          }
+        },
+        "benefit_point_hKF4jP": {
+          "type": "benefit_point",
+          "settings": {
+            "point": "No upfront large payments"
+          }
+        },
+        "benefit_point_34qWNU": {
+          "type": "benefit_point",
+          "settings": {
+            "point": "Fixed monthly installments"
+          }
+        },
+        "benefit_point_WQc6Fe": {
+          "type": "benefit_point",
+          "settings": {
+            "point": "Transparent terms with no hidden fees"
+          }
+        },
+        "benefit_point_MtTLXq": {
+          "type": "benefit_point",
+          "settings": {
+            "point": "Personalized support throughout the process"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_point_LGBNmi",
+        "benefit_point_hKF4jP",
+        "benefit_point_34qWNU",
+        "benefit_point_WQc6Fe",
+        "benefit_point_MtTLXq"
+      ],
+      "settings": {
+        "section_bg": "#ffffff",
+        "title": "Why Choose",
+        "highlighted_text": "Financing",
+        "image": "shopify://shop_images/image_16.png",
+        "point_des": ""
+      }
+    },
+    "partner_grid_bEJTdp": {
+      "type": "partner-grid",
+      "blocks": {
+        "partner_logo_nK3ygw": {
+          "type": "partner_logo",
+          "settings": {
+            "alt_text": ""
+          }
+        },
+        "partner_logo_Hye8FT": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/Company_logo_1.png",
+            "alt_text": ""
+          }
+        },
+        "partner_logo_7cJFKt": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/Company_logo_5.png",
+            "alt_text": ""
+          }
+        },
+        "partner_logo_HDK6PY": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/Company_logo_2.png",
+            "alt_text": ""
+          }
+        },
+        "partner_logo_JHqaJk": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/Company_logo_4.png",
+            "alt_text": ""
+          }
+        },
+        "partner_logo_99TegT": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/Company_logo_3.png",
+            "alt_text": ""
+          }
+        },
+        "partner_logo_AKjyby": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/Company_logo_1.png",
+            "alt_text": ""
+          }
+        },
+        "partner_logo_h4ThM6": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/Company_logo_6.png",
+            "alt_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "partner_logo_nK3ygw",
+        "partner_logo_Hye8FT",
+        "partner_logo_7cJFKt",
+        "partner_logo_HDK6PY",
+        "partner_logo_JHqaJk",
+        "partner_logo_99TegT",
+        "partner_logo_AKjyby",
+        "partner_logo_h4ThM6"
+      ],
+      "settings": {
+        "title_part1": "Our Financing",
+        "title_part2": "Partner",
+        "accent_color": "#6CA082",
+        "columns": 4
+      }
+    }
+  },
+  "order": [
+    "main",
+    "pages_banner_dhmdDR",
+    "how_financing_work_6M76qM",
+    "why_choose_financing_GaTPrr",
+    "partner_grid_bEJTdp"
+  ]
+}

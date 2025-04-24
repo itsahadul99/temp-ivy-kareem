@@ -1,0 +1,6 @@
+# Ignore design/demo files
+contact.html
+*.html
+images/
+html/
+extras/
