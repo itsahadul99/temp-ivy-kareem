@@ -8,40 +8,191 @@
  * ------------------------------------------------------------
  */
  {
-    "sections": {
-      "main": {
-        "type": "main-page",
-        "disabled": true,
-        "settings": {
-          "padding_top": 28,
-          "padding_bottom": 28
-        }
-      },
-      "pages_banner_mNBCwQ": {
-        "type": "pages-banner",
-        "settings": {
-          "pages_banner_title": "Connect with",
-          "pages_banner_title2": "lvy and Kareem"
-        }
-      },
-      "connect_ixihmL": {
-        "type": "connect",
-        "settings": {
-          "section_title_part1": "We'd Love to Hear",
-          "section_title_part2": "From You",
-          "title_part1_color": "#6ca082",
-          "section_description": "Whether you're ready to start your dream renovation, have questions about our process, or simply want to learn more — we're just a message away.",
-          "location_heading": "Our Location",
-          "location_address": "123 Design Street, Brooklyn, NY 11201",
-          "map_coordinates": "40.6943,-73.9896",
-          "map_zoom": 16,
-          "submit_button_text": "SEND MESSAGE"
-        }
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     },
-    "order": [
-      "main",
-      "pages_banner_mNBCwQ",
-      "connect_ixihmL"
-    ]
-  }
+    "pages_banner_mNBCwQ": {
+      "type": "pages-banner",
+      "settings": {
+        "pages_banner_title": "Top Kitchen and Bath Designers",
+        "pages_banner_title2": "in Orange County"
+      }
+    },
+    "service_tab_riLiEB": {
+      "type": "service-tab",
+      "blocks": {
+        "tab_xmpwkV": {
+          "type": "tab",
+          "settings": {
+            "svg_icon": "",
+            "title": "Bathroom Design",
+            "image": "shopify://shop_images/bathroom2_1.png",
+            "alt_text": "",
+            "content": "<p>Describe the service here.</p>",
+            "button_url": ""
+          }
+        },
+        "tab_6XE7iA": {
+          "type": "tab",
+          "settings": {
+            "svg_icon": "",
+            "title": "Cabinet Design",
+            "alt_text": "",
+            "content": "<p>Describe the service here.</p>",
+            "button_url": ""
+          }
+        },
+        "tab_twqcy8": {
+          "type": "tab",
+          "settings": {
+            "svg_icon": "",
+            "title": "Kitchen Design",
+            "image": "shopify://shop_images/image.png",
+            "alt_text": "",
+            "content": "<p>When planning a **kitchen design**, it’s important to think beyond aesthetics and focus on how the space will be used daily. Whether you're aiming for a sleek, modern cooking zone, a cosy family kitchen, a bright and functional meal-prep area, or a sophisticated chef’s space, start with **practical decisions** about layout, appliances, and storage. Since **cooking and food prep** are central, selecting the right **work surfaces, cabinetry, and appliances** is key. Make sure the kitchen supports your lifestyle while offering enough space for both everyday use and occasional entertaining.</p>",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_xmpwkV",
+        "tab_6XE7iA",
+        "tab_twqcy8"
+      ],
+      "name": "Service Tab Section",
+      "settings": {
+        "default_tab": "3"
+      }
+    },
+    "testimonials_qf7Mhj": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_e8KpDg": {
+          "type": "testimonial",
+          "settings": {
+            "review_text": "Sed nec blandit nibh. Pellentesque commodo suscipit gravida. Sed sit amet ex sed mi dignissim elementum in ut quam. Vivamus laoreet non mauris eget mattis. Nam turpis orci, consectetur vel accumsan sed, condimentum at sapien. Nunc ut egestas neque, eu hendrerit lacus.",
+            "reviewer_name": "John Dowson",
+            "occupation": "Businessman",
+            "profile_image": "shopify://shop_images/profile.png",
+            "rating": "4.8",
+            "share_icon": "shopify://shop_images/share_arrow.png"
+          }
+        },
+        "testimonial_667Wfc": {
+          "type": "testimonial",
+          "settings": {
+            "review_text": "Sed nec blandit nibh. Pellentesque commodo suscipit gravida. Sed sit amet ex sed mi dignissim elementum in ut quam. Vivamus laoreet non mauris eget mattis. Nam turpis orci, consectetur vel accumsan sed, condimentum at sapien. Nunc ut egestas neque, eu hendrerit lacus.",
+            "reviewer_name": "John Dowson",
+            "occupation": "Businessman",
+            "profile_image": "shopify://shop_images/profile.png",
+            "rating": "4.8",
+            "share_icon": "shopify://shop_images/share_arrow.png"
+          }
+        },
+        "testimonial_JEAQFB": {
+          "type": "testimonial",
+          "settings": {
+            "review_text": "Sed nec blandit nibh. Pellentesque commodo suscipit gravida. Sed sit amet ex sed mi dignissim elementum in ut quam. Vivamus laoreet non mauris eget mattis. Nam turpis orci, consectetur vel accumsan sed, condimentum at sapien. Nunc ut egestas neque, eu hendrerit lacus.",
+            "reviewer_name": "John Dowson",
+            "occupation": "Businessman",
+            "profile_image": "shopify://shop_images/profile.png",
+            "rating": "4.8",
+            "share_icon": "shopify://shop_images/share_arrow.png"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_e8KpDg",
+        "testimonial_667Wfc",
+        "testimonial_JEAQFB"
+      ],
+      "name": "Testimonial Section",
+      "settings": {
+        "title": "Testimonials"
+      }
+    },
+    "skills_section_fFhyVj": {
+      "type": "skills-section",
+      "blocks": {
+        "skill_TDchR6": {
+          "type": "skill",
+          "settings": {
+            "percent": "63",
+            "icon": "shopify://shop_images/Icon_1.png",
+            "skill_name": "Design and Build",
+            "card_height_desktop": 63,
+            "card_height_mobile": 148
+          }
+        },
+        "skill_fWkpVL": {
+          "type": "skill",
+          "settings": {
+            "percent": "93",
+            "icon": "shopify://shop_images/Icon_2.png",
+            "skill_name": "Interior Designers",
+            "card_height_desktop": 93,
+            "card_height_mobile": 246
+          }
+        },
+        "skill_JjpV89": {
+          "type": "skill",
+          "settings": {
+            "percent": "79",
+            "icon": "shopify://shop_images/Icon_3.png",
+            "skill_name": "Accessories & Decor",
+            "card_height_desktop": 79,
+            "card_height_mobile": 190
+          }
+        },
+        "skill_tNJWHt": {
+          "type": "skill",
+          "settings": {
+            "percent": "89",
+            "icon": "shopify://shop_images/Icon_5.png",
+            "skill_name": "Design and Build",
+            "card_height_desktop": 89,
+            "card_height_mobile": 208
+          }
+        }
+      },
+      "block_order": [
+        "skill_TDchR6",
+        "skill_fWkpVL",
+        "skill_JjpV89",
+        "skill_tNJWHt"
+      ],
+      "name": "Skills Section",
+      "settings": {
+        "title": "Our",
+        "highlight": "Skills"
+      }
+    },
+    "kitchen_section_3NwzfP": {
+      "type": "kitchen-section",
+      "name": "Craft Kitchen Section",
+      "settings": {
+        "section_title1": "Crafting",
+        "section_title2": "the Kitchen",
+        "explore_text": "Explore Us",
+        "left_button_url": "",
+        "right_button_url": "",
+        "shop_text": "Shop Now",
+        "video_width": 900
+      }
+    }
+  },
+  "order": [
+    "main",
+    "pages_banner_mNBCwQ",
+    "service_tab_riLiEB",
+    "testimonials_qf7Mhj",
+    "skills_section_fFhyVj",
+    "kitchen_section_3NwzfP"
+  ]
+}

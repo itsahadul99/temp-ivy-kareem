@@ -1,407 +1,373 @@
-{% schema %}
-    {
-      "name": "Testimonial Slider",
-      "class": "testimonial-section",
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Section Title",
-          "default": "Testimonials"
-        },
-        {
-          "type": "image_picker",
-          "id": "left_arrow",
-          "label": "Left Arrow Icon",
-          "info": "Upload left navigation arrow"
-        },
-        {
-          "type": "image_picker",
-          "id": "right_arrow",
-          "label": "Right Arrow Icon",
-          "info": "Upload right navigation arrow"
-        },
-        {
-          "type": "image_picker",
-          "id": "quote_icon",
-          "label": "Quote Icon"
-        //   "default": "shopify:\/\/shop_images\/coma.png"
-        },
-        {
-          "type": "image_picker",
-          "id": "default_avatar",
-          "label": "Default Profile Image"
-        //   "default": "shopify:\/\/shop_images\/profile.png"
-        },
-        {
-          "type": "image_picker",
-          "id": "google_icon",
-          "label": "Google Icon"
-        },
-        {
-          "type": "image_picker",
-          "id": "share_icon",
-          "label": "Share Icon"
-        },
-        {
-          "type": "header",
-          "content": "Section Padding"
-        },
-        {
-          "type": "range",
-          "id": "padding_top",
-          "min": 0,
-          "max": 200,
-          "step": 4,
-          "unit": "px",
-          "label": "Top Padding",
-          "default": 4
-        },
-        {
-          "type": "range",
-          "id": "padding_bottom",
-          "min": 0,
-          "max": 200,
-          "step": 4,
-          "unit": "px",
-          "label": "Bottom Padding",
-          "default": 4
-        },
-        {
-          "type": "range",
-          "id": "padding_left_right",
-          "min": 0,
-          "max": 200,
-          "step": 4,
-          "unit": "px",
-          "label": "Left/Right Padding",
-          "default": 4
-        }
-      ],
-      "blocks": [
-        {
-          "type": "testimonial",
-          "name": "Testimonial",
-          "settings": [
-            {
-              "type": "richtext",
-              "id": "text",
-              "label": "Testimonial Text",
-              "default": "<p>Sed nec blandit nibh. Pellentesque commodo suscipit gravida. Sed sit amet ex sed mi dignissim elementum in ut quam. Vivamus laoreet non mauris eget mattis.</p>"
-            },
-            {
-              "type": "image_picker",
-              "id": "avatar",
-              "label": "Profile Image"
-            },
-            {
-              "type": "text",
-              "id": "name",
-              "label": "Name",
-              "default": "John Dowson"
-            },
-            {
-              "type": "text",
-              "id": "title",
-              "label": "Title",
-              "default": "Businessman"
-            },
-            {
-              "type": "text",
-              "id": "rating",
-              "label": "Rating",
-              "default": "4.8"
-            }
-          ]
-        }
-      ],
-      "presets": [
-        {
-          "name": "Testimonial Slider",
-          "category": "Custom Sections",
-          "blocks": [
-            {
-              "type": "testimonial"
-            },
-            {
-              "type": "testimonial"
-            }
-          ]
-        }
-      ]
+<style>
+  /* testimonial style start */
+  #testimonial-section {
+    padding: 120px 150px;
+  }
+  .testimonial-section-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .testimonial-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    align-self: stretch;
+  }
+  .testimonial-head button {
+    border: 2px solid #e9e9ea;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+  }
+  .testimonial-title {
+    color: #252531;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  /* swiper related css */
+  .mySwiper {
+    max-width: 77%;
+    align-items: start;
+  }
+  .swiper {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    position: static;
+  }
+
+  .swiper-button-prev:after,
+  .swiper-rtl .swiper-button-next:after {
+    content: none;
+  }
+  .swiper-button-next:after,
+  .swiper-rtl .swiper-button-prev:after {
+    content: none;
+  }
+  .swiper-wrapper {
+    display: flex;
+    width: 100%;
+  }
+  .testimonial-card {
+    width: 100%;
+  }
+  .swiper-slide {
+    width: 100%;
+  }
+
+  .testimonial-card-1st-part {
+    display: flex;
+    padding: 56px 48px 56px 0;
+    align-items: flex-start;
+    gap: 40px;
+    align-self: stretch;
+    border-top: 2px solid #e9e9ea;
+    border-bottom: 2px solid #e9e9ea;
+  }
+  .testimonial-card-1st-part p {
+    color: #96969c;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+  }
+  .testimonial-card-2nd-part {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+    margin-top: 32px;
+  }
+
+  .testimonial-card-2nd-part-left {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+  .testimonial-card-2nd-part-left img {
+    width: 65px;
+    height: 65px;
+    flex-shrink: 0;
+    border-radius: 32.5px;
+  }
+  .testimonial-card-2nd-part-left div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .testimonial-card-2nd-part-left div h2 {
+    color: #252531;
+    text-align: right;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  .testimonial-card-2nd-part-left div h6 {
+    color: #96969c;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .testimonial-card-2nd-part-right {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .testimonial-card-2nd-part-right div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .testimonial-card-2nd-part-right div p {
+    color: #a2a2a2;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .testimonial-card-2nd-part-right div span {
+    color: #252531;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  @media (max-width: 768px) {
+    /* testimonial part */
+    #testimonial-section {
+      padding: 40px 32px;
     }
-    {% endschema %}
-    
-    <style>
-      /* testimonial style start */
-      #testimonial-section {
-        padding: {{ section.settings.padding_top }}px {{ section.settings.padding_left_right }}px {{ section.settings.padding_bottom }}px;
-      }
-      .testimonial-section-wrapper {
-        max-width: 1440px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-      }
-    
-      .testimonial-head {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        align-self: stretch;
-      }
-      .testimonial-head button {
-        border: 2px solid #e9e9ea;
-        padding: 0;
-        background: none;
-        cursor: pointer;
-      }
-      .testimonial-title {
-        color: #252531;
-        font-size: 64px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-      }
-      /* swiper related css */
-      .mySwiper {
-        max-width: 77%;
-        align-items: start;
-      }
-      .swiper {
-        margin-left: 0;
-        margin-right: 0;
-      }
-      .swiper-button-next,
-      .swiper-button-prev {
-        position: static;
-      }
-    
-      .swiper-button-prev:after,
-      .swiper-rtl .swiper-button-next:after {
-        content: none;
-      }
-      .swiper-button-next:after,
-      .swiper-rtl .swiper-button-prev:after {
-        content: none;
-      }
-      .swiper-wrapper {
-        display: flex;
-        width: 100%;
-      }
-      .testimonial-card {
-        width: 100%;
-      }
-      .swiper-slide {
-        width: 100%;
-      }
-    
-      .testimonial-card-1st-part {
-        display: flex;
-        padding: 56px 48px 56px 0px;
-        align-items: flex-start;
-        gap: 40px;
-        align-self: stretch;
-        border-top: 2px solid #e9e9ea;
-        border-bottom: 2px solid #e9e9ea;
-      }
-      .testimonial-card-1st-part p {
-        color: #96969c;
-        font-family: Roboto;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 32px;
-      }
-      .testimonial-card-2nd-part {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        align-self: stretch;
-        margin-top: 32px;
-      }
-    
-      .testimonial-card-2nd-part-left {
-        display: flex;
-        gap: 24px;
-        align-items: center;
-      }
-      .testimonial-card-2nd-part-left img {
-        width: 65px;
-        height: 65px;
-        flex-shrink: 0;
-        border-radius: 32.5px;
-      }
-      .testimonial-card-2nd-part-left div {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-      .testimonial-card-2nd-part-left div h2 {
-        color: #252531;
-        text-align: right;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-      }
-      .testimonial-card-2nd-part-left div h6 {
-        color: #96969c;
-        font-family: Roboto;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-      }
-    
-      .testimonial-card-2nd-part-right {
-        display: flex;
-        gap: 12px;
-        align-items: center;
-      }
-      .testimonial-card-2nd-part-right div {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .testimonial-card-2nd-part-right div p {
-        color: #a2a2a2;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-      }
-      .testimonial-card-2nd-part-right div span {
-        color: #252531;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
-      }
-    
-      @media (max-width: 768px) {
-        /* testimonial part */
-        #testimonial-section {
-          padding: 40px 32px;
-        }
-    
-        .testimonial-section-wrapper {
-          gap: 32px;
-        }
-        .testimonial-title {
-          font-size: 48px;
-        }
-        .testimonial-head {
-          align-items: center;
-        }
-    
-        /*swiper */
-        .mySwiper {
-          max-width: 100%;
-        }
-      }
-    
-      @media (max-width: 426px) {
-        #testimonial-section {
-          padding: 60px 20px;
-        }
-        .testimonial-section-wrapper {
-          gap: 24px;
-        }
-        .testimonial-title {
-          font-size: 42px;
-        }
-        .testimonial-card-1st-part {
-          padding: 20px 20px 20px 0px;
-          flex-direction: column;
-          align-items: center;
-          gap: 16px;
-        }
-        .testimonial-card-2nd-part {
-          flex-direction: column;
-          gap: 20px;
-          align-items: center;
-          margin-top: 16px;
-        }
-        .testimonial-card-2nd-part-left {
-          gap: 12px;
-        }
-        .testimonial-card-2nd-part-left img {
-          width: 48px;
-          height: 48px;
-        }
-        .testimonial-card-2nd-part-left div h2 {
-          font-size: 16px;
-        }
-      }
-    </style>
-    
-    <!-- testimonial section -->
-    <section id="testimonial-section">
-      <div class="testimonial-section-wrapper">
-        <div class="testimonial-head">
-          <div style="display: flex">
-            <button class="swiper-button-next">
-              <img src="{{ section.settings.left_arrow | img_url: 'master' }}" alt="Previous" loading="lazy">
-            </button>
-            <button class="swiper-button-prev">
-              <img src="{{ section.settings.right_arrow | img_url: 'master' }}" alt="Next" loading="lazy">
-            </button>
-          </div>
-          <h2 class="testimonial-title">{{ section.settings.title }}</h2>
-        </div>
-        
-        <div class="swiper mySwiper">
-          <div class="swiper-wrapper">
-            {% for block in section.blocks %}
-              <div class="swiper-slide testimonial-card" {{ block.shopify_attributes }}>
-                <div class="testimonial-card-1st-part">
-                  <img src="{{ section.settings.quote_icon | img_url: 'master' }}" alt="Quote" loading="lazy">
-                  {{ block.settings.text }}
-                </div>
-                <div class="testimonial-card-2nd-part">
-                  <div class="testimonial-card-2nd-part-left">
-                    <img src="{{ block.settings.avatar | default: section.settings.default_avatar | img_url: '100x100', crop: 'center' }}" alt="{{ block.settings.name }}" loading="lazy">
-                    <div>
-                      <h2>{{ block.settings.name }}</h2>
-                      <h6>{{ block.settings.title }}</h6>
-                    </div>
-                  </div>
-                  <div class="testimonial-card-2nd-part-right">
-                    <img src="{{ section.settings.google_icon | img_url: 'master' }}" alt="Google" loading="lazy">
-                    <div>
-                      <p>Rating</p>
-                      <span>{{ block.settings.rating }}</span>
-                    </div>
-                    <img src="{{ section.settings.share_icon | img_url: 'master' }}" alt="Share" loading="lazy">
-                  </div>
+
+    .testimonial-section-wrapper {
+      gap: 32px;
+    }
+    .testimonial-title {
+      font-size: 48px;
+    }
+    .testimonial-head {
+      align-items: center;
+    }
+
+    /*swiper */
+    .mySwiper {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 426px) {
+    #testimonial-section {
+      padding: 60px 20px;
+    }
+    .testimonial-section-wrapper {
+      gap: 24px;
+    }
+    .testimonial-title {
+      font-size: 42px;
+    }
+    .testimonial-card-1st-part {
+      padding: 20px 20px 20px 0;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .testimonial-card-2nd-part {
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      margin-top: 16px;
+    }
+    .testimonial-card-2nd-part-left {
+      gap: 12px;
+    }
+    .testimonial-card-2nd-part-left img {
+      width: 48px;
+      height: 48px;
+    }
+    .testimonial-card-2nd-part-left div h2 {
+      font-size: 16px;
+    }
+  }
+</style>
+
+
+<section id="testimonial-section">
+  <div class="testimonial-section-wrapper">
+    <!-- Head Part -->
+    <div class="testimonial-head">
+      <!-- Navigation Buttons -->
+      <div style="display: flex">
+        <button class="swiper-button-next">
+          {% if section.settings.prev_btn_icon %}
+            <img src="{{ section.settings.prev_btn_icon |  image_url  }}" alt="Previous" />
+            {% else %}
+            <img src="{{ 'prev_btn_icon.png' | asset_url }}" alt="Previous" />
+          {% endif %}
+        </button>
+        <button class="swiper-button-prev">
+          {% if section.settings.next_btn_icon %}
+            <img src="{{ section.settings.next_btn_icon |  image_url  }}" alt="Next" />
+            {% else %}
+            <img src="{{ 'next_btn_icon.png' | asset_url }}" alt="Next" />
+          {% endif %}
+        </button>
+      </div>
+      <h2 class="testimonial-title">{{ section.settings.title }}</h2>
+    </div>
+
+    <!-- Testimonial Slider -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide testimonial-card">
+            <div class="testimonial-card-1st-part">
+              <img src="{{ 'coma.png' | asset_url }}" alt="Quote" />
+              <p>{{ block.settings.review_text }}</p>
+            </div>
+            <div class="testimonial-card-2nd-part">
+              <div class="testimonial-card-2nd-part-left">
+                {% if block.settings.profile_image %}
+                  <img src="{{ block.settings.profile_image | img_url: 'medium' }}" alt="{{ block.settings.reviewer_name }}" />
+                {% else %}
+                  <img src="{{ 'profile.png' | asset_url }}" alt="Default Profile" />
+                {% endif %}
+                <div>
+                  <h2>{{ block.settings.reviewer_name }}</h2>
+                  <h6>{{ block.settings.occupation }}</h6>
                 </div>
               </div>
-            {% endfor %}
+              <div class="testimonial-card-2nd-part-right">
+                <img src="{{ 'google.png' | asset_url }}" alt="Google" />
+                <div>
+                  <p>Rating</p>
+                  <span>{{ block.settings.rating }}</span>
+                </div>
+                {% if block.settings.share_icon %}
+                  <img src="{{ block.settings.share_icon | img_url: 'small' }}" alt="Share" />
+                {% else %}
+                  <img src="{{ 'share_arrow.png' | asset_url }}" alt="Share" />
+                {% endif %}
+              </div>
+            </div>
           </div>
-        </div>
+        {% endfor %}
       </div>
-    </section>
-    
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      if (typeof Swiper !== 'undefined') {
-        const swiper = new Swiper(".mySwiper", {
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        768: {
           slidesPerView: 1,
-          spaceBetween: 20,
-          loop: true,
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
-          breakpoints: {
-            768: { slidesPerView: 1 },
-            1024: { slidesPerView: 1 }
-          }
-        });
-      } else {
-        console.warn('Swiper library not loaded');
-      }
+        },
+        1024: {
+          slidesPerView: 1,
+        },
+      },
     });
-    </script>
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Testimonial Section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Section Title",
+        "default": "Testimonials"
+      },
+      {
+        "type": "image_picker",
+        "id": "prev_btn_icon",
+        "label": "Select previous button icon",
+        "info": "Recommended size: 40x40 px"
+      },
+      {
+        "type": "image_picker",
+        "id": "next_btn_icon",
+        "label": "Select next button icon",
+        "info": "Recommended size: 40x40 px"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "testimonial",
+        "name": "Testimonial",
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "review_text",
+            "label": "Review Text",
+            "default": "Sed nec blandit nibh. Pellentesque commodo suscipit gravida. Sed sit amet ex sed mi dignissim elementum in ut quam. Vivamus laoreet non mauris eget mattis. Nam turpis orci, consectetur vel accumsan sed, condimentum at sapien. Nunc ut egestas neque, eu hendrerit lacus."
+          },
+          {
+            "type": "text",
+            "id": "reviewer_name",
+            "label": "Reviewer Name",
+            "default": "John Dowson"
+          },
+          {
+            "type": "text",
+            "id": "occupation",
+            "label": "Occupation",
+            "default": "Businessman"
+          },
+          {
+            "type": "image_picker",
+            "id": "profile_image",
+            "label": "Profile Image"
+          }, {
+            "type": "text",
+            "id": "rating",
+            "label": "Rating",
+            "default": "4.8"
+          }, {
+            "type": "image_picker",
+            "id": "share_icon",
+            "label": "Share Icon"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Testimonial Section",
+        "settings": {
+          "title": "Testimonials"
+        },
+        "blocks": [
+          {
+            "type": "testimonial"
+          }, {
+            "type": "testimonial"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

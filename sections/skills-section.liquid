@@ -1,0 +1,259 @@
+{% comment %}
+  Skills Section
+{% endcomment %}
+
+<style>
+  /* skill section */
+  .skills-section {
+    background-color: #f4f4f4;
+    padding: 100px 150px;
+  }
+
+  .skills-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 81.37px;
+  }
+
+  .skills-title {
+    color: #252531;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .skills-title .highlight {
+    color: #6ca082;
+    font-style: italic;
+  }
+
+  .skills-cards {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: end;
+    gap: 16px;
+    min-height: 264.52px;
+  }
+
+  .skill-card {
+    border: 3px solid #bda87f;
+    padding: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .skill-card-1st-part {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+  }
+
+  .skill-card-1st-part .percent {
+    color: #252531;
+    font-family: Avenir LT Pro;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .skill-card .skill-name {
+    color: #252531;
+    font-family: "Minion Pro";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .skill-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  {% for block in section.blocks %}
+    .skill-card-{{ forloop.index }} {
+      min-height: {{ block.settings.card_height_desktop }}%;
+      max-height: {{ block.settings.card_height_desktop }}%;
+    }
+
+    @media (max-width: 426px) {
+      .skill-card-{{ forloop.index }} {
+        min-height: {{ block.settings.card_height_mobile }}px;
+        max-height: {{ block.settings.card_height_mobile }}px;
+      }
+    }
+  {% endfor %}
+
+  @media (max-width: 768px) {
+    .skills-section {
+      padding: 40px 32px;
+    }
+
+    .skills-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+  }
+
+  @media (max-width: 426px) {
+    .skills-section {
+      padding: 32px 20px;
+    }
+
+    .skills-container {
+      align-items: flex-start;
+      gap: 32px;
+    }
+
+    .skills-cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+
+<section class="skills-section">
+  <div class="skills-container">
+    <h2 class="skills-title">
+      {{ section.settings.title }} <span class="highlight">{{ section.settings.highlight }}</span>
+    </h2>
+
+    <div class="skills-cards">
+      {% for block in section.blocks %}
+        <div class="skill-card skill-card-{{ forloop.index }}">
+          <div class="skill-card-1st-part">
+            <p class="percent">{{ block.settings.percent }}%</p>
+            {% if block.settings.icon %}
+              <img src="{{ block.settings.icon | img_url: '32x32' }}" alt="{{ block.settings.skill_name }} Icon" class="skill-icon" loading="lazy"/>
+            {% else %}
+              <img src="{{ 'skill-icon.png' | asset_url }}" alt="skill Icon" class="skill-icon" />
+            {% endif %}
+          </div>
+          <p class="skill-name">{{ block.settings.skill_name }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Skills Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Our"
+    },
+    {
+      "type": "text",
+      "id": "highlight",
+      "label": "Highlighted Word",
+      "default": "Skills"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "skill",
+      "name": "Skill",
+      "settings": [
+        {
+          "type": "text",
+          "id": "percent",
+          "label": "Percentage",
+          "default": "67"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon Image"
+        },
+        {
+          "type": "text",
+          "id": "skill_name",
+          "label": "Skill Name",
+          "default": "Design and Build"
+        },
+        {
+          "type": "range",
+          "id": "card_height_desktop",
+          "label": "Card Height (Desktop, %)",
+          "min": 50,
+          "max": 100,
+          "step": 1,
+          "default": 67,
+          "unit": "%"
+        },
+        {
+          "type": "range",
+          "id": "card_height_mobile",
+          "label": "Card Height (Mobile, px)",
+          "min": 100,
+          "max": 300,
+          "step": 2,
+          "default": 148,
+          "unit": "px"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Skills Section",
+      "settings": {
+        "title": "Our",
+        "highlight": "Skills"
+      },
+      "blocks": [
+        {
+          "type": "skill",
+          "settings": {
+            "percent": "67",
+            "skill_name": "Design and Build",
+            "card_height_desktop": 67,
+            "card_height_mobile": 148
+          }
+        },
+        {
+          "type": "skill",
+          "settings": {
+            "percent": "93",
+            "skill_name": "Interior Designers",
+            "card_height_desktop": 93,
+            "card_height_mobile": 246
+          }
+        },
+        {
+          "type": "skill",
+          "settings": {
+            "percent": "79",
+            "skill_name": "Accessories & Decor",
+            "card_height_desktop": 79,
+            "card_height_mobile": 190
+          }
+        },
+        {
+          "type": "skill",
+          "settings": {
+            "percent": "89",
+            "skill_name": "Design and Build",
+            "card_height_desktop": 89,
+            "card_height_mobile": 208
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
