@@ -1,0 +1,169 @@
+<style>
+  #kitchen_bath_cabinet {
+    padding: 40px 150px;
+    background: {{ section.settings.background_color }};
+  }
+  .kitchen_bath_cabinet_wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .kitchen_bath_cabinet_wrapper .card {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .kitchen_bath_cabinet_wrapper .card img {
+    max-width: {{ section.settings.image_size | default: 140 }}px;
+    max-height: {{ section.settings.image_size | default: 140 }}px;
+    flex-shrink: 0;
+  }
+  .kitchen_bath_cabinet_wrapper .card span {
+    color: {{ section.settings.text_color }};
+    font-size: {{ section.settings.font_size | default: 40 }}px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+
+  @media (max-width: 768px) {
+    #kitchen_bath_cabinet {
+      padding: 40px 32px;
+    }
+    .kitchen_bath_cabinet_wrapper .card {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .kitchen_bath_cabinet_wrapper .card img {
+      max-width: 50px;
+      max-height: 50px;
+      aspect-ratio: 1 / 1;
+    }
+    .kitchen_bath_cabinet_wrapper .card span {
+      font-size: 24px;
+    }
+
+
+  }
+
+  @media (max-width: 426px) {
+    #kitchen_bath_cabinet {
+      padding: 32px 20px;
+    }
+    .kitchen_bath_cabinet_wrapper {
+      flex-direction: column;
+      gap: 24px;
+      align-items: flex-start;
+    }
+    .kitchen_bath_cabinet_wrapper .card {
+      gap: 24px;
+    }
+    .kitchen_bath_cabinet_wrapper .card img {
+      max-width: 80px;
+      max-height: 80px;
+    }
+    .kitchen_bath_cabinet_wrapper .card span {
+      font-size: 24px;
+    }
+
+
+  }
+</style>
+<section id="kitchen_bath_cabinet">
+  <div class="kitchen_bath_cabinet_wrapper">
+    {% for block in section.blocks %}
+      <div class="card">
+        {% if block.settings.image %}
+          <img style="border-radius: 100%; object-fit: cover;" src="{{ block.settings.image | image_url }}" alt="{{ block.settings.title }}" />
+        {% endif %}
+        <span>{{ block.settings.title }}</span>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Kitchen Bath Cabinet",
+    "tag": "section",
+    "class": "section-kitchen-bath-cabinet",
+    "settings": [
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background Color",
+        "default": "#f4f4f4"
+      },
+      
+      {
+        "type": "range",
+        "id": "font_size",
+        "label": "Font Size (px)",
+        "min": 12,
+        "max": 60,
+        "step": 2,
+        "default": 40
+      }, {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text Color",
+        "default": "#000000"
+      }, {
+        "type": "range",
+        "id": "image_size",
+        "label": "Image Size (px)",
+        "min": 30,
+        "max": 200,
+        "step": 10,
+        "default": 140
+      }
+    ],
+    "blocks": [
+      {
+        "type": "card",
+        "name": "Card",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Card Image"
+          }, {
+            "type": "text",
+            "id": "title",
+            "label": "Card Title",
+            "default": "Kitchen"
+          }
+        ]
+      }
+    ],
+    "max_blocks": 6,
+    "presets": [
+      {
+        "name": "Kitchen Bath Cabinet",
+        "category": "Custom",
+        "blocks": [
+          {
+            "type": "card",
+            "settings": {
+              "title": "Kitchen"
+            }
+          }, {
+            "type": "card",
+            "settings": {
+              "title": "Bathroom"
+            }
+          }, {
+            "type": "card",
+            "settings": {
+              "title": "Cabinetry"
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

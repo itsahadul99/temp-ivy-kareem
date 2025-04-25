@@ -1,0 +1,212 @@
+<style>
+  .role-section-container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .role-section-title {
+    color: #000;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .role-section {
+    background: rgba(157, 184, 168, 0.14);
+  }
+
+  .role-section-content {
+    padding: 80px 150px;
+  }
+
+  .role-section-flex-container {
+    display: flex;
+    align-items: center;
+    gap: 39px;
+    margin-top: 42px;
+    width: 100%;
+  }
+
+  .role-player-card-title {
+    color: #252531;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+  }
+
+  .role-player-card-subtitle {
+    color: #797979;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    /* 25.2px */
+  }
+
+  .role-section-flex-img {
+    width: 550px;
+    height: 627px;
+  }
+
+  /* Style for Laptop */
+  @media (max-width: 1024px) {
+    .role-section-content {
+      padding: 70px 100px;
+    }
+  }
+
+  /* Style for tablet */
+  @media (max-width: 768px) {
+
+    /* Why choose financing */
+    .role-section-content {
+      padding: 40px 32px;
+    }
+
+    .role-section-title {
+      font-size: 48px;
+      line-height: 100%;
+    }
+
+    .role-section-flex-container {
+      margin-top: 40px;
+    }
+
+    .role-section-flex-img {
+      width: 100%;
+      height: 415.722px;
+    }
+  }
+
+  /* Style for mobile/small device */
+  @media(max-width: 425px) {
+
+    /* Why choose financing */
+    .role-section-content {
+      padding: 32px 20px;
+    }
+
+    .role-section-title {
+      font-size: 42px;
+      line-height: 100%;
+    }
+    .role-section-flex-container {
+      margin-top: 24px;
+      gap: 24px;
+      flex-direction: column;
+    }
+    .role-section-flex-img {
+      width: 100%;
+      object-fit: fill;
+    }
+  }
+</style>
+<section class="role-section">
+  <div class="role-section-container role-section-content">
+    <div>
+      <h1 class="role-section-title">
+        {{ section.settings.title_part1 }}
+        <span style="color: {{ section.settings.colored_text_color }}; font-style: italic;">
+          {{ section.settings.title_part2 }}
+        </span>
+      </h1>
+    </div>
+    <div class="role-section-flex-container">
+      {% for block in section.blocks %}
+        <div>
+          {% if block.settings.player_img %}
+            <img
+              class="role-section-flex-img"
+              src="{{ block.settings.player_img | img_url: '300x300' }}"
+              alt="{{ block.settings.player_name | escape }}"
+            >
+          {% else %}
+            <img
+              class="role-section-flex-img"
+              src="{{ 'player1.png' | asset_url }}"
+              alt="Default Player Image"
+            >
+          {% endif %}
+          <h3 class="role-player-card-title">{{ block.settings.player_name }}</h3>
+          <p class="role-player-card-subtitle">{{ block.settings.player_role }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Player Role Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title_part1",
+      "label": "Title Part 1",
+      "default": "Player"
+    },
+    {
+      "type": "text",
+      "id": "title_part2",
+      "label": "Title Part 2 (Colored)",
+      "default": "Rules"
+    },
+    {
+      "type": "color",
+      "id": "colored_text_color",
+      "label": "Accent Color",
+      "default": "#6CA082"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "partner_card",
+      "name": "Partner Card",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "player_img",
+          "label": "Player Image"
+        },
+        {
+          "type": "text",
+          "id": "player_name",
+          "label": "Player Name",
+          "default": "John Doe"
+        },
+        {
+          "type": "text",
+          "id": "player_role",
+          "label": "Player Role",
+          "default": "Partner"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Player Role Section",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "partner_card",
+          "settings": {
+            "player_name": "John Doe",
+            "player_role": "Partner"
+          }
+        },
+        {
+          "type": "partner_card",
+          "settings": {
+            "player_name": "Jane Smith",
+            "player_role": "Collaborator"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
