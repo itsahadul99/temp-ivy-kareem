@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+      .marquee {
+        overflow: hidden;
+        display: flex;
+        gap: 0px;
+      }
+
+      .marquee img {
+        max-width: 334px;
+        max-height: 240px;
+        min-width: 334px;
+        min-height: 240px;
+      }
+
+      @media (max-width:768px){
+        .marquee img {
+        max-width: 193px;
+        max-height: 139px;
+        min-width: 193px;
+        min-height: 139px;
+      }
+      }
+      @media (max-width:426px){
+        .marquee img {
+        max-width: 193px;
+        max-height: 139px;
+        min-width: 193px;
+        min-height: 139px;
+      }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="marquee">
+      <img src="./image/marque/Bookcase System.png" alt="Partner Logo" />
+      <img src="./image/marque/Decor Products.png" alt="Partner Logo" />
+      <img src="./image/marque/Equality of Education.png" alt="Partner Logo" />
+      <img src="./image/marque/Exterior Design.png" alt="Partner Logo" />
+      <img src="./image/marque/The Modern House.png" alt="Partner Logo" />
+      <img src="./image/marque/Bookcase System.png" alt="Partner Logo" />
+      <img src="./image/marque/Decor Products.png" alt="Partner Logo" />
+      <img src="./image/marque/Equality of Education.png" alt="Partner Logo" />
+     
+    </div>
+
+    <script>
+      function Marquee(selector, speed) {
+        const parentSelector = document.querySelector(selector);
+        const clone = parentSelector.innerHTML;
+        const firstElement = parentSelector.children[0];
+        let i = 0;
+        console.log(firstElement);
+        parentSelector.insertAdjacentHTML("beforeend", clone);
+        parentSelector.insertAdjacentHTML("beforeend", clone);
+
+        setInterval(function () {
+          firstElement.style.marginLeft = `-${i}px`;
+          if (i > firstElement.clientWidth) {
+            i = 0;
+          }
+          i = i + speed;
+        }, 0);
+      }
+
+      //after window is completed load
+      //1 class selector for marquee
+      //2 marquee speed 0.2
+      window.addEventListener("load", Marquee(".marquee", 0.2));
+    </script>
+  </body>
+</html>

@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Our story</title>
-
+    <link rel="stylesheet" href="https://unpkg.com/marquee3000@1.2.0/marquee3000.css" />
+    <script src="https://unpkg.com/marquee3000@1.2.0/marquee3000.min.js"></script>
     <style>
       * {
         margin: 0;
@@ -195,7 +196,7 @@
 
       
       .partner-slider {
-    background: #F4F4F4;
+        background: #F4F4F4;
     overflow: hidden;
     padding: 100px 0;
 }
@@ -210,32 +211,14 @@
 
     
 
-    .partner-slider-track {
-      display: flex;
-      width: max-content;
-      animation: marquee 20s linear infinite;
-    }
+    
+    .marquee {
+  overflow: hidden;
 
-    .partner-slider-items {
-      display: flex;
-      gap: 39px;
-    }
+  display: flex;
+  gap: 40px;
+}
 
-    .partner-slider-items img {
-      width: 202px;
-      height: 74px;
-      object-fit: contain;
-      flex-shrink: 0;
-    }
-    @keyframes marquee {
-      0% {
-        transform: translateX(0%);
-      }
-
-      100% {
-        transform: translateX(-50%);
-      }
-    }
 
 
       @media (max-width: 768px) {
@@ -652,9 +635,21 @@
       <section class="partner-slider">
         <div class="partner-slider-container partner-slider-content">
           <h1 class="partner-slider-title">Partners</h1>
+
+
+          <div class="marquee">
+            <img src="./image/partner1.png" alt="Partner Logo" />
+            <img src="./image/partner1.png" alt="Partner Logo" />
+            <img src="./image/partner1.png" alt="Partner Logo" />
+            <img src="./image/partner1.png" alt="Partner Logo" />
+            <img src="./image/partner1.png" alt="Partner Logo" />
+            <img src="./image/partner1.png" alt="Partner Logo" />
+            <img src="./image/partner1.png" alt="Partner Logo" />
+            <img src="./image/partner1.png" alt="Partner Logo" />
+          </div>
     
-          <div class="partner-slider-track">
-            <!-- First batch -->
+          <!-- <div class="partner-slider-track">
+       
             <div class="partner-slider-items">
               <img src="./image/partner1.png" alt="Partner Logo" />
               <img src="./image/partner1.png" alt="Partner Logo" />
@@ -663,8 +658,33 @@
               <img src="./image/partner1.png" alt="Partner Logo" />
              
           </div>
-        </div>
+        </div> -->
       </section>
     </main>
+    <script>
+        function Marquee(selector, speed) {
+  const parentSelector = document.querySelector(selector);
+  const clone = parentSelector.innerHTML;
+  const firstElement = parentSelector.children[0];
+  let i = 0;
+  console.log(firstElement);
+  parentSelector.insertAdjacentHTML('beforeend', clone);
+  parentSelector.insertAdjacentHTML('beforeend', clone);
+
+  setInterval(function () {
+    firstElement.style.marginLeft = `-${i}px`;
+    if (i > firstElement.clientWidth) {
+      i = 0;
+    }
+    i = i + speed;
+  }, 0);
+}
+
+//after window is completed load
+//1 class selector for marquee
+//2 marquee speed 0.2
+window.addEventListener('load', Marquee('.marquee', 0.2))
+
+    </script>
   </body>
 </html>
