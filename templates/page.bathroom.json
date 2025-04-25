@@ -71,6 +71,87 @@
         "default_tab": "1"
       }
     },
+    "merque1_VJEJfx": {
+      "type": "merque1",
+      "blocks": {
+        "image_qdHBP3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_2.png",
+            "alt_text": "Partner Logo"
+          }
+        },
+        "image_FqJXpW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_3.png",
+            "alt_text": "Partner Logo"
+          }
+        },
+        "image_9dcFrf": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_7.png",
+            "alt_text": "Partner Logo"
+          }
+        },
+        "image_DC9XC7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_2.png",
+            "alt_text": "Partner Logo"
+          }
+        },
+        "image_GGrB3c": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_4.png",
+            "alt_text": "Partner Logo"
+          }
+        },
+        "image_RLhrwr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "alt_text": "Partner Logo"
+          }
+        },
+        "image_xeddWc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/komnata-divan-mebel-interer.png",
+            "alt_text": "Partner Logo"
+          }
+        },
+        "image_FTEU3e": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Illume_Catalina_Como_Ash_2_Venetian_Antracita_1.png",
+            "alt_text": "Partner Logo"
+          }
+        },
+        "image_cDGhtL": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Illume_Catalina_Como_Ash_2_Venetian_Antracita_1.png",
+            "alt_text": "Partner Logo"
+          }
+        }
+      },
+      "block_order": [
+        "image_qdHBP3",
+        "image_FqJXpW",
+        "image_9dcFrf",
+        "image_DC9XC7",
+        "image_GGrB3c",
+        "image_RLhrwr",
+        "image_xeddWc",
+        "image_FTEU3e",
+        "image_cDGhtL"
+      ],
+      "name": "Marquee Section",
+      "settings": {}
+    },
     "testimonials_MWM8cp": {
       "type": "testimonials",
       "blocks": {
@@ -178,6 +259,7 @@
     "main",
     "pages_banner_mNBCwQ",
     "service_tab_iwXKhm",
+    "merque1_VJEJfx",
     "testimonials_MWM8cp",
     "skills_section_nj7tEG",
     "kitchen_section_FUrjwr"
