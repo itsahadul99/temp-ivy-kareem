@@ -18,24 +18,38 @@
     max-height: 255px;
     overflow-y: auto;
   }
+
+  /* Common scrollbar styles */
   .Veneto_Living_Chair_section_wrapper .left-side::-webkit-scrollbar {
     width: 6px;
+    height: 6px;
   }
 
+  /* Track styles for both horizontal and vertical */
   .Veneto_Living_Chair_section_wrapper .left-side::-webkit-scrollbar-track {
     background: #f1f1f1;
-    /* track background */
     border-radius: 10px;
   }
 
+  /* Thumb styles for both horizontal and vertical */
   .Veneto_Living_Chair_section_wrapper .left-side::-webkit-scrollbar-thumb {
     background: #6ca082;
     border-radius: 10px;
   }
 
+  /* Thumb hover effect */
   .Veneto_Living_Chair_section_wrapper .left-side::-webkit-scrollbar-thumb:hover {
     background: #6ca082aa;
   }
+
+  .Veneto_Living_Chair_section_wrapper .left-side::-webkit-scrollbar:horizontal {
+    height: 6px;
+  }
+
+  .Veneto_Living_Chair_section_wrapper .left-side::-webkit-scrollbar:vertical {
+    width: 6px;
+  }
+
 
   .Veneto_Living_Chair_section_wrapper .left-side li {
     color: #fff;
@@ -122,6 +136,8 @@
       border-bottom: 2px solid rgba(255, 255, 255, 0.1);
       display: flex;
       justify-content: space-between;
+      gap: 30px;
+      overflow-x: auto;
     }
     .Veneto_Living_Chair_section_wrapper .left-side li {
       gap: 24px;
@@ -149,6 +165,7 @@
       font-size: 14px;
       line-height: 21px;
     }
+
   }
 
   @media (max-width: 426px) {
@@ -196,7 +213,7 @@
       {% for block in section.blocks %}
         <li class="{% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
           <p>{{ block.settings.left_title }}</p>
-            {{ block.settings.left_icon }}
+          {{ block.settings.left_icon }}
         </li>
       {% endfor %}
     </ul>
