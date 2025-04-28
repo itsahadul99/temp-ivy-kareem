@@ -1,6 +1,6 @@
 <style>
   .service-section {
-    margin-top: 51px;
+    margin: 51px 0px;
   }
 
   .service-title-container h1 {
@@ -43,6 +43,15 @@
     align-items: flex-start;
   }
 
+  /* Alternating Layout */
+  .service-subsection:nth-child(even) .service-subsection-content {
+    flex-direction: row; /* Image left, text right */
+  }
+
+  .service-subsection:nth-child(odd) .service-subsection-content {
+    flex-direction: row-reverse; /* Image right, text left */
+  }
+
   .service-image {
     width: 100%;
     max-width: 481px;
@@ -58,6 +67,7 @@
   .service-mobile-image {
     width: 300px;
     margin: 0 auto;
+    margin-top: {{ block.settings.mobile_image_margin_top }}px;
   }
 
   .service-mobile-image img {
@@ -81,24 +91,21 @@
   .service-number {
     width: 37px;
     height: 38px;
-    font-family: 'Roboto'
-    , sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 32px;
     font-weight: 600;
     line-height: 37.5px;
   }
 
   .service-subtitle {
-    font-family: 'Minion Pro'
-    , serif;
+    font-family: 'Minion Pro', serif;
     font-weight: 700;
     font-size: 40px;
     line-height: 76.8px;
   }
 
   .service-description {
-    font-family: 'Roboto'
-    , sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 20px;
     line-height: 23.44px;
@@ -148,8 +155,7 @@
   }
 
   .view-more-text {
-    font-family: 'Minion Pro'
-    , serif;
+    font-family: 'Minion Pro', serif;
     font-size: 28px;
     color: black;
     transition: color 0.5s ease-in-out;
@@ -158,18 +164,20 @@
   .view-more:hover .view-more-text {
     color: {{ section.settings.second_color | escape }};
   }
+
   .financing-container {
     display: none;
   }
+
   /* Responsive Styles */
   @media (max-width: 767px) {
     .service-subsection {
-      margin-top: 0;
+      margin-top: 40px;
     }
 
     .service-text {
       margin-left: 0;
-      margin-bottom: 0;
+      margin-bottom: 40px;
     }
 
     .service-subtitle {
@@ -184,6 +192,10 @@
       padding: 0;
     }
 
+    /* Ensure consistent layout on mobile */
+    .service-subsection-content {
+      flex-direction: column !important; /* Image above text on mobile */
+    }
   }
 
   @media (min-width: 768px) {
@@ -202,6 +214,7 @@
     .service-description {
       max-width: 440px;
     }
+
     /* Financing Circle */
     .financing-container {
       margin-top: 16px;
@@ -291,6 +304,7 @@
     .service-image--tablet {
       display: none;
     }
+
     /* Financing Circle */
     .financing-container {
       margin-top: 16px;
@@ -311,20 +325,6 @@
       font-size: 22px;
     }
   }
-
-  /* Specific Subsection Adjustments */
-  .service-subsection--bathrooms {
-    margin-top: 86px;
-  }
-
-  .service-subsection--bathrooms .service-subsection-content {
-    flex-direction: row-reverse;
-  }
-
-  .service-subsection--cabinetry .service-mobile-image {
-    margin-top: 100px;
-    margin-bottom: 56px;
-  }
 </style>
 
 <section class="service-section">
@@ -337,7 +337,7 @@
 
   <!-- Subsections -->
   {% for block in section.blocks %}
-    <div class="service-subsection service-subsection--{{ block.settings.title | handleize }}">
+    <div class="service-subsection">
       <!-- Mobile Image -->
       <div class="service-mobile-image">
         {% if block.settings.image %}
@@ -463,7 +463,8 @@
         "unit": "px",
         "default": 52,
         "info": "Font size for mobile screens."
-      }, {
+      },
+      {
         "type": "range",
         "id": "font_size_desktop",
         "label": "Font Size (Desktop)",
@@ -473,7 +474,8 @@
         "unit": "px",
         "default": 80,
         "info": "Font size for desktop screens."
-      }, {
+      },
+      {
         "type": "range",
         "id": "text_gap",
         "label": "Gap Between Titles",
@@ -497,18 +499,11 @@
             "default": "01",
             "info": "Section number (e.g., '01', '02')."
           },
-          
           {
             "type": "color",
             "id": "number_color",
-            "label": "Choose card number color",
+            "label": "Number Color",
             "default": "#6CA082"
-          },
-          {
-            "type": "text",
-            "id": "service_alignment",
-            "default": "flex-start",
-            "label": "Select Alignment"
           },
           {
             "type": "text",
@@ -516,38 +511,55 @@
             "label": "Title",
             "default": "Kitchen",
             "info": "Title of the service (e.g., 'Kitchen')."
-          }, {
+          },
+          {
             "type": "textarea",
             "id": "description",
             "label": "Description",
             "default": "We specialize in remodeling kitchen. We can do the designing and interior designing, having it built and design. We can also have it installed in your home."
-          }, {
+          },
+          {
             "type": "image_picker",
             "id": "image",
             "label": "Image",
             "info": "Image for the service."
-          }, {
+          },
+          {
             "type": "text",
             "id": "button_text",
             "label": "Button Text",
             "default": "View More"
-          }, {
+          },
+          {
             "type": "url",
             "id": "button_url",
             "label": "Button URL",
             "info": "Link for the View More button."
-          }, {
+          },
+          {
             "type": "checkbox",
             "id": "show_financing",
             "label": "Show Financing Circle",
             "default": false,
             "info": "Show the financing circle for this item."
-          }, {
+          },
+          {
             "type": "textarea",
             "id": "financing_text",
             "label": "Financing Text",
             "default": "Need Financing?\nNo Problem.",
             "info": "Text for the financing circle. Use \\n for line breaks."
+          },
+          {
+            "type": "range",
+            "id": "mobile_image_margin_top",
+            "label": "Mobile Image Margin Top",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "default": 0,
+            "info": "Adjust margin-top for mobile image (e.g., for Cabinetry)."
           }
         ]
       }
@@ -571,18 +583,22 @@
               "title": "Kitchen",
               "description": "We specialize in remodeling kitchen. We can do the designing and interior designing, having it built and design. We can also have it installed in your home.",
               "button_text": "View More",
-              "show_financing": false
+              "show_financing": false,
+              "mobile_image_margin_top": 0
             }
-          }, {
+          },
+          {
             "type": "service_item",
             "settings": {
               "number": "02",
               "title": "Bathrooms",
               "description": "Where Every Detail Counts: Elevating Bathroom Design to New Heights of Elegance, Functionality, and Precision—Creating Luxurious Spaces That Reflect Your Unique Style and Vision.",
               "button_text": "View More",
-              "show_financing": false
+              "show_financing": false,
+              "mobile_image_margin_top": 0
             }
-          }, {
+          },
+          {
             "type": "service_item",
             "settings": {
               "number": "03",
@@ -590,7 +606,8 @@
               "description": "Crafting Perfection in Every Detail: Beautifully Designed Cabinets That Combine Elegance, Durability, and Functionality to Transform Your Space.",
               "button_text": "View More",
               "show_financing": true,
-              "financing_text": "Need Financing?\nNo Problem."
+              "financing_text": "Need Financing?\nNo Problem.",
+              "mobile_image_margin_top": 100
             }
           }
         ]
