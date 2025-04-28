@@ -101,14 +101,18 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        cursor: pointer;
       }
       .Veneto_Living_Chair_section_wrapper .left-side li svg {
         fill: #ffffff;
       }
-      .Veneto_Living_Chair_section_wrapper .left-side li:hover {
+      /* .Veneto_Living_Chair_section_wrapper .left-side li:hover {
         color: var(--6-ca-082, #6ca082);
-      }
-      .Veneto_Living_Chair_section_wrapper .left-side li:hover svg {
+      } */
+      .Veneto_Living_Chair_section_wrapper .left-side li.active {
+  color: var(--6-ca-082, #6ca082);
+}
+      .Veneto_Living_Chair_section_wrapper .left-side li.active svg {
         fill: #6ca082;
       }
 
@@ -141,6 +145,13 @@
         font-style: normal;
         font-weight: 400;
         line-height: 150%; /* 24px */
+      }
+      .Veneto_Living_Chair_section_wrapper .right-side img {
+        max-width: 270px;
+        min-width: 270px;
+max-height: 270px;
+min-height: 270px;
+border-radius: 100%;
       }
 
       section.role-section {
@@ -284,8 +295,11 @@
         }
         .Veneto_Living_Chair_section_wrapper .right-side img {
           max-width: 181px;
+          min-width: 181px;
           max-height: 181px;
+          min-height: 181px;
           aspect-ratio: 1/1;
+
         }
 
         .Veneto_Living_Chair_section_wrapper .right-side div h2 {
@@ -381,6 +395,13 @@
           justify-content: center;
           align-items: center;
           gap: 32px;
+        }
+
+        .Veneto_Living_Chair_section_wrapper .right-side img {
+          max-width: 280px;
+          min-width: 280px;
+max-height: 280px;
+min-height: 280px;
         }
 
         .Veneto_Living_Chair_section_wrapper .right-side div {
@@ -684,6 +705,62 @@
 //1 class selector for marquee
 //2 marquee speed 0.2
 window.addEventListener('load', Marquee('.marquee', 0.2))
+
+//content change based on the data --------
+const listItems = document.querySelectorAll(".left-side li");
+const rightImage = document.querySelector(".right-side img");
+const rightTitle = document.querySelector(".right-side h2");
+const rightDescription = document.querySelector(".right-side p");
+
+
+
+
+const contents = [
+  {
+    img: "/image/our_story/round-content-1-3.png.png",
+    title: "Veneto Living Chair",
+    description: "There is not enough teal in the world in my opinion, this shapely chair oozes character and style. The product is available with 3 different leg options and 100 different fabrics and leathers. Time to take your living room to the next level. Veneto Living chair designed by Anders Norgaard. Prices start from £739.00. Image shown ‘Black Estoril’ leather with Aluminium swivel base."
+  },
+  {
+    img: "/image/our_story/Cupboards.jpg",
+    title: "Modern Cupboard",
+    description: "There is not enough teal in the world in my opinion, this shapely chair oozes character and style. The product is available with 3 different leg options and 100 different fabrics and leathers. Time to take your living room to the next level. Veneto Living chair designed by Anders Norgaard. Prices start from £739.00. Image shown ‘Black Estoril’ leather with Aluminium swivel base."
+  },
+  {
+    img: "/image/our_story/Door.jpg",
+    title: "Elegant Doors",
+    description: "There is not enough teal in the world in my opinion, this shapely chair oozes character and style. The product is available with 3 different leg options and 100 different fabrics and leathers. Time to take your living room to the next level. Veneto Living chair designed by Anders Norgaard. Prices start from £739.00. Image shown ‘Black Estoril’ leather with Aluminium swivel base."
+  },
+  {
+    img: "/image/our_story/Lamps.jpg",
+    title: "Decorative Lamps",
+    description: "There is not enough teal in the world in my opinion, this shapely chair oozes character and style. The product is available with 3 different leg options and 100 different fabrics and leathers. Time to take your living room to the next level. Veneto Living chair designed by Anders Norgaard. Prices start from £739.00. Image shown ‘Black Estoril’ leather with Aluminium swivel base."
+  },
+  {
+    img: "/image/our_story/Baths.jpeg",
+    title: "Luxury Baths",
+    description: "There is not enough teal in the world in my opinion, this shapely chair oozes character and style. The product is available with 3 different leg options and 100 different fabrics and leathers. Time to take your living room to the next level. Veneto Living chair designed by Anders Norgaard. Prices start from £739.00. Image shown ‘Black Estoril’ leather with Aluminium swivel base."
+  },
+];
+
+
+// Main function: update active item and right content
+function updateContent(index) {
+  listItems.forEach((li) => li.classList.remove("active"));
+  listItems[index].classList.add("active");
+
+  rightImage.src = contents[index].img;
+  rightTitle.textContent = contents[index].title;
+  rightDescription.textContent = contents[index].description;
+}
+
+// Default: page load e first item show
+updateContent(0);
+
+// Event listeners
+listItems.forEach((item, index) => {
+  item.addEventListener("click", () => updateContent(index));
+});
 
     </script>
   </body>
