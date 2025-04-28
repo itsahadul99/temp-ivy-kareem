@@ -24,25 +24,21 @@
       {
         "type": "header",
         "content": "Navigation Settings"
-      },
-      {
+      }, {
         "type": "text",
         "id": "shop_button_text",
         "label": "Shop Button Text",
         "default": "Shop"
-      },
-      {
+      }, {
         "type": "url",
         "id": "shop_button_link",
         "label": "Shop Button Link"
-      },
-      {
+      }, {
         "type": "color",
         "id": "menu_text_color",
         "label": "Menu Text Color",
         "default": "#FFFFFF"
-      },
-      {
+      }, {
         "type": "color",
         "id": "menu_hover_color",
         "label": "Menu Active Color",
@@ -59,19 +55,16 @@
             "id": "title",
             "label": "Menu Title",
             "default": "Home"
-          },
-          {
+          }, {
             "type": "url",
             "id": "link",
             "label": "Menu Link"
-          },
-          {
+          }, {
             "type": "checkbox",
             "id": "has_dropdown",
             "label": "Enable Dropdown Menu",
             "default": false
-          },
-          {
+          }, {
             "type": "link_list",
             "id": "dropdown_menu",
             "label": "Dropdown Menu Links",
@@ -87,322 +80,355 @@
       }
     ]
   }
-  {% endschema %}
-  
-  <style>
-    /* Base Styles */
-    .navbar-container {
-      z-index: 1000;
-      transition: all 0.3s ease;
-    }
-    
-    /* Active Menu State */
-    .active-menu {
-      color: {{ section.settings.menu_hover_color }} !important;
-    }
+{% endschema %}
 
-    
-    /* Dropdown Menu */
+<style>
+  /* Base Styles */
+  .navbar-container {
+    z-index: 1000;
+    transition: all 0.3s ease;
+  }
+
+  /* Active Menu State */
+  .active-menu {
+    color: {{ section.settings.menu_hover_color }}
+     !important;
+  }
+
+
+  /* Dropdown Menu */
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    min-width: 200px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 50;
+    border-radius: 0 0 4px 4px;
+    padding: 0.5rem 0;
+  }
+
+  .has-dropdown:hover .dropdown-menu {
+    display: block;
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #333;
+    transition: all 0.2s ease;
+  }
+
+  .dropdown-menu a:hover {
+    color: {{ section.settings.menu_hover_color }};
+    background-color: #f9f9f9;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Mobile Menu */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    padding-top: 80px;
+    overflow-y: auto;
+  }
+
+  .mobile-menu.active {
+    display: block;
+  }
+
+  .menu-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .mobile-dropdown {
+    display: none;
+    padding-left: 1rem;
+  }
+
+  .mobile-menu-item.has-dropdown.active .mobile-dropdown{
+    display: block;
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+
+  .desk-nav, .shop-now-btn, .shop-now-home-btn  {
+      display: none;
+    }
     .dropdown-menu {
+      position: static;
+      display: none !important;
+      box-shadow: none;
+    }
+    .mobile-menu-btn {
+      display: block;
+    }
+  }
+
+  @media (min-width: 769px) {
+    .mobile-menu-btn{
       display: none;
-      position: absolute;
-      left: 0;
-      min-width: 200px;
-      background: white;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      z-index: 50;
-      border-radius: 0 0 4px 4px;
-      padding: 0.5rem 0;
     }
-    
-    .has-dropdown:hover .dropdown-menu {
-      display: block;
-      animation: fadeIn 0.2s ease-out;
-    }
-    
-    .dropdown-menu a {
-      display: block;
-      padding: 0.5rem 1rem;
-      color: #333;
-      transition: all 0.2s ease;
-    }
-    
-    .dropdown-menu a:hover {
-      color: {{ section.settings.menu_hover_color }};
-      background-color: #f9f9f9;
-    }
-    
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    /* Mobile Menu */
-    .mobile-menu {
+  }
+  @media(max-width: 431px) {
+    .desk-nav, .shop-now-btn {
       display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.95);
-      z-index: 1000;
-      padding-top: 80px;
-      overflow-y: auto;
     }
+  }
+</style>
+
+<div id="navbar-container" class="navbar-container w-full absolute">
+  <!-- Desktop Navbar -->
+  <div class="relative flex items-center justify-between px-4 py-6 lg:px-[110px] xl:px-[149.5px] lg:py-[44.5px] h-[129px]">
+    <!-- Logo -->
+    <a href="{{ section.settings.logo_link | default: '/' }}" class="flex-shrink-0">
+      {% if section.settings.logo %}
+        <img
+          src="{{ section.settings.logo | img_url: 'master' }}"
+          alt="{{ section.settings.logo.alt | escape }}"
+          loading="lazy"
+          width="119"
+          height="63">
+      {% else %}
+        <img
+          src="{{ 'IVYKAREEM.png' | asset_url }}"
+          alt="{{ shop.name }}"
+          loading="lazy"
+          width="119"
+          height="63">
+      {% endif %}
+    </a>
+    <div class="mobile-menu-btn lg:hidden">
+      <button id="menu-btn-2" class="text-[#252531] text-2xl p-3 rounded-full bg-[#6CA082]">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33" fill="none">
+        <g clip-path="url(#clip0_128_4165)">
+          <path d="M26.6667 24.4997C27.0065 24.5 27.3334 24.6302 27.5805 24.8635C27.8276 25.0968 27.9763 25.4156 27.9962 25.7549C28.0161 26.0941 27.9058 26.4282 27.6876 26.6888C27.4695 26.9494 27.1601 27.1169 26.8227 27.157L26.6667 27.1663H5.33333C4.99349 27.166 4.66662 27.0358 4.41951 26.8025C4.17239 26.5693 4.02369 26.2504 4.00377 25.9111C3.98385 25.5719 4.09423 25.2378 4.31235 24.9772C4.53047 24.7166 4.83987 24.5491 5.17733 24.509L5.33333 24.4997H26.6667ZM26.6667 15.1663C27.0203 15.1663 27.3594 15.3068 27.6095 15.5569C27.8595 15.8069 28 16.1461 28 16.4997C28 16.8533 27.8595 17.1924 27.6095 17.4425C27.3594 17.6925 27.0203 17.833 26.6667 17.833H5.33333C4.97971 17.833 4.64057 17.6925 4.39052 17.4425C4.14048 17.1924 4 16.8533 4 16.4997C4 16.1461 4.14048 15.8069 4.39052 15.5569C4.64057 15.3068 4.97971 15.1663 5.33333 15.1663H26.6667ZM26.6667 5.83301C27.0203 5.83301 27.3594 5.97348 27.6095 6.22353C27.8595 6.47358 28 6.81272 28 7.16634C28 7.51996 27.8595 7.8591 27.6095 8.10915C27.3594 8.3592 27.0203 8.49967 26.6667 8.49967H5.33333C4.97971 8.49967 4.64057 8.3592 4.39052 8.10915C4.14048 7.8591 4 7.51996 4 7.16634C4 6.81272 4.14048 6.47358 4.39052 6.22353C4.64057 5.97348 4.97971 5.83301 5.33333 5.83301H26.6667Z" fill="white"/>
+        </g>
+        <defs>
+          <clipPath id="clip0_128_4165">
+            <rect width="32" height="32" fill="white" transform="translate(0 0.5)"/>
+          </clipPath>
+        </defs>
+      </svg>
+      </button>
+    </div>
+    <!-- Desktop Navigation -->
+    <nav class="desk-nav md:flex md:space-x-4 lg:space-x-6 xl:space-x-8 text-sm font-medium">
+      {% for block in section.blocks %}
+        {% assign current_link = block.settings.link | default: '#' %}
+        <div class="relative {% if block.settings.has_dropdown %}has-dropdown{% endif %}">
+          <a href="{{ current_link }}" class="uppercase text-[{{ section.settings.menu_text_color }}] hover:text-[{{ section.settings.menu_hover_color }}] {% if request.path == current_link %}active-menu{% endif %} {% if block.settings.has_dropdown %}flex items-center gap-1{% endif %}">
+            {{ block.settings.title }}
+            {% if block.settings.has_dropdown %}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="17"
+                height="17"
+                viewBox="0 0 17 17"
+                fill="none">
+                <path d="M8.5 8.89998L11.5667 5.83331L12.5 6.76665L8.5 10.7666L4.5 6.76665L5.43333 5.83331L8.5 8.89998Z" fill="currentColor" />
+              </svg>
+            {% endif %}
+          </a>
+
+          {% if block.settings.has_dropdown and block.settings.dropdown_menu != blank %}
+            <div class="dropdown-menu">
+              {% for link in linklists[block.settings.dropdown_menu].links %}
+                <a href="{{ link.url }}" class="{% if request.path == link.url %}active-menu{% endif %}">
+                  {{ link.title }}
+                </a>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </nav>
+
+    <!-- Shop Button -->
+    <a href="{{ section.settings.shop_button_link }}" class="px-6 py-2 shop-now-btn bg-transparent border border-white text-white rounded-lg hover:bg-[{{ section.settings.menu_hover_color }}] hover:border-[{{ section.settings.menu_hover_color }}] hover:text-black transition-colors">
+      {{ section.settings.shop_button_text }}
+    </a>
     
-    .mobile-menu.active {
-      display: block;
-    }
-    
-    .menu-close-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      color: white;
-      font-size: 24px;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-    
-    .mobile-dropdown {
-      display: none;
-      padding-left: 1rem;
-    }
-    
-    .mobile-menu-item.has-dropdown.active .mobile-dropdown {
-      display: block;
-    }
-    
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-  
-      
-      .dropdown-menu {
-        position: static;
-        display: none !important;
-        box-shadow: none;
-      }
-    }
-    
-    @media (min-width: 769px) {
-      .mobile-menu-btn {
-        display: none;
-      }
-    }
-    @media(max-width: 426px){
-      .desk-nav {
-        display: none;
-      }
-    }
-  </style>
-  
-  <div id="navbar-container" class="navbar-container w-full absolute">
-    <!-- Desktop Navbar -->
-    <div class="relative flex items-center justify-between px-4 py-6 lg:px-[110px] xl:px-[149.5px] lg:py-[44.5px] h-[129px]">
-      <!-- Mobile Menu Button -->
-      <div class="mobile-menu-btn md:hidden">
-        <button id="menu-btn-1" class="text-white text-2xl">☰</button>
-      </div>
-  
-      <!-- Logo -->
-      <a href="{{ section.settings.logo_link | default: '/' }}" class="flex-shrink-0">
-        {% if section.settings.logo %}
-          <img src="{{ section.settings.logo | img_url: 'master' }}"
-               alt="{{ section.settings.logo.alt | escape }}"
-               loading="lazy"
-               width="119"
-               height="63">
-        {% else %}
-          <img src="{{ 'IVYKAREEM.png' | asset_url }}"
-               alt="{{ shop.name }}"
-               loading="lazy"
-               width="119"
-               height="63">
-        {% endif %}
-      </a>
-  
-      <!-- Desktop Navigation -->
-      <nav class="desk-nav md:flex md:space-x-4 lg:space-x-6 xl:space-x-8 text-sm font-medium">
-        {% for block in section.blocks %}
-          {% assign current_link = block.settings.link | default: '#' %}
-          <div class="relative {% if block.settings.has_dropdown %}has-dropdown{% endif %}">
-            <a href="{{ current_link }}" 
-               class="uppercase text-[{{ section.settings.menu_text_color }}] hover:text-[{{ section.settings.menu_hover_color }}] {% if request.path == current_link %}active-menu{% endif %} {% if block.settings.has_dropdown %}flex items-center gap-1{% endif %}">
+  </div>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu-1" class="mobile-menu">
+    <button class="menu-close-btn" id="menu-close-1">✕</button>
+    <div class="flex flex-col items-center pt-12 justify-start h-full space-y-8">
+      {% for block in section.blocks %}
+        {% assign current_link = block.settings.link | default: '#' %}
+        <div class="mobile-menu-item {% if block.settings.has_dropdown %}has-dropdown{% endif %}">
+          <div class="flex items-center">
+            <a href="{{ current_link }}" class="text-white text-2xl hover:text-[{{ section.settings.menu_hover_color }}] {% if request.path == current_link %}active-menu{% endif %}">
               {{ block.settings.title }}
-              {% if block.settings.has_dropdown %}
-                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
-                  <path d="M8.5 8.89998L11.5667 5.83331L12.5 6.76665L8.5 10.7666L4.5 6.76665L5.43333 5.83331L8.5 8.89998Z" fill="currentColor"/>
-                </svg>
-              {% endif %}
             </a>
-  
-            {% if block.settings.has_dropdown and block.settings.dropdown_menu != blank %}
-              <div class="dropdown-menu">
-                {% for link in linklists[block.settings.dropdown_menu].links %}
-                  <a href="{{ link.url }}" 
-                     class="{% if request.path == link.url %}active-menu{% endif %}">
-                    {{ link.title }}
-                  </a>
-                {% endfor %}
-              </div>
+            {% if block.settings.has_dropdown %}
+              <button class="mobile-dropdown-toggle text-white ml-2 text-2xl">+</button>
             {% endif %}
           </div>
-        {% endfor %}
-      </nav>
-  
-      <!-- Shop Button -->
-      <a href="{{ section.settings.shop_button_link }}" 
-         class="px-6 py-2 bg-transparent border border-white text-white rounded-lg hover:bg-[{{ section.settings.menu_hover_color }}] hover:border-[{{ section.settings.menu_hover_color }}] hover:text-black transition-colors">
+
+          {% if block.settings.has_dropdown and block.settings.dropdown_menu != blank %}
+            <div class="mobile-dropdown">
+              {% for link in linklists[block.settings.dropdown_menu].links %}
+                <a href="{{ link.url }}" class="block text-white text-lg mt-2 {% if request.path == link.url %}active-menu{% endif %}">
+                  {{ link.title }}
+                </a>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+
+      <a href="{{ section.settings.shop_button_link }}" class="px-6 py-2 bg-transparent border border-white text-white rounded-lg hover:bg-[{{ section.settings.menu_hover_color }}] hover:border-[{{ section.settings.menu_hover_color }}] hover:text-black mt-4">
         {{ section.settings.shop_button_text }}
       </a>
     </div>
-  
-    <!-- Mobile Menu -->
-    <div id="mobile-menu-1" class="mobile-menu">
-      <button class="menu-close-btn" id="menu-close-1">✕</button>
-      <div class="flex flex-col items-center pt-12 justify-start h-full space-y-8">
-        {% for block in section.blocks %}
-          {% assign current_link = block.settings.link | default: '#' %}
-          <div class="mobile-menu-item {% if block.settings.has_dropdown %}has-dropdown{% endif %}">
-            <div class="flex items-center">
-              <a href="{{ current_link }}" 
-                 class="text-white text-2xl hover:text-[{{ section.settings.menu_hover_color }}] {% if request.path == current_link %}active-menu{% endif %}">
-                {{ block.settings.title }}
-              </a>
-              {% if block.settings.has_dropdown %}
-                <button class="mobile-dropdown-toggle text-white ml-2 text-2xl">+</button>
-              {% endif %}
-            </div>
-            
-            {% if block.settings.has_dropdown and block.settings.dropdown_menu != blank %}
-              <div class="mobile-dropdown">
-                {% for link in linklists[block.settings.dropdown_menu].links %}
-                  <a href="{{ link.url }}" 
-                     class="block text-white text-lg mt-2 {% if request.path == link.url %}active-menu{% endif %}">
-                    {{ link.title }}
-                  </a>
-                {% endfor %}
-              </div>
-            {% endif %}
-          </div>
-        {% endfor %}
-        
-        <a href="{{ section.settings.shop_button_link }}" 
-           class="px-6 py-2 bg-transparent border border-white text-white rounded-lg hover:bg-[{{ section.settings.menu_hover_color }}] hover:border-[{{ section.settings.menu_hover_color }}] hover:text-black mt-4">
-          {{ section.settings.shop_button_text }}
-        </a>
-      </div>
-    </div>
   </div>
-  
-  <div id="navbar-container2" class="navbar-container w-full hidden">
-    <!-- Desktop Navbar for Other Pages -->
-    <div class="flex items-center justify-between px-4 py-6 lg:px-[110px] xl:px-[149.5px] lg:py-[44.5px] h-[129px]">
-      <!-- Mobile Menu Button -->
-      <div class="mobile-menu-btn md:hidden">
-        <button id="menu-btn-2" class="text-[#252531] text-2xl">☰</button>
-      </div>
-  
-      <!-- Logo -->
-      <a href="{{ section.settings.logo_link | default: '/' }}" class="flex-shrink-0">
-        {% if section.settings.logo_for_other_pages %}
-          <img src="{{ section.settings.logo_for_other_pages | img_url: 'master' }}"
-               alt="{{ section.settings.logo_for_other_pages.alt | escape }}"
-               loading="lazy"
-               width="119"
-               height="63">
-        {% else %}
-          <img src="{{ 'logo2.png' | asset_url }}"
-               alt="{{ shop.name }}"
-               loading="lazy"
-               width="119"
-               height="63">
-        {% endif %}
-      </a>
-  
-      <!-- Desktop Navigation -->
-      <nav class="desk-nav md:flex md:space-x-4 lg:space-x-6 xl:space-x-8 text-sm font-medium">
-        {% for block in section.blocks %}
-          {% assign current_link = block.settings.link | default: '#' %}
-          <div class="relative {% if block.settings.has_dropdown %}has-dropdown{% endif %}">
-            <a href="{{ current_link }}" 
-               class="uppercase text-[#252531] hover:text-[{{ section.settings.menu_hover_color }}] {% if request.path == current_link %}active-menu{% endif %} {% if block.settings.has_dropdown %}flex items-center gap-1{% endif %}">
+</div>
+
+<div id="navbar-container2" class="navbar-container w-full hidden">
+  <!-- Desktop Navbar for Other Pages -->
+  <div class="flex items-center justify-between px-4 py-6 lg:px-[110px] xl:px-[149.5px] lg:py-[44.5px] h-[129px]">
+    <!-- Logo -->
+    <a href="{{ section.settings.logo_link | default: '/' }}" class="flex-shrink-0">
+      {% if section.settings.logo_for_other_pages %}
+        <img
+          src="{{ section.settings.logo_for_other_pages | img_url: 'master' }}"
+          alt="{{ section.settings.logo_for_other_pages.alt | escape }}"
+          loading="lazy"
+          width="119"
+          height="63">
+      {% else %}
+        <img
+          src="{{ 'logo2.png' | asset_url }}"
+          alt="{{ shop.name }}"
+          loading="lazy"
+          width="119"
+          height="63">
+      {% endif %}
+    </a>
+    <!-- Mobile Menu Button -->
+    <div class="mobile-menu-btn lg:hidden">
+      <button id="menu-btn-2" class="text-[#252531] text-2xl p-3 rounded-full bg-[#6CA082]">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="33"
+          viewBox="0 0 32 33"
+          fill="none">
+          <g clip-path="url(#clip0_128_4936)">
+            <path d="M26.6667 24.4997C27.0065 24.5 27.3334 24.6302 27.5805 24.8635C27.8276 25.0968 27.9763 25.4156 27.9962 25.7549C28.0161 26.0941 27.9058 26.4282 27.6876 26.6888C27.4695 26.9494 27.1601 27.1169 26.8227 27.157L26.6667 27.1663H5.33333C4.99349 27.166 4.66662 27.0358 4.41951 26.8025C4.17239 26.5693 4.02369 26.2504 4.00377 25.9111C3.98385 25.5719 4.09423 25.2378 4.31235 24.9772C4.53047 24.7166 4.83987 24.5491 5.17733 24.509L5.33333 24.4997H26.6667ZM26.6667 15.1663C27.0203 15.1663 27.3594 15.3068 27.6095 15.5569C27.8595 15.8069 28 16.1461 28 16.4997C28 16.8533 27.8595 17.1924 27.6095 17.4425C27.3594 17.6925 27.0203 17.833 26.6667 17.833H5.33333C4.97971 17.833 4.64057 17.6925 4.39052 17.4425C4.14048 17.1924 4 16.8533 4 16.4997C4 16.1461 4.14048 15.8069 4.39052 15.5569C4.64057 15.3068 4.97971 15.1663 5.33333 15.1663H26.6667ZM26.6667 5.83301C27.0203 5.83301 27.3594 5.97348 27.6095 6.22353C27.8595 6.47358 28 6.81272 28 7.16634C28 7.51996 27.8595 7.8591 27.6095 8.10915C27.3594 8.3592 27.0203 8.49967 26.6667 8.49967H5.33333C4.97971 8.49967 4.64057 8.3592 4.39052 8.10915C4.14048 7.8591 4 7.51996 4 7.16634C4 6.81272 4.14048 6.47358 4.39052 6.22353C4.64057 5.97348 4.97971 5.83301 5.33333 5.83301H26.6667Z" fill="black" />
+          </g>
+          <defs>
+            <clipPath id="clip0_128_4936">
+              <rect
+                width="32"
+                height="32"
+                fill="white"
+                transform="translate(0 0.5)" />
+            </clipPath>
+          </defs>
+        </svg>
+      </button>
+    </div>
+    <!-- Desktop Navigation -->
+    <nav class="desk-nav md:flex md:space-x-4 lg:space-x-6 xl:space-x-8 text-sm font-medium">
+      {% for block in section.blocks %}
+        {% assign current_link = block.settings.link | default: '#' %}
+        <div class="relative {% if block.settings.has_dropdown %}has-dropdown{% endif %}">
+          <a href="{{ current_link }}" class="uppercase text-[#252531] hover:text-[{{ section.settings.menu_hover_color }}] {% if request.path == current_link %}active-menu{% endif %} {% if block.settings.has_dropdown %}flex items-center gap-1{% endif %}">
+            {{ block.settings.title }}
+            {% if block.settings.has_dropdown %}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="17"
+                height="17"
+                viewBox="0 0 17 17"
+                fill="none">
+                <path d="M8.5 8.89998L11.5667 5.83331L12.5 6.76665L8.5 10.7666L4.5 6.76665L5.43333 5.83331L8.5 8.89998Z" fill="currentColor" />
+              </svg>
+            {% endif %}
+          </a>
+
+          {% if block.settings.has_dropdown and block.settings.dropdown_menu != blank %}
+            <div class="dropdown-menu">
+              {% for link in linklists[block.settings.dropdown_menu].links %}
+                <a href="{{ link.url }}" class="{% if request.path == link.url %}active-menu{% endif %}">
+                  {{ link.title }}
+                </a>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </nav>
+    {% comment %} Desktop shop button {% endcomment %}
+    <a href="{{ section.settings.shop_button_link }}" class="px-6 shop-now-btn py-2 bg-white text-black font-bold border border-[#9DB8A8] rounded-lg hover:bg-[{{ section.settings.menu_hover_color }}] hover:border-[{{ section.settings.menu_hover_color }}] hover:text-black block">
+      {{ section.settings.shop_button_text }}
+    </a>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu-2" class="mobile-menu">
+    <button class="menu-close-btn" id="menu-close-2">✕</button>
+    <div class="flex flex-col items-center pt-12 justify-start h-full space-y-8">
+      {% for block in section.blocks %}
+        {% assign current_link = block.settings.link | default: '#' %}
+        <div class="mobile-menu-item {% if block.settings.has_dropdown %}has-dropdown{% endif %}">
+          <div class="flex items-center">
+            <a href="{{ current_link }}" class="text-white text-2xl hover:text-[{{ section.settings.menu_hover_color }}] {% if request.path == current_link %}active-menu{% endif %}">
               {{ block.settings.title }}
-              {% if block.settings.has_dropdown %}
-                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
-                  <path d="M8.5 8.89998L11.5667 5.83331L12.5 6.76665L8.5 10.7666L4.5 6.76665L5.43333 5.83331L8.5 8.89998Z" fill="currentColor"/>
-                </svg>
-              {% endif %}
             </a>
-  
-            {% if block.settings.has_dropdown and block.settings.dropdown_menu != blank %}
-              <div class="dropdown-menu">
-                {% for link in linklists[block.settings.dropdown_menu].links %}
-                  <a href="{{ link.url }}" 
-                     class="{% if request.path == link.url %}active-menu{% endif %}">
-                    {{ link.title }}
-                  </a>
-                {% endfor %}
-              </div>
+            {% if block.settings.has_dropdown %}
+              <button class="mobile-dropdown-toggle text-white ml-2 text-2xl">+</button>
             {% endif %}
           </div>
-        {% endfor %}
-      </nav>
-  
-      <!-- Shop Button -->
-      <a href="{{ section.settings.shop_button_link }}" 
-         class="px-6 py-2 bg-transparent border border-[#9DB8A8] text-[#252531] rounded-lg hover:bg-[{{ section.settings.menu_hover_color }}] hover:border-[{{ section.settings.menu_hover_color }}] hover:text-black transition-colors">
+
+          {% if block.settings.has_dropdown and block.settings.dropdown_menu != blank %}
+            <div class="mobile-dropdown">
+              {% for link in linklists[block.settings.dropdown_menu].links %}
+                <a href="{{ link.url }}" class="block text-white text-lg mt-2 {% if request.path == link.url %}active-menu{% endif %}">
+                  {{ link.title }}
+                </a>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+
+      <a href="{{ section.settings.shop_button_link }}" class="px-6 py-2 bg-transparent border border-[#9DB8A8] text-white rounded-lg hover:bg-[{{ section.settings.menu_hover_color }}] hover:border-[{{ section.settings.menu_hover_color }}] hover:text-black mt-4">
         {{ section.settings.shop_button_text }}
       </a>
     </div>
-  
-    <!-- Mobile Menu -->
-    <div id="mobile-menu-2" class="mobile-menu">
-      <button class="menu-close-btn" id="menu-close-2">✕</button>
-      <div class="flex flex-col items-center pt-12 justify-start h-full space-y-8">
-        {% for block in section.blocks %}
-          {% assign current_link = block.settings.link | default: '#' %}
-          <div class="mobile-menu-item {% if block.settings.has_dropdown %}has-dropdown{% endif %}">
-            <div class="flex items-center">
-              <a href="{{ current_link }}" 
-                 class="text-white text-2xl hover:text-[{{ section.settings.menu_hover_color }}] {% if request.path == current_link %}active-menu{% endif %}">
-                {{ block.settings.title }}
-              </a>
-              {% if block.settings.has_dropdown %}
-                <button class="mobile-dropdown-toggle text-white ml-2 text-2xl">+</button>
-              {% endif %}
-            </div>
-            
-            {% if block.settings.has_dropdown and block.settings.dropdown_menu != blank %}
-              <div class="mobile-dropdown">
-                {% for link in linklists[block.settings.dropdown_menu].links %}
-                  <a href="{{ link.url }}" 
-                     class="block text-white text-lg mt-2 {% if request.path == link.url %}active-menu{% endif %}">
-                    {{ link.title }}
-                  </a>
-                {% endfor %}
-              </div>
-            {% endif %}
-          </div>
-        {% endfor %}
-        
-        <a href="{{ section.settings.shop_button_link }}" 
-           class="px-6 py-2 bg-transparent border border-[#9DB8A8] text-white rounded-lg hover:bg-[{{ section.settings.menu_hover_color }}] hover:border-[{{ section.settings.menu_hover_color }}] hover:text-black mt-4">
-          {{ section.settings.shop_button_text }}
-        </a>
-      </div>
-    </div>
   </div>
-  
-  <script>
+</div>
+
+<script>
   document.addEventListener('DOMContentLoaded', function() {
     // Initialize both menu systems
     function initMenuSystem(containerNumber) {
@@ -470,4 +496,4 @@
       });
     });
   });
-  </script>
+</script>

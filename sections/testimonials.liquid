@@ -145,7 +145,9 @@
     font-weight: 500;
     line-height: normal;
   }
-
+  .testimonial-head div {
+    display: flex;
+  }
   @media (max-width: 768px) {
     /* testimonial part */
     #testimonial-section {
@@ -166,14 +168,20 @@
     .mySwiper {
       max-width: 100%;
     }
+    .testimonial-swapping-btn-responsive{
+      display: none;
+    }
   }
 
-  @media (max-width: 426px) {
+  @media (max-width: 431px) {
+    .testimonial-head div {
+      display: none;
+    }
     #testimonial-section {
       padding: 60px 20px;
     }
     .testimonial-section-wrapper {
-      gap: 24px;
+      gap: 12px;
     }
     .testimonial-title {
       font-size: 42px;
@@ -185,7 +193,6 @@
       gap: 16px;
     }
     .testimonial-card-2nd-part {
-      flex-direction: column;
       gap: 20px;
       align-items: center;
       margin-top: 16px;
@@ -200,6 +207,17 @@
     .testimonial-card-2nd-part-left div h2 {
       font-size: 16px;
     }
+    .testimonial-head {
+      align-items: center;
+      justify-content: center;
+    }
+    .testimonial-swapping-btn-responsive {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 32px;
+    }
+
   }
 </style>
 
@@ -209,18 +227,18 @@
     <!-- Head Part -->
     <div class="testimonial-head">
       <!-- Navigation Buttons -->
-      <div style="display: flex">
+      <div>
         <button class="swiper-button-next">
           {% if section.settings.prev_btn_icon %}
             <img src="{{ section.settings.prev_btn_icon |  image_url  }}" alt="Previous" />
-            {% else %}
+          {% else %}
             <img src="{{ 'prev_btn_icon.png' | asset_url }}" alt="Previous" />
           {% endif %}
         </button>
         <button class="swiper-button-prev">
           {% if section.settings.next_btn_icon %}
             <img src="{{ section.settings.next_btn_icon |  image_url  }}" alt="Next" />
-            {% else %}
+          {% else %}
             <img src="{{ 'next_btn_icon.png' | asset_url }}" alt="Next" />
           {% endif %}
         </button>
@@ -266,6 +284,23 @@
         {% endfor %}
       </div>
     </div>
+
+    <div class="testimonial-swapping-btn-responsive">
+      <button class="swiper-button-next">
+        {% if section.settings.prev_btn_icon %}
+          <img src="{{ section.settings.prev_btn_icon |  image_url  }}" alt="Previous" />
+        {% else %}
+          <img src="{{ 'prev_btn_icon.png' | asset_url }}" alt="Previous" />
+        {% endif %}
+      </button>
+      <button class="swiper-button-prev">
+        {% if section.settings.next_btn_icon %}
+          <img src="{{ section.settings.next_btn_icon |  image_url  }}" alt="Next" />
+        {% else %}
+          <img src="{{ 'next_btn_icon.png' | asset_url }}" alt="Next" />
+        {% endif %}
+      </button>
+    </div>
   </div>
 </section>
 
@@ -300,14 +335,12 @@
         "id": "title",
         "label": "Section Title",
         "default": "Testimonials"
-      },
-      {
+      }, {
         "type": "image_picker",
         "id": "prev_btn_icon",
         "label": "Select previous button icon",
         "info": "Recommended size: 40x40 px"
-      },
-      {
+      }, {
         "type": "image_picker",
         "id": "next_btn_icon",
         "label": "Select next button icon",

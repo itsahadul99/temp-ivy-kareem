@@ -99,30 +99,59 @@
   }
 
   .view-more {
-    background: none;
     display: flex;
     align-items: center;
     gap: 16px;
-    padding: 12px 0;
-    border: none;
+    padding: 24.5px 0;
+    height: 83px;
+    cursor: pointer;
     color: #000;
-    font-family: "Minion Pro";
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    text-transform: capitalize;
+    transition: font-style 0.3s ease-in-out;
   }
+
   .view-more:hover {
     font-style: italic;
   }
+
+  .view-more-btn {
+    width: 40px;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 100%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+  }
+
   .view-more-btn svg {
     width: 15.7px;
     height: 15.7px;
     stroke: black;
   }
+
+  .view-more:hover .view-more-btn {
+    background: #6CA082;
+    border-color: #6CA082;
+  }
+
   .view-more:hover .view-more-btn svg {
     stroke: white;
+  }
+
+  .view-more-text {
+    font-family: "Minion Pro";
+    font-size: 28px !important;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: capitalize;
+  }
+
+  .view-more:hover .view-more-text {
+    color: #6CA082;
+    font-style: italic;
   }
   @media (max-width: 768px) {
     .kitchen_and_bath_section {
@@ -157,7 +186,7 @@
     }
   }
 
-  @media (max-width: 426px) {
+  @media (max-width: 431px) {
     .kitchen_and_bath_section {
       padding: 0 20px;
     }
@@ -257,40 +286,21 @@
             <div class="content">
               {{ block.settings.content }}
             </div>
-            <a href="{{ block.settings.button_url }}">
-              <button class="view-more" id="view-more">
-                {% if block.settings.button_icon %}
-                  <img
-                    src="{{ block.settings.button_icon | img_url: '40x40' }}"
-                    alt="buttonIcon"
-                    height="40"
-                    width="40">
-                {% else %}
-                  <span>
-                    <svg
-                      width="40"
-                      height="40"
-                      viewBox="0 0 40 40"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <rect
-                        x="0.5"
-                        y="0.5"
-                        width="39"
-                        height="39"
-                        rx="19.5"
-                        stroke="black" />
-                      <circle
-                        cx="20"
-                        cy="20"
-                        r="1"
-                        fill="#D9D9D9" />
-                      <path d="M18.9167 21.0833H13.5C12.9017 21.0833 12.4167 20.5983 12.4167 20V20C12.4167 19.4017 12.9017 18.9167 13.5 18.9167H18.9167V13.5C18.9167 12.9017 19.4017 12.4167 20 12.4167V12.4167C20.5983 12.4167 21.0833 12.9017 21.0833 13.5V18.9167H26.5C27.0983 18.9167 27.5833 19.4017 27.5833 20V20C27.5833 20.5983 27.0983 21.0833 26.5 21.0833H21.0833V26.5C21.0833 27.0983 20.5983 27.5833 20 27.5833V27.5833C19.4017 27.5833 18.9167 27.0983 18.9167 26.5V21.0833Z" fill="black" />
-                    </svg>
-                  </span>
-                {% endif %}
-                <span>View More</span>
+            <a href="{{ block.settings.button_url | escape }}" class="view-more">
+              <button class="view-more-btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
               </button>
+              <span class="view-more-text">View More</span>
             </a>
           </div>
         </div>

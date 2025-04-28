@@ -8,8 +8,11 @@
   as="video">
 
 <style>
-  .craft-kitchen {
+  .craft-kitchen-section {
     padding: 60px 48px;
+
+  }
+  .craft-kitchen {
     max-width: 1440px;
     width: 100%;
     margin: 0 auto;
@@ -45,7 +48,7 @@
     z-index: 1;
   }
   video {
-    width: {{ section.settings.video_width}}px;
+    width: {{ section.settings.video_width }}px;
     height: auto;
     z-index: 1;
   }
@@ -111,7 +114,7 @@
     display: none;
   }
   @media(max-width: 1024px) {
-    .craft-kitchen h1{
+    .craft-kitchen h1 {
       font-size: 48px;
     }
     #left-video,
@@ -205,7 +208,7 @@
     }
   }
   @media (max-width: 480px) {
-    .craft-kitchen {
+    .craft-kitchen-section {
       padding: 24px 0;
     }
     .craft-kitchen h1 {
@@ -229,67 +232,78 @@
   }
 </style>
 
-<div class="craft-kitchen">
-  <h1>{{ section.settings.section_title1 }}
-    <span>{{ section.settings.section_title2 }}</span>
-  </h1>
-  <div class="image-container">
-    <a href="{{section.settings.left_button_url}}" class="left-button">
-      <div class="circle">
-        <span class="plus">+</span>
-      </div>
-      <p>{{ section.settings.explore_text }}</p>
-    </a>
-   {% comment %} Left Video (Hidden) {% endcomment %}
-{% if section.settings.left_video %}
-  {{ section.settings.left_video | video_tag: 
-    autoplay: false,
-    muted:false,
-    playsinline: true,
-    loop: false,
-    class: 'left-video',
-    style: 'display: none;'
-  }}
-{% else %}
-  <video class="left-video" style="display: none" muted playsinline>
-    <source src="{{ 'Left_Click.mp4' | asset_url }}" type="video/mp4">
-  </video>
-{% endif %}
-
-{% comment %} Right Video (Autoplay + Looping) {% endcomment %}
-{% if section.settings.right_video %}
-  {{ section.settings.right_video | video_tag:
-    autoplay: true,
-    muted: true,
-    playsinline: true,
-    loop: true,
-    class: 'right-video'
-  }}
-{% else %}
-  <video class="right-video" autoplay muted playsinline loop>
-    <source src="{{ 'Right_Click.mp4' | asset_url }}" type="video/mp4">
-  </video>
-{% endif %}
-    <a href="{{section.settings.right_button_url}}" class="right-button">
-      <div class="circle">
-        <span class="plus">+</span>
-      </div>
-      <p>{{ section.settings.shop_text }}</p>
-    </a>
-
-    <div class="mobile-screen-btn">
-      <a href="{{section.settings.left_button_url}}" class="mbl-left-button">
-        <div class="mbl-circle">
-          <span class="mbl-plus">+</span>
+<div class="craft-kitchen-section">
+  <div class="craft-kitchen">
+    <h1>{{ section.settings.section_title1 }}
+      <span>{{ section.settings.section_title2 }}</span>
+    </h1>
+    <div class="image-container">
+      <a href="{{section.settings.left_button_url}}" class="left-button">
+        <div class="circle">
+          <span class="plus">+</span>
         </div>
         <p>{{ section.settings.explore_text }}</p>
       </a>
-      <a href="{{section.settings.right_button_url}}" class="mbl-right-button">
-        <div class="mbl-circle">
-          <span class="mbl-plus">+</span>
+      {% comment %} Left Video (Hidden) {% endcomment %}
+      {% if section.settings.left_video %}
+        {{ section.settings.left_video | video_tag: 
+ autoplay: false,
+ muted: false,
+ playsinline: true,
+ loop: false,
+ class: 'left-video',
+ style: 'display: none;'
+        }}
+      {% else %}
+        <video
+          class="left-video"
+          style="display: none"
+          muted
+          playsinline>
+          <source src="{{ 'Left_Click.mp4' | asset_url }}" type="video/mp4">
+        </video>
+      {% endif %}
+
+      {% comment %} Right Video (Autoplay + Looping) {% endcomment %}
+      {% if section.settings.right_video %}
+        {{ section.settings.right_video | video_tag:
+ autoplay: true,
+ muted: true,
+ playsinline: true,
+ loop: true,
+ class: 'right-video'
+        }}
+      {% else %}
+        <video
+          class="right-video"
+          autoplay
+          muted
+          playsinline
+          loop>
+          <source src="{{ 'Right_Click.mp4' | asset_url }}" type="video/mp4">
+        </video>
+      {% endif %}
+      <a href="{{section.settings.right_button_url}}" class="right-button">
+        <div class="circle">
+          <span class="plus">+</span>
         </div>
         <p>{{ section.settings.shop_text }}</p>
       </a>
+
+      <div class="mobile-screen-btn">
+        <a href="{{section.settings.left_button_url}}" class="mbl-left-button">
+          <div class="mbl-circle">
+            <span class="mbl-plus">+</span>
+          </div>
+          <p>{{ section.settings.explore_text }}</p>
+        </a>
+        <a href="{{section.settings.right_button_url}}" class="mbl-right-button">
+          <div class="mbl-circle">
+            <span class="mbl-plus">+</span>
+          </div>
+          <p>{{ section.settings.shop_text }}</p>
+        </a>
+      </div>
     </div>
   </div>
 </div>
@@ -401,8 +415,7 @@
         "type": "video",
         "id": "right_video",
         "label": "Right Video"
-      },
-      {
+      }, {
         "type": "range",
         "id": "video_width",
         "label": "Desktop Video Max Width",
