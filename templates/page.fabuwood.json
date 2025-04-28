@@ -74,13 +74,14 @@
         "point_des": "We use Fabuwood because they share our commitment to quality, durability, and beautiful design.” — Ivy and Kareem"
       }
     },
-    "our_services_cFhNgL": {
+    "our_services_BiXcUH": {
       "type": "our-services",
       "blocks": {
-        "service_item_UmBhRX": {
+        "service_item_ABREqg": {
           "type": "service_item",
           "settings": {
             "number": "01",
+            "number_color": "#000000",
             "title": "Galaxy Series",
             "description": "A sleek, modern cabinet line known for its clean lines and minimalist appeal.",
             "image": "shopify://shop_images/image_23.png",
@@ -90,39 +91,42 @@
             "financing_text": "Need Financing?\nNo Problem."
           }
         },
-        "service_item_c36Rt4": {
+        "service_item_BLL4xX": {
           "type": "service_item",
           "settings": {
             "number": "02",
+            "number_color": "#6CA082",
             "title": "Imperio Series",
             "description": "Classic elegance meets timeless craftsmanship in this raised panel collection.",
-            "image": "shopify://shop_images/bathroom2_1.png",
+            "image": "shopify://shop_images/komnata-divan-mebel-interer.png",
             "button_text": "Learn More",
             "button_url": "",
             "show_financing": false,
             "financing_text": "Need Financing?\nNo Problem."
           }
         },
-        "service_item_KVUnGY": {
+        "service_item_9cEUFa": {
           "type": "service_item",
           "settings": {
             "number": "03",
+            "number_color": "#6CA082",
             "title": "Fusion Line",
             "description": "A balanced blend of transitional design and practical functionality for any home.",
             "image": "shopify://shop_images/Illume_Catalina_Como_Ash_2_Venetian_Antracita_1.png",
             "button_text": "Learn More",
             "button_url": "",
             "show_financing": false,
-            "financing_text": ""
+            "financing_text": "Need Financing?\nNo Problem."
           }
         },
-        "service_item_b9fxEg": {
+        "service_item_y6zKph": {
           "type": "service_item",
           "settings": {
-            "number": "04",
+            "number": "03",
+            "number_color": "#6CA082",
             "title": "Onyx Collection",
             "description": "Bold and contemporary, the Onyx Collection adds depth and drama with high-gloss finishes.",
-            "image": "shopify://shop_images/Illume_Catalina_Como_Ash_2_Venetian_Antracita_1_f8c3a523-d24e-4a31-9383-2cdb97984ae7.png",
+            "image": "shopify://shop_images/image_23.png",
             "button_text": "Learn More",
             "button_url": "",
             "show_financing": false,
@@ -131,10 +135,10 @@
         }
       },
       "block_order": [
-        "service_item_UmBhRX",
-        "service_item_c36Rt4",
-        "service_item_KVUnGY",
-        "service_item_b9fxEg"
+        "service_item_ABREqg",
+        "service_item_BLL4xX",
+        "service_item_9cEUFa",
+        "service_item_y6zKph"
       ],
       "name": "Our Service",
       "settings": {
@@ -189,7 +193,7 @@
     "main",
     "pages_banner_mNBCwQ",
     "why_choose_financing_ANKJ3b",
-    "our_services_cFhNgL",
+    "our_services_BiXcUH",
     "download_MmgVGx"
   ]
 }

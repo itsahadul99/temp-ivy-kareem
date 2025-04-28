@@ -1,0 +1,234 @@
+<style>
+  .partner-slider {
+    background: #f4f4f4;
+    overflow: hidden;
+  }
+
+  .partner-slider-title {
+    color: #252531;
+    text-align: center;
+    font-size: 64px;
+    font-weight: 700;
+    margin-bottom: 70px;
+  }
+
+  .partner-slider-content {
+    padding: 100px 0;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .partner-slider .swiper {
+    width: 100%;
+    overflow: visible;
+  }
+
+  .partner-slider .swiper-wrapper {
+    display: flex;
+    align-items: center;
+    width: auto;
+  }
+
+  .partner-slider .swiper-slide {
+    width: calc(25% - 30px) !important;
+    margin-right: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .partner-slider .swiper-slide img {
+    width: 202px;
+    height: 74px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  /* Laptop */
+  @media (max-width: 1024px) {
+    .partner-slider-content {
+      padding: 70px 60px;
+    }
+
+    .partner-slider .swiper-slide {
+      width: calc(33.33% - 20px) !important;
+      margin-right: 20px;
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 768px) {
+    .partner-slider-title {
+      font-size: 48px;
+      margin-bottom: 42px
+    }
+
+    .partner-slider-content {
+      padding: 40px 30px;
+    }
+
+    .partner-slider .swiper-slide {
+      width: calc(50% - 15px) !important;
+      margin-right: 15px;
+    }
+    .partner-slider .swiper-slide img {
+      width: 151px;
+      height: 55px;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 425px) {
+    .partner-slider-content {
+      padding: 32px 20px;
+    }
+
+    .partner-slider .swiper-slide {
+      width: calc(50% - 10px) !important;
+      margin-right: 10px;
+    }
+
+    .partner-slider .swiper-slide img {
+      width: 101px;
+      height: 37px;
+    }
+  }
+</style>
+
+<section class="partner-slider">
+  <div class="partner-slider-container partner-slider-content">
+    <h1 class="partner-slider-title">{{ section.settings.section_title }}</h1>
+    <div class="swiper partner-slider-swiper">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          {% if block.settings.image %}
+            <div class="swiper-slide">
+              <img
+                src="{{ block.settings.image | img_url: '202x74' }}"
+                alt="{{ block.settings.alt_text | escape }}"
+                loading="lazy"
+              >
+            </div>
+          {% else %}
+            <div class="swiper-slide">
+              <img src="{{ 'placeholder.png' | asset_url }}" alt="Placeholder Logo" loading="lazy">
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    function initMarquee() {
+      const wrapper = document.querySelector('.partner-slider .swiper-wrapper');
+      const slides = document.querySelectorAll('.partner-slider .swiper-slide');
+
+      // Clone slides for seamless looping
+      slides.forEach((slide) => {
+        const clone = slide.cloneNode(true);
+        wrapper.appendChild(clone);
+      });
+
+      let animationFrame;
+      let position = 0;
+      const speed = 1;
+
+      function animate() {
+        position -= speed;
+
+        // Reset position when we've scrolled all slides
+        if (position < -wrapper.scrollWidth / 2) {
+          position = 0;
+        }
+
+        wrapper.style.transform = `translateX(${position}px)`;
+        animationFrame = requestAnimationFrame(animate);
+      }
+
+      animate();
+
+      // Clean up on resize
+      window.addEventListener('resize', function () {
+        cancelAnimationFrame(animationFrame);
+        position = 0;
+        wrapper.style.transform = 'translateX(0)';
+        animate();
+      });
+    }
+
+    initMarquee();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Partner Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Partners"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt Text",
+          "default": "Partner Logo"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Partner Slider",
+      "blocks": [
+        {
+          "type": "image",
+          "settings": {
+            "alt_text": "Partner Logo"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "alt_text": "Partner Logo"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "alt_text": "Partner Logo"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "alt_text": "Partner Logo"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "alt_text": "Partner Logo"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

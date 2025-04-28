@@ -8,112 +8,153 @@
  * ------------------------------------------------------------
  */
  {
-    "sections": {
-      "main": {
-        "type": "main-page",
-        "disabled": true,
-        "settings": {
-          "padding_top": 28,
-          "padding_bottom": 28
-        }
-      },
-      "kitchen_bath_cabinet_ddYhtg": {
-        "type": "kitchen-bath-cabinet",
-        "blocks": {
-          "card_GbYryV": {
-            "type": "card",
-            "settings": {
-              "image": "shopify://shop_images/image_23.png",
-              "title": "Kitchen"
-            }
-          },
-          "card_WkK63i": {
-            "type": "card",
-            "settings": {
-              "image": "shopify://shop_images/bathroom2_1.png",
-              "title": "Bathroom"
-            }
-          },
-          "card_yrxqLa": {
-            "type": "card",
-            "settings": {
-              "image": "shopify://shop_images/gallaryImg1.png",
-              "title": "Cabinetry"
-            }
-          }
-        },
-        "block_order": [
-          "card_GbYryV",
-          "card_WkK63i",
-          "card_yrxqLa"
-        ],
-        "name": "Kitchen Bath Cabinet",
-        "settings": {
-          "background_color": "#f4f4f4",
-          "font_size": 34,
-          "text_color": "#000000",
-          "image_size": 140
-        }
-      },
-      "welcome_section_NN8gje": {
-        "type": "welcome-section",
-        "name": "Welcome Section",
-        "settings": {
-          "title": "Welcome to the Luxury Tour",
-          "details": "<p>Where flavors come alive and memories are made. From the sizzle of the pan to the aroma of fresh herbs, every dish is crafted with love, care, and a dash of creativity. Whether you're here for comfort food or culinary inspiration, our kitchen is your home too.Where flavors come alive and memories are made. From the sizzle of the pan to the aroma of fresh herbs, every dish is crafted with love, care, and a dash of creativity. Whether you're here for comfort food or culinary inspiration, our kitchen is your home too.Where flavors come alive and memories are made. From the sizzle of the pan to the aroma of fresh herbs, every dish is crafted with love, care, and a dash of creativity. Whether you're here for comfort food or culinary inspiration, our kitchen is your home too.</p>"
-        }
-      },
-      "role_player_Kmnwji": {
-        "type": "role-player",
-        "blocks": {
-          "partner_card_GPTh3F": {
-            "type": "partner_card",
-            "settings": {
-              "player_img": "shopify://shop_images/Frame_2087326467_1.png",
-              "player_name": "Alex Jonas",
-              "player_role": "Founder / Chief Executive Officer"
-            }
-          },
-          "partner_card_tUVYy4": {
-            "type": "partner_card",
-            "settings": {
-              "player_img": "shopify://shop_images/Frame_2087326468.png",
-              "player_name": "Nicola Gomez",
-              "player_role": "Chief Operating Officer"
-            }
-          }
-        },
-        "block_order": [
-          "partner_card_GPTh3F",
-          "partner_card_tUVYy4"
-        ],
-        "name": "Player Role Section",
-        "settings": {
-          "title_part1": "Role",
-          "title_part2": "Players",
-          "colored_text_color": "#6ca082"
-        }
-      },
-      "kitchen_section_BnyRgQ": {
-        "type": "kitchen-section",
-        "name": "Craft Kitchen Section",
-        "settings": {
-          "section_title1": "Crafting",
-          "section_title2": "the Kitchen",
-          "explore_text": "Explore Us",
-          "left_button_url": "",
-          "right_button_url": "",
-          "shop_text": "Shop Now",
-          "video_width": 900
-        }
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     },
-    "order": [
-      "main",
-      "kitchen_bath_cabinet_ddYhtg",
-      "welcome_section_NN8gje",
-      "role_player_Kmnwji",
-      "kitchen_section_BnyRgQ"
-    ]
-  }
-  
+    "kitchen_bath_cabinet_ddYhtg": {
+      "type": "kitchen-bath-cabinet",
+      "blocks": {
+        "card_GbYryV": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/image_23.png",
+            "title": "Kitchen"
+          }
+        },
+        "card_WkK63i": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/bathroom2_1.png",
+            "title": "Bathroom"
+          }
+        },
+        "card_yrxqLa": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/gallaryImg1.png",
+            "title": "Cabinetry"
+          }
+        }
+      },
+      "block_order": [
+        "card_GbYryV",
+        "card_WkK63i",
+        "card_yrxqLa"
+      ],
+      "name": "Kitchen Bath Cabinet",
+      "settings": {
+        "background_color": "#f4f4f4",
+        "font_size": 34,
+        "text_color": "#000000",
+        "image_size": 140
+      }
+    },
+    "welcome_section_NN8gje": {
+      "type": "welcome-section",
+      "name": "Welcome Section",
+      "settings": {
+        "title": "Welcome to the Luxury Tour",
+        "details": "<p>Where flavors come alive and memories are made. From the sizzle of the pan to the aroma of fresh herbs, every dish is crafted with love, care, and a dash of creativity. Whether you're here for comfort food or culinary inspiration, our kitchen is your home too.Where flavors come alive and memories are made. From the sizzle of the pan to the aroma of fresh herbs, every dish is crafted with love, care, and a dash of creativity. Whether you're here for comfort food or culinary inspiration, our kitchen is your home too.Where flavors come alive and memories are made. From the sizzle of the pan to the aroma of fresh herbs, every dish is crafted with love, care, and a dash of creativity. Whether you're here for comfort food or culinary inspiration, our kitchen is your home too.</p>"
+      }
+    },
+    "role_player_Kmnwji": {
+      "type": "role-player",
+      "blocks": {
+        "partner_card_GPTh3F": {
+          "type": "partner_card",
+          "settings": {
+            "player_img": "shopify://shop_images/Frame_2087326467_1.png",
+            "player_name": "Alex Jonas",
+            "player_role": "Founder / Chief Executive Officer"
+          }
+        },
+        "partner_card_tUVYy4": {
+          "type": "partner_card",
+          "settings": {
+            "player_img": "shopify://shop_images/Frame_2087326468.png",
+            "player_name": "Nicola Gomez",
+            "player_role": "Chief Operating Officer"
+          }
+        }
+      },
+      "block_order": [
+        "partner_card_GPTh3F",
+        "partner_card_tUVYy4"
+      ],
+      "name": "Player Role Section",
+      "settings": {
+        "title_part1": "Role",
+        "title_part2": "Players",
+        "colored_text_color": "#6ca082"
+      }
+    },
+    "partner_slider_aYiKgg": {
+      "type": "partner-slider",
+      "blocks": {
+        "image_6iA6aV": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Company_logo.png",
+            "alt_text": "Partner Logo"
+          }
+        },
+        "image_ndewFD": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Company_logo.png",
+            "alt_text": "Partner Logo"
+          }
+        },
+        "image_deNGCJ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Company_logo.png",
+            "alt_text": "Partner Logo"
+          }
+        },
+        "image_z4Cm3w": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Company_logo.png",
+            "alt_text": "Partner Logo"
+          }
+        }
+      },
+      "block_order": [
+        "image_6iA6aV",
+        "image_ndewFD",
+        "image_deNGCJ",
+        "image_z4Cm3w"
+      ],
+      "name": "Partner Slider",
+      "settings": {}
+    },
+    "kitchen_section_BnyRgQ": {
+      "type": "kitchen-section",
+      "name": "Craft Kitchen Section",
+      "settings": {
+        "section_title1": "Crafting",
+        "section_title2": "the Kitchen",
+        "explore_text": "Explore Us",
+        "left_button_url": "",
+        "right_button_url": "",
+        "shop_text": "Shop Now",
+        "video_width": 900
+      }
+    }
+  },
+  "order": [
+    "main",
+    "kitchen_bath_cabinet_ddYhtg",
+    "welcome_section_NN8gje",
+    "role_player_Kmnwji",
+    "partner_slider_aYiKgg",
+    "kitchen_section_BnyRgQ"
+  ]
+}
