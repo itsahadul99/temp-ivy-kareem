@@ -1,0 +1,309 @@
+<style>
+  #Veneto_Living_Chair_section {
+    padding: 100px 110px;
+    margin: 0 40px;
+    background: #252531;
+  }
+  .Veneto_Living_Chair_section_wrapper {
+    margin: 0 auto;
+    max-width: 1440px;
+    display: flex;
+    align-items: center;
+  }
+
+  .Veneto_Living_Chair_section_wrapper .left-side {
+    max-width: 22%;
+    min-width: 22%;
+    padding: 0 20px 0 0;
+    max-height: 255px;
+    overflow-y: auto;
+  }
+  .Veneto_Living_Chair_section_wrapper .left-side::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .Veneto_Living_Chair_section_wrapper .left-side::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* track background */
+    border-radius: 10px;
+  }
+
+  .Veneto_Living_Chair_section_wrapper .left-side::-webkit-scrollbar-thumb {
+    background: #6ca082;
+    border-radius: 10px;
+  }
+
+  .Veneto_Living_Chair_section_wrapper .left-side::-webkit-scrollbar-thumb:hover {
+    background: #6ca082aa;
+  }
+
+  .Veneto_Living_Chair_section_wrapper .left-side li {
+    color: #fff;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  .Veneto_Living_Chair_section_wrapper .left-side li svg {
+    fill: #ffffff;
+  }
+
+  .Veneto_Living_Chair_section_wrapper .left-side li.active {
+    color: var(--6-ca-082, #6ca082);
+  }
+
+  .Veneto_Living_Chair_section_wrapper .left-side li.active svg {
+    fill: #6ca082 !important;
+  }
+
+  .Veneto_Living_Chair_section_wrapper .right-side {
+    display: inline-flex;
+    padding: 20px 10.18px 40px 40px;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 16.09px;
+  }
+
+  .Veneto_Living_Chair_section_wrapper .right-side div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+  .Veneto_Living_Chair_section_wrapper .right-side div h2 {
+    color: #fff;
+
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  .Veneto_Living_Chair_section_wrapper .right-side div p {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: Avenir LT Pro;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    /* 24px */
+  }
+  .Veneto_Living_Chair_section_wrapper .right-side img {
+    max-width: 270px;
+    min-width: 270px;
+    max-height: 270px;
+    min-height: 270px;
+    border-radius: 100%;
+  }
+
+  .marquee {
+    overflow: hidden;
+    display: flex;
+    gap: 40px;
+  }
+
+  @media (max-width: 768px) {
+    #Veneto_Living_Chair_section {
+      padding: 48px 32px;
+      margin: 0;
+    }
+    .Veneto_Living_Chair_section_wrapper {
+      flex-direction: column;
+    }
+
+    .Veneto_Living_Chair_section_wrapper .left-side {
+      max-width: 100%;
+      min-width: 100%;
+      padding: 0 0 20px;
+      border-right: none;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+    }
+    .Veneto_Living_Chair_section_wrapper .left-side li {
+      gap: 24px;
+    }
+
+    .Veneto_Living_Chair_section_wrapper .right-side {
+      display: inline-flex;
+      padding: 40px 0 48px;
+      justify-content: flex-end;
+      align-items: flex-start;
+      gap: 40px;
+    }
+    .Veneto_Living_Chair_section_wrapper .right-side img {
+      max-width: 181px;
+      min-width: 181px;
+      max-height: 181px;
+      min-height: 181px;
+      aspect-ratio: 1 / 1;
+    }
+
+    .Veneto_Living_Chair_section_wrapper .right-side div h2 {
+      font-size: 40px;
+    }
+    .Veneto_Living_Chair_section_wrapper .right-side div p {
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  @media (max-width: 426px) {
+    #Veneto_Living_Chair_section {
+      padding: 32px 20px;
+    }
+
+    .Veneto_Living_Chair_section_wrapper .left-side {
+      padding: 0 10px 0 0;
+      gap: 8px;
+      overflow: auto;
+    }
+    .Veneto_Living_Chair_section_wrapper .left-side li {
+      font-weight: 600;
+
+      gap: 16px;
+    }
+    .Veneto_Living_Chair_section_wrapper .right-side {
+      padding: 32 0 0;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .Veneto_Living_Chair_section_wrapper .right-side img {
+      max-width: 280px;
+      min-width: 280px;
+      max-height: 280px;
+      min-height: 280px;
+    }
+
+    .Veneto_Living_Chair_section_wrapper .right-side div {
+      gap: 12px;
+    }
+    .Veneto_Living_Chair_section_wrapper .right-side div p {
+      font-size: 16px;
+    }
+  }
+</style>
+
+<section id="Veneto_Living_Chair_section">
+  <div class="Veneto_Living_Chair_section_wrapper">
+    <ul class="left-side">
+      {% for block in section.blocks %}
+        <li class="{% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
+          <p>{{ block.settings.left_title }}</p>
+            {{ block.settings.left_icon }}
+        </li>
+      {% endfor %}
+    </ul>
+
+    <div class="right-side">
+      {% if section.blocks.size > 0 %}
+        {% assign first_block = section.blocks.first %}
+        <img
+          src="{{ first_block.settings.right_image | img_url: '270x270' }}"
+          alt="{{ first_block.settings.right_title }}"
+          id="right-image">
+        <div>
+          <h2 id="right-title">{{ first_block.settings.right_title }}</h2>
+          <p id="right-description">{{ first_block.settings.right_description }}</p>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const categories = [
+      {% for block in section.blocks %}
+        {
+          image: "{{ block.settings.right_image | img_url: '270x270' }}",
+          title: {{ block.settings.right_title | json }},
+          description: {{ block.settings.right_description | json }}
+        }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ];
+  
+    const listItems = document.querySelectorAll('.left-side li');
+    const rightImage = document.getElementById('right-image');
+    const rightTitle = document.getElementById('right-title');
+    const rightDescription = document.getElementById('right-description');
+  
+    function updateContent(index) {
+      listItems.forEach(li => li.classList.remove('active'));
+      listItems[index].classList.add('active');
+      rightImage.src = categories[index].image;
+      rightTitle.textContent = categories[index].title;
+      rightDescription.textContent = categories[index].description;
+    }
+  
+    listItems.forEach((item, index) => {
+      item.addEventListener('click', () => updateContent(index));
+    });
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Product Categories",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "category",
+        "name": "Category",
+        "settings": [
+          {
+            "type": "text",
+            "id": "left_title",
+            "label": "Left Title",
+            "default": "Chairs"
+          },
+          {
+            "type": "html",
+            "id": "left_icon",
+            "label": "Left Icon SVG Code",
+            "default": "<svg xmlns='http://www.w3.org/2000/svg' width='25' height='51' viewBox='0 0 25 51' fill='none'><path d='M19.5905 27.901H4.56646C4.43846 27.901 4.32246 27.849 4.21846 27.745C4.11446 27.641 4.06246 27.525 4.06246 27.397V14.509C4.06246 14.365 4.11446 14.245 4.21846 14.149C4.32246 14.053 4.43846 14.005 4.56646 14.005H19.5905C19.7185 14.005 19.8345 14.053 19.9385 14.149C20.0425 14.245 20.0945 14.365 20.0945 14.509V27.397C20.0945 27.525 20.0425 27.641 19.9385 27.745C19.8345 27.849 19.7185 27.901 19.5905 27.901ZM5.07046 26.893H19.0865V14.989H5.07046V26.893ZM19.8785 32.581H4.27846C3.86246 32.581 3.50646 32.437 3.21046 32.149C2.91446 31.861 2.76646 31.517 2.76646 31.117V28.381C2.76646 27.965 2.91446 27.613 3.21046 27.325C3.50646 27.037 3.86246 26.893 4.27846 26.893H19.8785C20.2945 26.893 20.6505 27.037 20.9465 27.325C21.2425 27.613 21.3905 27.965 21.3905 28.381V31.117C21.3905 31.517 21.2425 31.861 20.9465 32.149C20.6505 32.437 20.2945 32.581 19.8785 32.581ZM4.27846 27.901C4.13446 27.901 4.01046 27.949 3.90646 28.045C3.80246 28.141 3.75046 28.253 3.75046 28.381V31.117C3.75046 31.245 3.80246 31.357 3.90646 31.453C4.01046 31.549 4.13446 31.597 4.27846 31.597H19.8785C20.0225 31.597 20.1465 31.549 20.2505 31.453C20.3545 31.357 20.4065 31.245 20.4065 31.117V28.381C20.4065 28.253 20.3545 28.141 20.2505 28.045C20.1465 27.949 20.0225 27.901 19.8785 27.901H4.27846ZM0.606456 23.677C0.494456 23.677 0.390456 23.645 0.294456 23.581C0.198456 23.517 0.142456 23.437 0.126456 23.341C0.0784563 23.213 0.0904563 23.085 0.162456 22.957C0.234456 22.829 0.334456 22.749 0.462456 22.717L4.42246 21.541C4.55046 21.509 4.67846 21.525 4.80646 21.589C4.93446 21.653 5.01446 21.749 5.04646 21.877C5.07846 22.005 5.06246 22.133 4.99846 22.261C4.93446 22.389 4.83846 22.469 4.71046 22.501L0.726456 23.653C0.694456 23.669 0.654456 23.677 0.606456 23.677ZM1.56646 37.957C1.42246 37.957 1.30246 37.909 1.20646 37.813C1.11046 37.717 1.06246 37.597 1.06246 37.453V23.101C1.06246 22.973 1.11046 22.861 1.20646 22.765C1.30246 22.669 1.41846 22.621 1.55446 22.621C1.69046 22.621 1.80646 22.669 1.90246 22.765C1.99846 22.861 2.04646 22.973 2.04646 23.101V37.453C2.04646 37.597 1.99846 37.717 1.90246 37.813C1.80646 37.909 1.69446 37.957 1.56646 37.957ZM23.5505 23.677C23.5025 23.677 23.4625 23.669 23.4305 23.653L19.4465 22.501C19.3185 22.469 19.2225 22.389 19.1585 22.261C19.0945 22.133 19.0785 22.005 19.1105 21.877C19.1425 21.749 19.2225 21.653 19.3505 21.589C19.4785 21.525 19.6065 21.509 19.7345 21.541L23.6945 22.717C23.8225 22.749 23.9185 22.829 23.9825 22.957C24.0465 23.085 24.0625 23.213 24.0305 23.341C24.0145 23.437 23.9585 23.517 23.8625 23.581C23.7665 23.645 23.6625 23.677 23.5505 23.677ZM22.5905 37.957C22.4625 37.957 22.3505 37.909 22.2545 37.813C22.1585 37.717 22.1105 37.597 22.1105 37.453V23.101C22.1105 22.973 22.1585 22.861 22.2545 22.765C22.3505 22.669 22.4665 22.621 22.6025 22.621C22.7385 22.621 22.8545 22.669 22.9505 22.765C23.0465 22.861 23.0945 22.973 23.0945 23.101V37.453C23.0945 37.597 23.0465 37.717 22.9505 37.813C22.8545 37.909 22.7345 37.957 22.5905 37.957ZM3.10246 29.965H1.78246C1.65446 29.965 1.54246 29.917 1.44646 29.821C1.35046 29.725 1.30246 29.609 1.30246 29.473C1.30246 29.337 1.35046 29.221 1.44646 29.125C1.54246 29.029 1.65446 28.981 1.78246 28.981H3.10246C3.24646 28.981 3.36646 29.029 3.46246 29.125C3.55846 29.221 3.60646 29.337 3.60646 29.473C3.60646 29.609 3.55846 29.725 3.46246 29.821C3.36646 29.917 3.24646 29.965 3.10246 29.965ZM22.5905 29.965H21.2705C21.1425 29.965 21.0305 29.917 20.9345 29.821C20.8385 29.725 20.7905 29.609 20.7905 29.473C20.7905 29.337 20.8385 29.221 20.9345 29.125C21.0305 29.029 21.1425 28.981 21.2705 28.981H22.5905C22.7345 28.981 22.8545 29.029 22.9505 29.125C23.0465 29.221 23.0945 29.337 23.0945 29.473C23.0945 29.609 23.0465 29.725 22.9505 29.821C22.8545 29.917 22.7345 29.965 22.5905 29.965Z'/></svg>"
+          },
+          {
+            "type": "image_picker",
+            "id": "right_image",
+            "label": "Right Image"
+          },
+          {
+            "type": "text",
+            "id": "right_title",
+            "label": "Right Title",
+            "default": "Veneto Living Chair"
+          }, {
+            "type": "textarea",
+            "id": "right_description",
+            "label": "Right Description",
+            "default": "There is not enough teal in the world in my opinion, this shapely chair oozes character and style..."
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product Categories",
+        "category": "Custom",
+        "blocks": [
+          {
+            "type": "category",
+            "settings": {
+              "left_title": "Chairs",
+              "left_icon": "<svg xmlns='http://www.w3.org/2000/svg' width='25' height='51' viewBox='0 0 25 51' fill='none'><path d='M19.5905 27.901H4.56646C4.43846 27.901 4.32246 27.849 4.21846 27.745C4.11446 27.641 4.06246 27.525 4.06246 27.397V14.509C4.06246 14.365 4.11446 14.245 4.21846 14.149C4.32246 14.053 4.43846 14.005 4.56646 14.005H19.5905C19.7185 14.005 19.8345 14.053 19.9385 14.149C20.0425 14.245 20.0945 14.365 20.0945 14.509V27.397C20.0945 27.525 20.0425 27.641 19.9385 27.745C19.8345 27.849 19.7185 27.901 19.5905 27.901ZM5.07046 26.893H19.0865V14.989H5.07046V26.893ZM19.8785 32.581H4.27846C3.86246 32.581 3.50646 32.437 3.21046 32.149C2.91446 31.861 2.76646 31.517 2.76646 31.117V28.381C2.76646 27.965 2.91446 27.613 3.21046 27.325C3.50646 27.037 3.86246 26.893 4.27846 26.893H19.8785C20.2945 26.893 20.6505 27.037 20.9465 27.325C21.2425 27.613 21.3905 27.965 21.3905 28.381V31.117C21.3905 31.517 21.2425 31.861 20.9465 32.149C20.6505 32.437 20.2945 32.581 19.8785 32.581ZM4.27846 27.901C4.13446 27.901 4.01046 27.949 3.90646 28.045C3.80246 28.141 3.75046 28.253 3.75046 28.381V31.117C3.75046 31.245 3.80246 31.357 3.90646 31.453C4.01046 31.549 4.13446 31.597 4.27846 31.597H19.8785C20.0225 31.597 20.1465 31.549 20.2505 31.453C20.3545 31.357 20.4065 31.245 20.4065 31.117V28.381C20.4065 28.253 20.3545 28.141 20.2505 28.045C20.1465 27.949 20.0225 27.901 19.8785 27.901H4.27846ZM0.606456 23.677C0.494456 23.677 0.390456 23.645 0.294456 23.581C0.198456 23.517 0.142456 23.437 0.126456 23.341C0.0784563 23.213 0.0904563 23.085 0.162456 22.957C0.234456 22.829 0.334456 22.749 0.462456 22.717L4.42246 21.541C4.55046 21.509 4.67846 21.525 4.80646 21.589C4.93446 21.653 5.01446 21.749 5.04646 21.877C5.07846 22.005 5.06246 22.133 4.99846 22.261C4.93446 22.389 4.83846 22.469 4.71046 22.501L0.726456 23.653C0.694456 23.669 0.654456 23.677 0.606456 23.677ZM1.56646 37.957C1.42246 37.957 1.30246 37.909 1.20646 37.813C1.11046 37.717 1.06246 37.597 1.06246 37.453V23.101C1.06246 22.973 1.11046 22.861 1.20646 22.765C1.30246 22.669 1.41846 22.621 1.55446 22.621C1.69046 22.621 1.80646 22.669 1.90246 22.765C1.99846 22.861 2.04646 22.973 2.04646 23.101V37.453C2.04646 37.597 1.99846 37.717 1.90246 37.813C1.80646 37.909 1.69446 37.957 1.56646 37.957ZM23.5505 23.677C23.5025 23.677 23.4625 23.669 23.4305 23.653L19.4465 22.501C19.3185 22.469 19.2225 22.389 19.1585 22.261C19.0945 22.133 19.0785 22.005 19.1105 21.877C19.1425 21.749 19.2225 21.653 19.3505 21.589C19.4785 21.525 19.6065 21.509 19.7345 21.541L23.6945 22.717C23.8225 22.749 23.9185 22.829 23.9825 22.957C24.0465 23.085 24.0625 23.213 24.0305 23.341C24.0145 23.437 23.9585 23.517 23.8625 23.581C23.7665 23.645 23.6625 23.677 23.5505 23.677ZM22.5905 37.957C22.4625 37.957 22.3505 37.909 22.2545 37.813C22.1585 37.717 22.1105 37.597 22.1105 37.453V23.101C22.1105 22.973 22.1585 22.861 22.2545 22.765C22.3505 22.669 22.4665 22.621 22.6025 22.621C22.7385 22.621 22.8545 22.669 22.9505 22.765C23.0465 22.861 23.0945 22.973 23.0945 23.101V37.453C23.0945 37.597 23.0465 37.717 22.9505 37.813C22.8545 37.909 22.7345 37.957 22.5905 37.957ZM3.10246 29.965H1.78246C1.65446 29.965 1.54246 29.917 1.44646 29.821C1.35046 29.725 1.30246 29.609 1.30246 29.473C1.30246 29.337 1.35046 29.221 1.44646 29.125C1.54246 29.029 1.65446 28.981 1.78246 28.981H3.10246C3.24646 28.981 3.36646 29.029 3.46246 29.125C3.55846 29.221 3.60646 29.337 3.60646 29.473C3.60646 29.609 3.55846 29.725 3.46246 29.821C3.36646 29.917 3.24646 29.965 3.10246 29.965ZM22.5905 29.965H21.2705C21.1425 29.965 21.0305 29.917 20.9345 29.821C20.8385 29.725 20.7905 29.609 20.7905 29.473C20.7905 29.337 20.8385 29.221 20.9345 29.125C21.0305 29.029 21.1425 28.981 21.2705 28.981H22.5905C22.7345 28.981 22.8545 29.029 22.9505 29.125C23.0465 29.221 23.0945 29.337 23.0945 29.473C23.0945 29.609 23.0465 29.725 22.9505 29.821C22.8545 29.917 22.7345 29.965 22.5905 29.965Z'/></svg>",
+              "right_title": "Veneto Living Chair",
+              "right_description": "There is not enough teal in the world..."
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
