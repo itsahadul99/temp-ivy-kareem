@@ -208,7 +208,8 @@
 
 <div id="navbar-container" class="navbar-container w-full absolute">
   <!-- Desktop Navbar -->
-  <div class="relative flex items-center justify-between px-4 py-6 lg:px-[110px] xl:px-[149.5px] lg:py-[44.5px] h-[129px]">
+ <div class="px-4 py-6 lg:px-[110px] xl:px-[149.5px] lg:py-[44.5px] h-[129px]">
+  <div class="relative flex items-center justify-between max-w-[1440px] mx-auto">
     <!-- Logo -->
     <a href="{{ section.settings.logo_link | default: '/' }}" class="flex-shrink-0">
       {% if section.settings.logo %}
@@ -321,11 +322,13 @@
       </a>
     </div>
   </div>
+ </div>
 </div>
 
 <div id="navbar-container2" class="navbar-container w-full hidden">
-  <!-- Desktop Navbar for Other Pages -->
-  <div class="flex items-center justify-between px-4 py-6 lg:px-[110px] xl:px-[149.5px] lg:py-[44.5px] h-[129px]">
+  <div class="px-4 py-6 lg:px-[110px] xl:px-[149.5px] lg:py-[44.5px] h-[129px]">
+    <!-- Desktop Navbar for Other Pages -->
+  <div class="flex items-center justify-between max-w-[1440px] mx-auto">
     <!-- Logo -->
     <a href="{{ section.settings.logo_link | default: '/' }}" class="flex-shrink-0">
       {% if section.settings.logo_for_other_pages %}
@@ -437,6 +440,7 @@
         {{ section.settings.shop_button_text }}
       </a>
     </div>
+  </div>
   </div>
 </div>
 
