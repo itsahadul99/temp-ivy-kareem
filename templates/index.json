@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "hero-section": {
       "type": "hero-section",
@@ -16,7 +16,7 @@
         "title_line2": "in Orange Country",
         "description": "We Turn Spaces Into Stories. From Modern Elegance To Cozy Charm, Our Designs Blend Style And Function To Create Interiors.",
         "button_text": "Explore Us",
-        "button_link": "",
+        "button_link": "shopify://pages/our-story",
         "menu": "",
         "shop_button_link": ""
       }
@@ -28,39 +28,45 @@
           "type": "service_item",
           "settings": {
             "number": "01",
+            "number_color": "#6ca082",
             "title": "Kitchen",
             "description": "We specialize in remodeling kitchen. We can do the designing and interior designing, having it built and design. We can also have it installed in your home.",
             "image": "shopify://shop_images/home-design_2.png",
             "button_text": "View More",
             "button_url": "",
             "show_financing": false,
-            "financing_text": "Need Financing?\nNo Problem."
+            "financing_text": "Need Financing?\nNo Problem.",
+            "mobile_image_margin_top": 0
           }
         },
         "service_item_mh8NcT": {
           "type": "service_item",
           "settings": {
             "number": "02",
+            "number_color": "#6ca082",
             "title": "Bathrooms",
             "description": "Where Every Detail Counts: Elevating Bathroom Design to New Heights of Elegance, Functionality, and Precision—Creating Luxurious Spaces That Reflect Your Unique Style and Vision.",
             "image": "shopify://shop_images/bathroom2.png",
             "button_text": "View More",
             "button_url": "",
             "show_financing": false,
-            "financing_text": "Need Financing?\nNo Problem."
+            "financing_text": "Need Financing?\nNo Problem.",
+            "mobile_image_margin_top": 0
           }
         },
         "service_item_bLFqTP": {
           "type": "service_item",
           "settings": {
             "number": "03",
+            "number_color": "#6ca082",
             "title": "Cabinetry",
             "description": "Crafting Perfection in Every Detail: Beautifully Designed Cabinets That Combine Elegance, Durability, and Functionality to Transform Your Space.",
             "image": "shopify://shop_images/Illume_Catalina_Como_Ash_2_Venetian_Antracita.png",
             "button_text": "View More",
             "button_url": "",
             "show_financing": true,
-            "financing_text": "Need Financing?\nNo Problem."
+            "financing_text": "Need Financing?\nNo Problem.",
+            "mobile_image_margin_top": 0
           }
         }
       },
