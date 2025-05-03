@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
@@ -61,7 +61,7 @@
           "settings": {
             "title": "Gallery",
             "link": "shopify://collections/frontpage",
-            "has_dropdown": true,
+            "has_dropdown": false,
             "dropdown_menu": "gallery-menu"
           }
         },
