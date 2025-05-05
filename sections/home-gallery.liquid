@@ -19,7 +19,7 @@
   }
 
   .gallery-section h2 span {
-    color: #6CA082;
+    color: {{ section.settings.work_gallery }};
   }
 
   .gallery-grid {
@@ -302,6 +302,12 @@
         "id": "see_more_url",
         "label": "See More Button URL",
         "info": "Link for the See More button."
+      },
+      {
+        "type":"color",
+          "id":"work_gallery",
+        "label":"Second title color",
+        "default":"#6CA082"
       }
     ],
     "blocks": [
