@@ -134,7 +134,8 @@
         "section_title1": "Our",
         "section_title2": "Work Gallery",
         "see_more_text": "Work Gallery",
-        "see_more_url": "shopify://collections/frontpage"
+        "see_more_url": "shopify://collections/frontpage",
+        "work_gallery": "#6ca082"
       }
     },
     "artistry_action_cEtgX4": {
