@@ -80,7 +80,7 @@
       "settings": {
         "logo_link": "",
         "shop_button_text": "Shop",
-        "shop_button_link": "",
+        "shop_button_link": "shopify://products/demo-products-1",
         "menu_text_color": "#ffffff",
         "menu_hover_color": "#6ca082"
       }
