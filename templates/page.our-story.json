@@ -11,7 +11,6 @@
   "sections": {
     "main": {
       "type": "main-page",
-      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
@@ -19,6 +18,7 @@
     },
     "pages_banner_TkjFNz": {
       "type": "pages-banner",
+      "disabled": true,
       "name": "Pages Banner",
       "settings": {
         "pages_banner_title": "Our Story",
@@ -141,17 +141,15 @@
         "partner_card_GPTh3F": {
           "type": "partner_card",
           "settings": {
-            "player_img": "shopify://shop_images/Frame_2087326467_1.png",
-            "player_name": "Alex Jonas",
-            "player_role": "Founder / Chief Executive Officer"
+            "player_name": "Adam Musavvir",
+            "player_role": "Co-Founder & Designer"
           }
         },
         "partner_card_tUVYy4": {
           "type": "partner_card",
           "settings": {
-            "player_img": "shopify://shop_images/Frame_2087326468.png",
-            "player_name": "Nicola Gomez",
-            "player_role": "Chief Operating Officer"
+            "player_name": "Daniela Musavvir",
+            "player_role": "Co-Founder & Designer"
           }
         }
       },
@@ -229,6 +227,54 @@
         "shop_text": "Shop Now",
         "video_width": 900
       }
+    },
+    "image_with_text_nykUpr": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_KwYG7a": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "text_YVTCjW": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "button_RVTGYW": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_KwYG7a",
+        "text_YVTCjW",
+        "button_RVTGYW"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/45756bb1-0551-47c2-a23f-5f9acee9308a.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -239,6 +285,7 @@
     "our_story_product_showcase_jY8Wft",
     "role_player_Kmnwji",
     "partner_slider_aYiKgg",
-    "kitchen_section_BnyRgQ"
+    "kitchen_section_BnyRgQ",
+    "image_with_text_nykUpr"
   ]
 }
